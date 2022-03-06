@@ -14,6 +14,7 @@ enum ButtonVariant {
 type ButtonProps = {
   isLoading?: boolean;
   isDarkBg?: boolean;
+  disabled?: boolean;
   variant?: keyof typeof ButtonVariant;
 } & React.ComponentPropsWithRef<'button'>;
 

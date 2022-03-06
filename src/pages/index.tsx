@@ -1,3 +1,4 @@
+import dynamic from 'next/dynamic';
 import * as React from 'react';
 
 import Layout from '@/components/layout/Layout';
@@ -7,6 +8,17 @@ import UnderlineLink from '@/components/links/UnderlineLink';
 import UnstyledLink from '@/components/links/UnstyledLink';
 import Seo from '@/components/Seo';
 
+const DynamicVideoPlayer = dynamic(
+  () => import('../components/videoPlayer/VideoPlayer'),
+  { ssr: false }
+);
+const defaultPlayer = {
+  id: 'vs',
+  url: 'http://videocms.jcloud.ik-server.com//media/encoded/7/admin1/5f47ebfc2bb840129579ea73bf784772.5f47ebfc2bb840129579ea73bf784772.caminandes_llamigos_1080p151.mp4.mp4',
+  poster:
+    'http://videocms.jcloud.ik-server.com//media/original/thumbnails/user/admin1/5f47ebfc2bb840129579ea73bf784772.caminandes_llamigos_1080p151.mp4_Bn9Sg69.jpg',
+  fluid: true,
+};
 /**
  * SVGR Support
  * Caveat: No React Props Type.
@@ -14,6 +26,8 @@ import Seo from '@/components/Seo';
  * You can override the next-env if the type is important to you
  * @see https://stackoverflow.com/questions/68103844/how-to-override-next-js-svg-module-declaration
  */
+import Header from '@/components/layout/Header';
+
 import Vercel from '~/svg/Vercel.svg';
 
 // !STARTERCONF -> Select !STARTERCONF and CMD + SHIFT + F
@@ -23,6 +37,7 @@ import Vercel from '~/svg/Vercel.svg';
 export default function HomePage() {
   return (
     <Layout>
+      <Header />
       {/* <Seo templateTitle='Home' /> */}
       <Seo />
 
@@ -33,6 +48,7 @@ export default function HomePage() {
             <h1 className='mt-4'>
               Next.js + Tailwind CSS + TypeScript Starter
             </h1>
+            <DynamicVideoPlayer {...defaultPlayer} />
             <p className='mt-2 text-sm text-gray-800'>
               A starter for Next.js, Tailwind CSS, and TypeScript with Absolute
               Import, Seo, Link component, pre-configured with Husky{' '}
