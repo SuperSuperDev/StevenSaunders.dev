@@ -11,11 +11,27 @@ enum ButtonVariant {
   'dark',
 }
 
+enum ButtonRounding {
+  'left',
+  'right',
+  'top',
+  'bottom',
+  'md',
+  'lg',
+  'none',
+  'full',
+}
+
 type ButtonProps = {
   isLoading?: boolean;
   isDarkBg?: boolean;
   disabled?: boolean;
+  srText?: string;
+  // TODO: Icon size and alignment could be impproved
+  iconLeft?: JSX.Element;
+  iconRight?: JSX.Element;
   variant?: keyof typeof ButtonVariant;
+  rounding?: keyof typeof ButtonRounding;
 } & React.ComponentPropsWithRef<'button'>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -25,7 +41,11 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       className,
       disabled: buttonDisabled,
       isLoading,
+      srText,
+      iconLeft,
+      iconRight,
       variant = 'primary',
+      rounding = 'md',
       isDarkBg = false,
       ...rest
     },
@@ -39,10 +59,21 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         type='button'
         disabled={disabled}
         className={clsxm(
-          'inline-flex items-center rounded px-4 py-2 font-semibold',
+          'relative inline-flex items-center px-4 py-2 font-semibold',
           'focus:outline-none focus-visible:ring focus-visible:ring-primary-500',
           'shadow-sm',
           'transition-colors duration-75',
+          //#region  //*=========== Rounding ===========
+          [
+            rounding === 'left' && ['rounded-l-md'],
+            rounding === 'right' && ['rounded-r-md'],
+            rounding === 'top' && ['rounded-t-md'],
+            rounding === 'bottom' && ['rounded-b-md'],
+            rounding === 'md' && ['rounded-md'],
+            rounding === 'lg' && ['rounded-lg'],
+            rounding === 'none' && ['rounded-none'],
+            rounding === 'full' && ['rounded-full'],
+          ],
           //#region  //*=========== Variants ===========
           [
             variant === 'primary' && [
@@ -100,7 +131,12 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             <ImSpinner2 className='animate-spin' />
           </div>
         )}
-        {children}
+        {srText && <span className='sr-only'>{srText}</span>}
+        <div className='inline-flex items-center gap-2'>
+          {iconLeft && <span>{iconLeft}</span>}
+          <span>{children}</span>
+          {iconRight && <span>{iconRight}</span>}
+        </div>
       </button>
     );
   }

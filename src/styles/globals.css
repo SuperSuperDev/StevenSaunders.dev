@@ -28,6 +28,11 @@
   /* #endregion  /**======== Primary Color =========== */
 }
 
+[data-theme='dark'] {
+  --background: black;
+  --foreground: white;
+}
+
 @layer base {
   /* inter var - latin */
   @font-face {
