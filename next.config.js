@@ -3,6 +3,9 @@ module.exports = {
   eslint: {
     dirs: ['src'],
   },
+  images: {
+    domains: ['localhost', 'http://videocms.jcloud.ik-server.com/'],
+  },
 
   reactStrictMode: true,
 

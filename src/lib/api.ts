@@ -36,8 +36,8 @@ export async function loginUser(formdata: Record<string, unknown>) {
 export function useUser() {
   const { data, mutate, error } = useSWR(`${baseUrl}/spa/whoami/`, userFetcher);
 
-  const loading = !data && !error;
-  const isAuthenticated = data && data.isAuthenticated;
+  const loading: boolean = !data && !error;
+  const isAuthenticated: boolean = data && data.isAuthenticated;
 
   return {
     loading,
@@ -47,6 +47,27 @@ export function useUser() {
   };
 }
 
+export function useUserMedia() {
+  const { data: user, error: userError } = useSWR(
+    `${baseUrl}/spa/whoami/`,
+    userFetcher
+  );
+  const { data: media, error: mediaError } = useSWR(
+    user ? `${baseUrl}/api/v1/media/?author=${user.username}` : null,
+    userFetcher
+  );
+
+  const userLoading = !user && !userError;
+  const mediaLoading = !media && !mediaError;
+  const hasError = userError && mediaError;
+
+  return {
+    hasError,
+    userLoading,
+    mediaLoading,
+    media: media,
+  };
+}
 export function useSession() {
   const { data, mutate, error } = useSWR(
     `${baseUrl}/spa/session/`,

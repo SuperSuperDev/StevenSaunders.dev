@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 
-import HomePage from '@/pages';
+import Page from '@/pages';
 
 /** Mock Seo's useRouter */
 jest.mock('next/router', () => ({
@@ -13,7 +13,7 @@ jest.mock('next/router', () => ({
 
 describe('Index Page', () => {
   it('renders index page', async () => {
-    const { container } = render(<HomePage />);
+    const { container } = render(<Page />);
 
     expect(container.firstChild?.hasChildNodes()).toBeTruthy();
   });

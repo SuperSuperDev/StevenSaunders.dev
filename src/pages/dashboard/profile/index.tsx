@@ -8,12 +8,12 @@ import SidebarLayout from '@/components/layout/SidebarLayout';
 import UnderlineLink from '@/components/links/UnderlineLink';
 import Seo from '@/components/Seo';
 
-export default function Dashboard() {
+export default function Profile() {
   const { user, loading } = useUser();
 
   return (
     <>
-      <Seo templateTitle='Dashboard' />
+      <Seo templateTitle='My Profile' />
 
       <main>
         {loading ? (
@@ -22,18 +22,10 @@ export default function Dashboard() {
           <section className='bg-white dark:bg-black dark:text-gray-50'>
             <div className='layout flex min-h-screen flex-col items-center justify-center text-center'>
               <h1 className='mt-4'>
-                Hi {user.username}, Waiting for you to Change the World!
+                Hi {user.name}, This is what your profile says about you!
               </h1>
-              <Link href='/dashboard/profile'>
-                <a>View your Profile</a>
-              </Link>
-              <br />
-              <Link href='/dashboard/videos'>
-                <a>View your Videos</a>
-              </Link>
-              <br />
-              <Link href='/dashboard/videos/add-video'>
-                <a>Add a Video</a>
+              <Link href='/dashboard'>
+                <a>View your Dashboard</a>
               </Link>
               <p className='mt-2 text-sm text-gray-800 dark:text-gray-500'>
                 Under Construction
@@ -53,7 +45,7 @@ export default function Dashboard() {
   );
 }
 
-Dashboard.getLayout = function getLayout(Page: ReactElement) {
+Profile.getLayout = function getLayout(Page: ReactElement) {
   return (
     <Layout>
       <SidebarLayout>{Page}</SidebarLayout>

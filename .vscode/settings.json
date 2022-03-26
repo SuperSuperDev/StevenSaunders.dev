@@ -31,5 +31,6 @@
     "titleBar.border": "#c4067e",
     "tab.activeBorder": "#f5089e"
   },
-  "peacock.remoteColor": "#c4067e"
+  "peacock.remoteColor": "#c4067e",
+  "svg.preview.background": "editor"
 }
