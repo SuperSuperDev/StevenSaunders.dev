@@ -15,12 +15,20 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@NonoviumUI/*": ["src/components/*"],
       "@/*": ["./src/*"],
       "~/*": ["./public/*"]
     },
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "node_modules/xgplayer/**/*.ts",
+    "node_modules/xgplayer/**/*.tsx",
+    "node_modules/xgplayer/**/*.d.ts"
+  ],
   "exclude": ["node_modules", "**/tailwindui-react"],
   "moduleResolution": ["node_modules", ".next", "node"]
 }

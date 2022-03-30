@@ -1,19 +1,29 @@
 import axios from 'axios';
 import useSWR from 'swr';
 
-const baseUrl = process.env.REACT_APP_PROD_URL || 'http://localhost';
+export const baseUrl = process.env.REACT_APP_PROD_URL || 'http://localhost';
 
 const userFetcher = (url: string) =>
   axios.get(url, { withCredentials: true }).then((res) => res.data);
 
 export function headers() {
   return {
+    withCredentials: true,
     headers: {
       'Content-Type': 'application/json',
     },
   };
 }
 
+export async function fileUploadHeaders() {
+  return {
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'X-CSRFToken': await getCSRF(),
+    },
+  };
+}
 //! Auth Requests
 // export function registerUser(formdata) {
 //   return axios.post(`${baseUrl}/register`, formdata);
@@ -22,6 +32,7 @@ export function headers() {
 export async function loginUser(formdata: Record<string, unknown>) {
   return axios.post(
     `${baseUrl}/spa/login/`,
+    // `${baseUrl}/api/v1/login`,
     { ...formdata },
     {
       withCredentials: true,
@@ -32,18 +43,33 @@ export async function loginUser(formdata: Record<string, unknown>) {
     }
   );
 }
+export async function logoutUser() {
+  return axios.post(
+    `${baseUrl}/spa/logout/`,
+    {},
+    {
+      withCredentials: true,
+      headers: { 'X-CSRFToken': await getCSRF() },
+    }
+  );
+}
 
 export function useUser() {
-  const { data, mutate, error } = useSWR(`${baseUrl}/spa/whoami/`, userFetcher);
+  const {
+    data: userData,
+    mutate: userMutate,
+    error: userError,
+  } = useSWR(`${baseUrl}/spa/whoami/`, userFetcher);
 
-  const loading: boolean = !data && !error;
-  const isAuthenticated: boolean = data && data.isAuthenticated;
+  const loading: boolean = !userData && !userError;
+  const isAuthenticated: boolean = userData && userData.isAuthenticated;
 
   return {
     loading,
     isAuthenticated: isAuthenticated,
-    user: data,
-    mutate,
+    user: userData,
+    userMutate,
+    userError: userError,
   };
 }
 
@@ -59,7 +85,7 @@ export function useUserMedia() {
 
   const userLoading = !user && !userError;
   const mediaLoading = !media && !mediaError;
-  const hasError = userError && mediaError;
+  const hasError: boolean = userError && mediaError;
 
   return {
     hasError,
@@ -68,6 +94,33 @@ export function useUserMedia() {
     media: media,
   };
 }
+
+export function useVideoDetail(videoID: string | string[] | null) {
+  const {
+    data: video,
+    error: videoError,
+    mutate: videoMutate,
+  } = useSWR(
+    videoID ? `${baseUrl}/api/v1/media/${videoID}` : null,
+    userFetcher,
+    {
+      revalidateOnFocus: false,
+      revalidateIfStale: false,
+      revalidateOnReconnect: false,
+    }
+  );
+
+  const videoLoading = !video && !videoError;
+  const hasError = videoError;
+
+  return {
+    hasError,
+    videoLoading,
+    videoMutate,
+    video: video,
+  };
+}
+
 export function useSession() {
   const { data, mutate, error } = useSWR(
     `${baseUrl}/spa/session/`,
@@ -85,15 +138,35 @@ export function useSession() {
   };
 }
 
-export async function getCSRF(): Promise<string> {
+export async function getCSRF() {
   try {
-    const res = await axios.get('http://localhost/spa/csrf/', {
-      withCredentials: true,
-    });
-
-    const csrfToken: string = res.headers['x-csrftoken'];
-    return csrfToken.toString();
+    const res = await axios
+      .get('http://localhost/spa/csrf/', {
+        withCredentials: true,
+      })
+      .then((res) => res.headers['x-csrftoken']);
+    return res;
   } catch (error) {
-    throw new Error("Can't get CSRF token");
+    return 'Error';
   }
 }
+
+// export function csrfToken() {
+//   let i,
+//     cookies,
+//     cookie,
+//     cookieVal = null;
+//   if (document.cookie && '' !== document.cookie) {
+//     cookies = document.cookie.split(';');
+//     i = 0;
+//     while (i < cookies.length) {
+//       cookie = cookies[i].trim();
+//       if ('csrftoken=' === cookie.substring(0, 10)) {
+//         cookieVal = decodeURIComponent(cookie.substring(10));
+//         break;
+//       }
+//       i += 1;
+//     }
+//   }
+//   return cookieVal;
+// }

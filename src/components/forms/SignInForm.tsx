@@ -5,19 +5,25 @@ import useForm from '../../hooks/useForm';
 import { loginUser, useUser } from '../../lib/api';
 
 export default function SignInForm() {
+  // const { formdata, handleChange } = useForm({
+  //   email: '',
+  //   password: '',
+  //   username: '',
+  // });
+
   const { formdata, handleChange } = useForm({
-    email: '',
-    password: '',
     username: '',
+    password: '',
   });
-  const { isAuthenticated, mutate } = useUser();
+
+  const { isAuthenticated, userMutate } = useUser();
 
   // * Login
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
       await loginUser(formdata);
-      mutate();
+      userMutate();
     } catch (err) {
       throw new Error("Credentials don't match");
     }
@@ -71,6 +77,32 @@ export default function SignInForm() {
                   htmlFor='email'
                   className='block text-sm font-medium text-gray-700'
                 >
+                  Username or Email Address
+                </label>
+                <div className='mt-1'>
+                  <input
+                    id='username'
+                    name='username'
+                    type='username'
+                    autoComplete='username'
+                    required={true}
+                    onChange={handleChange}
+                    className='
+                    block w-full appearance-none 
+                    rounded-md border border-gray-300 
+                    px-3 py-2
+                    placeholder-gray-400 shadow-sm 
+                    focus:border-indigo-500 
+                    focus:outline-none 
+                    focus:ring-indigo-500 sm:text-sm'
+                  />
+                </div>
+              </div>
+              {/* <div>
+                <label
+                  htmlFor='email'
+                  className='block text-sm font-medium text-gray-700'
+                >
                   email
                 </label>
                 <div className='mt-1'>
@@ -84,8 +116,8 @@ export default function SignInForm() {
                     className='block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
                   />
                 </div>
-              </div>
-              <div>
+              </div> */}
+              {/* <div>
                 <label
                   htmlFor='username'
                   className='block text-sm font-medium text-gray-700'
@@ -103,7 +135,7 @@ export default function SignInForm() {
                     className='block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
                   />
                 </div>
-              </div>
+              </div> */}
 
               <div>
                 <label

@@ -25,8 +25,8 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
             //#region  //*=========== Variants ===========
             [
               variant === 'rnd-shadow' && [
-                'bg-white',
-                'border border-gray-200',
+                'bg-white dark:bg-dark',
+                'border border-gray-200 dark:border-primary-400',
                 'rounded-md',
               ],
               variant === 'sq-shadow' && [

@@ -1,0 +1,53 @@
+{
+  "folders": [
+    {
+      "name": "nonovium-components",
+      "path": ".."
+    },
+    {
+      "name": "components",
+      "path": "../src/components"
+    },
+    {
+      "name": "videos-ui",
+      "path": "../src/components/videos-ui"
+    },
+    {
+      "name": "lib",
+      "path": "../src/lib"
+    },
+    {
+      "name": "pages",
+      "path": "../src/pages"
+    }
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#f5089e",
+      "activityBar.activeBorder": "#8bd807",
+      "activityBar.background": "#f5089e",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#8bd807",
+      "activityBarBadge.foreground": "#15202b",
+      "sash.hoverBorder": "#f5089e",
+      "statusBar.background": "#c4067e",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#f5089e",
+      "statusBarItem.remoteBackground": "#c4067e",
+      "statusBarItem.remoteForeground": "#e7e7e7",
+      "titleBar.activeBackground": "#c4067e",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#c4067e99",
+      "titleBar.inactiveForeground": "#e7e7e799",
+      "sideBar.border": "#f5089e",
+      "editorGroup.border": "#f5089e",
+      "panel.border": "#f5089e",
+      "statusBar.border": "#c4067e",
+      "titleBar.border": "#c4067e",
+      "tab.activeBorder": "#f5089e"
+    },
+    "peacock.remoteColor": "#c4067e",
+    "svg.preview.background": "editor"
+  }
+}

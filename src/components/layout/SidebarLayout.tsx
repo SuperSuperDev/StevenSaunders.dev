@@ -10,12 +10,18 @@ import {
   UsersIcon,
   XIcon,
 } from '@heroicons/react/outline';
-import { Fragment, useState } from 'react';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { Fragment, useEffect, useState } from 'react';
+
+import { useUser } from '@/lib/api';
 
 import ThemeChanger from '@/components/layout/ThemeChanger';
 
+import LogoutButton from '../buttons/LogoutButton';
+
 const navigation = [
-  { name: 'Dashboard', href: '#', icon: HomeIcon, current: true },
+  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon, current: true },
   { name: 'Team', href: '#', icon: UsersIcon, current: false },
   { name: 'Projects', href: '#', icon: FolderIcon, current: false },
   { name: 'Calendar', href: '#', icon: CalendarIcon, current: false },
@@ -32,6 +38,17 @@ export default function SidebarLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const { isAuthenticated, userMutate, loading } = useUser();
+  const router = useRouter();
+
+  useEffect(() => {
+    userMutate();
+    if (isAuthenticated === false && loading === false) {
+      router.push('/');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isAuthenticated]);
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -40,7 +57,7 @@ export default function SidebarLayout({
         <Transition.Root show={sidebarOpen} as={Fragment}>
           <Dialog
             as='div'
-            className='fixed inset-0 z-40 flex'
+            className='fixed inset-0 z-[150] flex'
             onClose={setSidebarOpen}
           >
             <Transition.Child
@@ -63,7 +80,7 @@ export default function SidebarLayout({
               leaveFrom='translate-x-0'
               leaveTo='-translate-x-full'
             >
-              <div className='relative flex w-full max-w-xs flex-1 flex-col bg-gray-800'>
+              <div className='relative z-[200] flex w-full max-w-xs flex-1 flex-col bg-gray-800'>
                 <Transition.Child
                   as={Fragment}
                   enter='ease-in-out duration-300'
@@ -97,27 +114,27 @@ export default function SidebarLayout({
                   </div>
                   <nav className='mt-5 space-y-1 px-2'>
                     {navigation.map((item) => (
-                      <a
-                        key={item.name}
-                        href={item.href}
-                        className={classNames(
-                          item.current
-                            ? 'bg-gray-900 text-white'
-                            : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'group flex items-center rounded-md px-2 py-2 text-base font-medium'
-                        )}
-                      >
-                        <item.icon
+                      <Link key={item.name} href={item.href}>
+                        <a
                           className={classNames(
                             item.current
-                              ? 'text-gray-300'
-                              : 'text-gray-400 group-hover:text-gray-300',
-                            'mr-4 h-6 w-6 flex-shrink-0'
+                              ? 'bg-gray-900 text-white'
+                              : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                            'group flex items-center rounded-md px-2 py-2 text-base font-medium'
                           )}
-                          aria-hidden='true'
-                        />
-                        {item.name}
-                      </a>
+                        >
+                          <item.icon
+                            className={classNames(
+                              item.current
+                                ? 'text-gray-300'
+                                : 'text-gray-400 group-hover:text-gray-300',
+                              'mr-4 h-6 w-6 flex-shrink-0'
+                            )}
+                            aria-hidden='true'
+                          />
+                          {item.name}
+                        </a>
+                      </Link>
                     ))}
                   </nav>
                 </div>
@@ -156,7 +173,7 @@ export default function SidebarLayout({
         {/* <div className='hidden md:fixed md:inset-y-0 md:flex md:w-64 md:flex-col'> */}
         <div className='flex flex-1 flex-col'>
           {/* //*Mobile Header */}
-          <div className='sticky top-0 z-10 bg-gray-100 pl-1 pt-1 sm:pl-3 sm:pt-3'>
+          <div className='sticky top-0 z-[140] bg-gray-100 pl-1 pt-1 sm:pl-3 sm:pt-3'>
             <button
               type='button'
               className='-ml-0.5 -mt-0.5 inline-flex h-12 w-12 items-center justify-center rounded-md text-gray-500 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500'
@@ -164,8 +181,12 @@ export default function SidebarLayout({
             >
               <span className='sr-only'>Open sidebar</span>
               <MenuIcon className='h-6 w-6' aria-hidden='true' />
-            </button>
+            </button>{' '}
+            <div className='bg-dark'>
+              <LogoutButton />
+            </div>
           </div>
+
           {/* //*Main Content */}
           <main>
             <div className='py-6'>

@@ -12,7 +12,7 @@ const ThemeChanger = () => {
 
   return (
     <div>
-      The current theme is: {theme}
+      The current theme is: {theme} <br />
       <button onClick={() => setTheme('light')}>Light Mode</button>
       <button onClick={() => setTheme('dark')}>Dark Mode</button>
     </div>
