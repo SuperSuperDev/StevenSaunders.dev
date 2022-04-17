@@ -10,8 +10,7 @@ class UploadFilesService {
     const formData = new FormData();
     //const csrfToken = csrfToken();
     formData.append('media_file', file);
-    // formData.append('token', 'bbc504e39fdb565f72b8122ba8a30ac4fa142697');
-    return axios.post(`${baseUrl}/api/v1/media/`, formData, {
+    return axios.post(`${baseUrl}/spa/video/`, formData, {
       withCredentials: true,
       headers: {
         'Content-Type': 'multipart/form-data',

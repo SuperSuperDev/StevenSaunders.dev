@@ -24,18 +24,16 @@ export default function VideoPlayerCard({
       {videoLoading ? (
         <p>Loading, please wait...</p>
       ) : (
-        <>
-          <div className='bg-white py-1 sm:py-4'>
-            <div className='relative'>
-              <div className='absolute inset-0 h-1/2' />
-              <div className='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
-                <div className='mx-auto max-w-4xl rounded-lg shadow-lg'>
-                  <DynamicVideoPlayer videoID={videoID} />
-                </div>
+        <div className='bg-white py-1 dark:bg-dark sm:py-4'>
+          <div className='relative'>
+            <div className='absolute inset-0 h-full' />
+            <div className='relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8'>
+              <div className='mx-auto h-full max-w-4xl rounded-lg shadow-lg'>
+                <DynamicVideoPlayer videoID={videoID} />
               </div>
             </div>
           </div>
-        </>
+        </div>
       )}
     </div>
   );

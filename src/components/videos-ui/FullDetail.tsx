@@ -1,67 +1,45 @@
 import Box from '@NonoviumUI/containers/Box';
-import StatBarCard from '@NonoviumUI/statistics/StatBarCard';
 // import dynamic from 'next/dynamic';
 import * as React from 'react';
+import { useEffect } from 'react';
 
-import { useVideoDetail } from '@/lib/api';
-import clsxm from '@/lib/clsxm';
-import { secondsToHHMMSS } from '@/lib/helper';
-
+import EncodingAssetList from './EncodingAssetList';
+import HeaderStatsBar from './HeaderStatsBar';
+import HLSAssetList from './HLSAssetList';
+import ImageAssetList from './ImageAssetList';
 // import APIVideoPlayer from './APIVideoPlayer';
 import VideoHeading from './VideoHeading';
 import VideoPlayerCard from './VideoPlayerCard';
 
 type FullDetailProps = {
   videoID: string;
-} & React.ComponentPropsWithoutRef<'div'>;
+};
 // export default function FullDetail() {
 
-export default function FullDetail({
-  videoID,
-  className,
-  ...rest
-}: FullDetailProps) {
-  // if (videoID === undefined) {
-  //   return <>Error: Video Not Found!</>;
-  // }
+export default function FullDetail({ videoID }: FullDetailProps) {
+  // const { video, videoLoading } = useVideoDetail(videoID);
+  const [videoPageId, setVideoPageId] = React.useState('');
 
-  const { video } = useVideoDetail(`${videoID ? videoID : null}`);
-  const formattedDuration = video?.duration
-    ? secondsToHHMMSS(video.duration)
-    : '';
-  const statsArray = [
-    {
-      statTitle: 'duration',
-      statValue: video?.duration ? formattedDuration : '',
-    },
-    {
-      statTitle: 'original size',
-      statValue: video?.size ? video.size.toString() : '0',
-    },
-    {
-      statTitle: 'encoding status',
-      statValue: video?.encoding_status ? video.encoding_status : 'unknown',
-    },
-  ];
-  // const DynamicAPIVideoPlayer = dynamic(
-  //   () => import('./APIVideoPlayer'),
-  //   { ssr: false }
-  // );
-
+  useEffect(() => {
+    setVideoPageId(videoID);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
-    <div className={clsxm('', className)} {...rest}>
+    <div>
       <Box>
-        {videoID ? (
-          <>
-            <VideoHeading videoID={videoID} />
-            {/* <DynamicAPIVideoPlayer videoID={videoID} /> */}
-            <VideoPlayerCard videoID={videoID} />
-            <StatBarCard statsArray={statsArray} />
-            `${videoID}`
-          </>
-        ) : (
-          'No videoID'
-        )}
+        <>
+          <VideoHeading videoID={videoID} />
+          {/* <DynamicAPIVideoPlayer videoID={videoID} //TODO  Keep this commented */}
+          <VideoPlayerCard videoID={videoID} />
+          <HeaderStatsBar videoID={videoID} />
+          <EncodingAssetList videoID={videoPageId} />
+          {
+            // * Image Assets
+          }
+          <ImageAssetList videoID={videoID} />
+          <HLSAssetList videoID={videoID} />
+          {videoID}
+        </>
       </Box>
     </div>
   );

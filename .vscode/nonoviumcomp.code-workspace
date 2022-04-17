@@ -45,8 +45,31 @@
       "panel.border": "#f5089e",
       "statusBar.border": "#c4067e",
       "titleBar.border": "#c4067e",
-      "tab.activeBorder": "#f5089e"
+      "tab.activeBorder": "#f5089e",
+      "tab.activeBorderTop": "#d900ff",
+      "tab.lastPinnedBorder": "#d900ff",
+      "tab.activeBackground": "#000000",
+      "tab.activeForeground": "#ff00ff",
+      "tab.border": "#230535",
+      "sideBarSectionHeader.background": "#821a94",
+      "editor.selectionBackground": "#480af344",
+      "editor.selectionHighlightBorder": "#ff00ff",
+      "editor.findMatchHighlightBorder": "#ff0000",
+      "editorLineNumber.activeForeground": "#a200ff",
+      "editor.inactiveSelectionBackground": "#440303",
+      "editor.background": "#000000",
+      "list.inactiveSelectionBackground": "#000000",
+      "list.activeSelectionBackground": "#000000",
+      "tree.indentGuidesStroke": "#eb06c5",
+      "tree.tableColumnsBorder": "#ff0000",
+      "tree.tableOddRowsBackground": "#ff0000",
+      "banner.background": "#e01e04"
     },
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "workbench.editor.wrapTabs": true,
+    "workbench.tips.enabled": true,
     "peacock.remoteColor": "#c4067e",
     "svg.preview.background": "editor"
   }
