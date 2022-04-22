@@ -19,11 +19,11 @@ export default function StatBarCard({
   // takes an array of objects with statTitle and statValue properties and  return  a class depending of first, last or middle item
   const getStatClass = (index: number) => {
     if (index === 0) {
-      return 'flex flex-col flex-1 border-b border-gray-100 dark:border-slate-900 p-6 text-center sm:border-0 sm:border-r';
+      return 'flex flex-col flex-1 border-b border-gray-100 dark:border-slate-900 p-3 text-center sm:border-0 sm:border-r';
     } else if (index === statsArray.length - 1) {
-      return 'flex flex-col flex-1 border-t border-b border-gray-100 dark:border-slate-900 p-6 text-center sm:border-0';
+      return 'flex flex-col flex-1 border-t border-b border-gray-100 dark:border-slate-900 p-3 text-center sm:border-0';
     } else {
-      return 'flex flex-col flex-1 border-t border-gray-100 dark:border-slate-900 p-6 text-center sm:border-0 sm:border-r';
+      return 'flex flex-col flex-1 border-t border-gray-100 dark:border-slate-900 p-3 text-center sm:border-0 sm:border-r';
     }
   };
 

@@ -1,46 +1,31 @@
-import Box from '@NonoviumUI/containers/Box';
-// import dynamic from 'next/dynamic';
+import Block from '@NonoviumUI/containers/Block';
 import * as React from 'react';
-import { useEffect } from 'react';
 
 import EncodingAssetList from './EncodingAssetList';
 import HeaderStatsBar from './HeaderStatsBar';
 import HLSAssetList from './HLSAssetList';
-import ImageAssetList from './ImageAssetList';
-// import APIVideoPlayer from './APIVideoPlayer';
+import ImageAssetGrid from './ImageAssetGrid';
 import VideoHeading from './VideoHeading';
 import VideoPlayerCard from './VideoPlayerCard';
 
-type FullDetailProps = {
-  videoID: string;
-};
-// export default function FullDetail() {
+export default function FullDetail(props: { videoID: string }) {
+  const { videoID } = props;
 
-export default function FullDetail({ videoID }: FullDetailProps) {
-  // const { video, videoLoading } = useVideoDetail(videoID);
-  const [videoPageId, setVideoPageId] = React.useState('');
-
-  useEffect(() => {
-    setVideoPageId(videoID);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
   return (
     <div>
-      <Box>
+      <Block>
         <>
           <VideoHeading videoID={videoID} />
           {/* <DynamicAPIVideoPlayer videoID={videoID} //TODO  Keep this commented */}
           <VideoPlayerCard videoID={videoID} />
           <HeaderStatsBar videoID={videoID} />
-          <EncodingAssetList videoID={videoPageId} />
-          {
-            // * Image Assets
-          }
-          <ImageAssetList videoID={videoID} />
+          <ImageAssetGrid videoID={videoID} />
+          <EncodingAssetList videoID={videoID} />
           <HLSAssetList videoID={videoID} />
+          {/* <ImageAssetList videoID={videoID} /> */}
           {videoID}
         </>
-      </Box>
+      </Block>
     </div>
   );
 }

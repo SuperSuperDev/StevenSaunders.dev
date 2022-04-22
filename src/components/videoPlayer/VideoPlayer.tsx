@@ -22,7 +22,7 @@ type VideoPlayerProps = {
 };
 
 export default function VideoPlayer(props: IVideoPlayerProps) {
-  const [playerInput, setPlayerInput] = React.useState<VideoPlayerProps>({
+  const [playerInput, setPlayerInput] = React.useState<IVideoPlayerProps>({
     id: '',
     url: '',
     poster: defaultPlayer.poster,
@@ -65,5 +65,13 @@ export default function VideoPlayer(props: IVideoPlayerProps) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [playerInput]);
 
-  return <div id={playerInput.id} />;
+  return (
+    <>
+      {playerInput.url ? (
+        <div id={playerInput.id}></div>
+      ) : (
+        <div>loading...</div>
+      )}
+    </>
+  );
 }

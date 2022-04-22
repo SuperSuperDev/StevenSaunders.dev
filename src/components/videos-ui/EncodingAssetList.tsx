@@ -7,15 +7,15 @@ import * as React from 'react';
 import { baseUrl, useVideoDetail } from '@/lib/api';
 
 import DownloadPrivateFile from './DownloadPrivateFiles';
+import DynamicVideoThumbnail from './DynamicVideoThumbnail';
 import { IEncodedVideoArray } from '../../lib/types';
 
-type EncodingAssetListItemProps = {
-  videoID: string;
-} & React.ComponentPropsWithoutRef<'div'>;
+// type EncodingAssetListItemProps = {
+//   videoID: string;
+// }
 
-export default function EncodingAssetList({
-  videoID,
-}: EncodingAssetListItemProps) {
+export default function EncodingAssetList(props: { videoID: string }) {
+  const { videoID } = props;
   const { encodedFilesArray, videoLoading } = useVideoDetail(videoID);
   const [videos, setVideos] = React.useState<IEncodedVideoArray | null>(null);
   // const DynamicVideoPlayer = dynamic(
@@ -48,15 +48,20 @@ export default function EncodingAssetList({
             return (
               <Box key={video.encoding_id}>
                 <div className='sm:flex'>
-                  <div className='prose mb-4 flex-shrink-0 dark:prose-invert sm:mb-0 sm:mr-4 sm:pt-4'>
-                    <img
-                      className='w-full rounded-lg border border-gray-300 shadow-xl dark:border-gray-500 sm:w-48'
-                      src={`${baseUrl}${video.thumbnail}`}
-                      alt='video thumbnail'
-                    ></img>
-                    <div className='prose w-full max-w-none overflow-hidden text-clip text-center dark:prose-invert'>
-                      <h3 className='mb-1 text-primary-500'>{video.title}</h3>
-                    </div>
+                  <div className='prose mb-4 flex-shrink-0 dark:prose-invert sm:mb-0 sm:mr-4 sm:pt-0'>
+                    <DynamicVideoThumbnail
+                      thumbnailImage={video.thumbnail}
+                      thumbnailImageHover={video.preview}
+                      videoUrl={baseUrl + video.url}
+                      progress={video.progress ? video.progress : 0}
+                    />
+                    {video.progress && video.progress < 100 && (
+                      <div className='prose w-full max-w-none overflow-hidden text-clip text-center dark:prose-invert'>
+                        <h4 className='mb-1 text-gray-500'>
+                          {video.progress}%
+                        </h4>
+                      </div>
+                    )}
                   </div>
                   <div className='prose w-full max-w-none overflow-hidden text-clip text-center dark:prose-invert'>
                     <StatBarCard
@@ -72,11 +77,14 @@ export default function EncodingAssetList({
                           statValue: video.size ? video.size.toString() : '0',
                         },
                         {
-                          statTitle: 'Encoding Status',
-                          statValue: video.status ? video.status : 'unknown',
+                          statTitle: 'Status',
+                          statValue:
+                            video.status === 'success'
+                              ? video.status
+                              : `${video.status} (${video.progress}%)`,
                         },
                       ]}
-                      className='mt-0'
+                      //className='mt-0'
                     />
                     {video.url && (
                       <>

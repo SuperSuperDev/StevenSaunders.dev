@@ -16,15 +16,15 @@ export default function HeaderStatsBar({ videoID }: HeaderStatsBarProps) {
 
   const [statsArray, setStatsArray] = useState([
     {
-      statTitle: 'duration',
+      statTitle: 'Duration',
       statValue: video?.duration ? formattedDuration : '-',
     },
     {
-      statTitle: 'original size',
+      statTitle: 'Size',
       statValue: video?.size ? video.size.toString() : '0',
     },
     {
-      statTitle: 'encoding status',
+      statTitle: 'Status',
       statValue: video?.encoding_status ? video.encoding_status : 'unknown',
     },
   ]);
@@ -33,15 +33,15 @@ export default function HeaderStatsBar({ videoID }: HeaderStatsBarProps) {
     if (video) {
       setStatsArray([
         {
-          statTitle: 'duration',
+          statTitle: 'Duration',
           statValue: video.duration ? formattedDuration : '-',
         },
         {
-          statTitle: 'original size',
+          statTitle: 'Size',
           statValue: video.size ? video.size.toString() : '0',
         },
         {
-          statTitle: 'encoding status',
+          statTitle: 'Status',
           statValue: video.encoding_status ? video.encoding_status : 'unknown',
         },
       ]);

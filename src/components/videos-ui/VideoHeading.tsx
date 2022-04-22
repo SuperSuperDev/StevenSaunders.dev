@@ -17,11 +17,12 @@ import { useVideoDetail } from '@/lib/api';
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ');
 }
-type VideoHeadingProps = {
-  videoID: string;
-};
+// type VideoHeadingProps = {
+//   videoID: string;
+// };
 
-export default function VideoHeading({ videoID }: VideoHeadingProps) {
+export default function VideoHeading(props: { videoID: string }) {
+  const { videoID } = props;
   const { video, videoLoading, postMeta } = useVideoDetail(
     `${videoID ? videoID : null}`
   );
@@ -33,12 +34,9 @@ export default function VideoHeading({ videoID }: VideoHeadingProps) {
       ) : (
         <>
           <Block>
-            <div className='prose max-w-none dark:prose-invert'>
-              <h2 className='text-primary-500'>{video?.title}</h2>
+            <div className='prose max-w-none text-clip dark:prose-invert'>
+              <h2 className='break-all text-primary-500'>{video?.title}</h2>
             </div>
-          </Block>
-          {/* Tailwind CSS */}
-          <Block>
             <div className='lg:flex lg:items-center lg:justify-between'>
               <div className='min-w-0 flex-1'>
                 <div className='mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap sm:space-x-6'>

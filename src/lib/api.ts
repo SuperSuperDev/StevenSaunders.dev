@@ -1,9 +1,9 @@
 import axios from 'axios';
 import useSWR from 'swr';
 
-import publishedOnDate from '@/helpers/publishedOnDate';
-
+import { publishedOnDate } from './helper';
 import { secondsToHHMMSS } from './helper';
+import { IExtendedEncodedVideo } from './types';
 import {
   IEncodedH264VideoArray,
   IEncodedVideo,
@@ -153,7 +153,7 @@ export function useVideoDetail(videoID: string) {
     shouldFetch ? `${baseUrl}/spa/video/${videoID}` : null,
     userFetcher,
     {
-      refreshInterval: 2000,
+      refreshInterval: 500,
       revalidateOnFocus: false,
       revalidateIfStale: true,
       revalidateOnReconnect: false,
@@ -184,7 +184,8 @@ export function useVideoDetail(videoID: string) {
   const videoPreviewURL = video?.preview_url
     ? baseUrl + video?.preview_url
     : undefined;
-  const hlsAssets: Record<string, unknown> = video?.hls_info;
+  const hlsAssets: Record<string, unknown> =
+    video && video.hls_info ? video.hls_info : {};
   const hlsMasterFile = hlsAssets?.master_file;
 
   // TODO: video returns true with just videoID, need to fix that, for now check if we have formattedDuration
@@ -192,8 +193,8 @@ export function useVideoDetail(videoID: string) {
   const hasError = videoError;
 
   const postMeta: IPostMeta = {
-    title: video?.title,
-    state: video?.state,
+    title: video?.title ? video.title : '',
+    state: video?.state ? video.state : '',
     datePublished,
     dateModified,
     formattedDuration,
@@ -238,11 +239,15 @@ export function useVideoDetail(videoID: string) {
     Object.keys(video?.encodings_info).map((key) => {
       const encodedFiles = Object.keys(video?.encodings_info[key]).map(
         (key2) => {
-          const encodedVideo = video?.encodings_info[key][key2];
-          const extendedEncodedVideo: IEncodedVideo = {
+          // TODO: fix typing of key2
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
+          const encodedVideo: IEncodedVideo = video.encodings_info[key][key2];
+          const extendedEncodedVideo: IExtendedEncodedVideo = {
             resolution: key,
             encoder: key2,
             thumbnail: video.thumbnail_url,
+            preview: video.preview_url,
             ...encodedVideo,
           };
           encodedFilesArray.push({

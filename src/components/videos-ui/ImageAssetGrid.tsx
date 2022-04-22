@@ -4,7 +4,7 @@ import * as React from 'react';
 
 import { useVideoDetail } from '@/lib/api';
 
-export default function ImageAssetList(props: { videoID: string }) {
+export default function ImageAssetGrid(props: { videoID: string }) {
   const { videoID } = props;
   const { videoImageAssets, videoLoading } = useVideoDetail(videoID);
 
@@ -22,6 +22,44 @@ export default function ImageAssetList(props: { videoID: string }) {
               // * Thumbnail
             }
             <Box>
+              <div className='grid grid-cols-3 grid-rows-3 gap-0.5 overflow-hidden'>
+                <div className='box col-span-2 row-span-2'>
+                  <img
+                    className='w-full rounded-lg border border-gray-300 shadow-xl dark:border-gray-500'
+                    src={`${videoImageAssets?.videoPosterURL}`}
+                    alt='video poster image'
+                  ></img>
+                </div>
+                <div className='box col-span-1 col-start-3 row-span-3'>
+                  <div className='mb-4 max-h-40 overflow-auto sm:max-h-96'>
+                    {videoImageAssets?.videoSpritesURL ? (
+                      <img
+                        className='w-full overflow-auto rounded-lg border border-gray-300 shadow-xl dark:border-gray-500'
+                        src={videoImageAssets?.videoSpritesURL}
+                        alt='video sprites image'
+                      ></img>
+                    ) : (
+                      <div>Processing Image</div>
+                    )}
+                  </div>
+                </div>
+                <div className='box'>
+                  <img
+                    className='w-full rounded-lg border border-gray-300 shadow-xl dark:border-gray-500'
+                    src={`${videoImageAssets?.videoThumbnailURL}`}
+                    alt='video thumbnail'
+                  ></img>
+                </div>
+                <div className='box'>
+                  <img
+                    className='w-full rounded-lg border border-gray-300 shadow-xl dark:border-gray-500'
+                    src={`${videoImageAssets?.videoPreviewURL}`}
+                    alt='video preview image'
+                  ></img>
+                </div>
+              </div>
+            </Box>
+            {/* <Box>
               <div className='sm:flex'>
                 <div className='mb-4 flex-shrink-0 sm:mb-0 sm:mr-4'>
                   <img
@@ -105,7 +143,7 @@ export default function ImageAssetList(props: { videoID: string }) {
                   </p>
                 </div>
               </div>
-            </Box>
+            </Box> */}
           </Box>
         </>
       )}

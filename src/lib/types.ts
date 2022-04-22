@@ -1,17 +1,25 @@
 export interface IEncodedVideo {
   encoding_id: number;
-  resolution?: string;
-  encoder?: string;
-  thumbnail?: string;
   title?: string;
-  url?: string;
+  url: string;
   progress?: number;
   size?: string;
   status?: string;
   prevState?: null;
 }
 
-export type IEncodedVideoArray = IEncodedVideo[];
+export interface IExtendedEncodedVideo extends IEncodedVideo {
+  resolution?: string;
+  encoder?: string;
+  thumbnail: string;
+  preview: string;
+}
+
+export type IEncodedVideoArray = IExtendedEncodedVideo[];
+
+export interface IFilesDict {
+  [key: string]: string;
+}
 
 export interface IVideoDetails {
   url: string;
@@ -31,7 +39,7 @@ export interface IVideoDetails {
   author_name: string;
   author_profile: string;
   author_thumbnail: string;
-  encodings_info: string;
+  encodings_info: IFilesDict;
   encoding_status: string;
   views: number;
   likes: number;
@@ -46,7 +54,7 @@ export interface IVideoDetails {
   is_reviewed: boolean;
   edit_url: string;
   tags_info: string;
-  hls_info: string;
+  hls_info: Record<string, unknown>;
   license: number;
   subtitles_info: string;
   ratings_info: string;
@@ -77,4 +85,26 @@ export interface IVideoPlayerProps {
   fitVideoSize?: 'auto' | 'fixWidth' | 'fixHeight' | undefined;
   progress?: number;
   ref?: React.Ref<HTMLDivElement>;
+}
+
+export interface IHLSAsset {
+  title: string;
+  url: string;
+  progress: number;
+  size: string;
+  encoding_id: number;
+  status: string;
+}
+
+export type IHLSAssetArray = IHLSAsset[];
+
+export interface IDynamicVideoThumbnail {
+  thumbnailImage: string;
+  thumbnailImageHover: string;
+  videoUrl: string;
+  progress: number;
+}
+
+export interface ICodec {
+  [key: string]: string | unknown;
 }

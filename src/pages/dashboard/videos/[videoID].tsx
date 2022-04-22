@@ -29,7 +29,9 @@ export default function VideoPage() {
               <Link href='/dashboard/videos' passHref>
                 <Button variant='outline'>View Videos</Button>
               </Link>
-              <FullDetail videoID={`${videoID}`} />
+              <FullDetail
+                videoID={typeof videoID === 'string' ? videoID : videoID[0]}
+              />
             </>
           )}
         </Block>
