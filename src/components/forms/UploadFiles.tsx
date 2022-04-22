@@ -1,5 +1,3 @@
-/* eslint-disable no-console */ // TODO: Remove this - no-console
-/* eslint-disable unused-imports/no-unused-vars */ // TODO: remove no unused var
 /* eslint-disable @next/next/no-img-element */ // TODO: remove this or make compliant - next image
 import StatBarCard from '@NonoviumUI/statistics/StatBarCard';
 import Link from 'next/link';
@@ -77,7 +75,7 @@ export default function UploadFiles() {
       resData: {},
     });
   }
-
+  // TODO change to useState
   const {
     friendly_token,
     url, // * video asset
@@ -86,22 +84,13 @@ export default function UploadFiles() {
     title,
     description,
     add_date,
-    views,
     media_type,
     state, // * video stats
     duration, // * video stats
     thumbnail_url,
-    // is_reviewed,
-    preview_url, // * video asset
     author_name,
-    author_profile,
     author_thumbnail,
     encoding_status,
-    likes,
-    dislikes,
-    reported_times,
-    featured,
-    user_featured,
     size, // *  video stats
   } = formData.resData;
 
@@ -147,7 +136,6 @@ export default function UploadFiles() {
           formData.isLoading = false;
           formData.resData = response.data;
           setFormData({ ...formData });
-          console.log('formData.responseData', formData.resData);
         })
         .catch((error) => {
           formData.message = error.message;
@@ -156,19 +144,8 @@ export default function UploadFiles() {
           setFormData({ ...formData });
         });
       formData.selectedFiles = undefined;
-      console.log('formData :>> ', formData);
-      console.log(
-        'formData.responseData.friendly_token :>> ',
-        formData.resData.friendly_token
-      );
     }
   }
-
-  const widthByEncStatus =
-    (encoding_status === 'pending' && `40%`) ||
-    (encoding_status === 'running' && `60%`) ||
-    (encoding_status === 'success' && `100%`) ||
-    (encoding_status === 'failed' && `100%`);
 
   return (
     <Block>
