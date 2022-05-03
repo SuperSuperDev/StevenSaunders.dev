@@ -1,5 +1,7 @@
 import { logoutUser, useUser } from '@/lib/api';
 
+import Button from './Button';
+
 export default function LogoutButton() {
   const { userMutate, isAuthenticated } = useUser();
   const handleLogout = () => {
@@ -8,5 +10,5 @@ export default function LogoutButton() {
 
     userMutate(isAuthenticated === false);
   };
-  return <button onClick={handleLogout}>Logout</button>;
+  return <Button onClick={handleLogout}>Logout</Button>;
 }
