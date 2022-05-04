@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -15,9 +19,15 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@NonoviumUI/*": ["src/components/*"],
-      "@/*": ["./src/*"],
-      "~/*": ["./public/*"]
+      "@NonoviumUI/*": [
+        "src/components/*"
+      ],
+      "@/*": [
+        "./src/*"
+      ],
+      "~/*": [
+        "./public/*"
+      ]
     },
     "incremental": true
   },
@@ -29,6 +39,14 @@
     "node_modules/xgplayer/**/*.tsx",
     "node_modules/xgplayer/**/*.d.ts"
   ],
-  "exclude": ["node_modules", "**/tailwindui-react"],
-  "moduleResolution": ["node_modules", ".next", "node"]
+  "exclude": [
+    "node_modules",
+    "**/tailwindui-react",
+    "vcms-schema"
+  ],
+  "moduleResolution": [
+    "node_modules",
+    ".next",
+    "node"
+  ]
 }

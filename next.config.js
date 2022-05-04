@@ -7,6 +7,8 @@ module.exports = {
     domains: ['localhost', 'http://videocms.jcloud.ik-server.com/'],
   },
 
+  distDir: 'build',
+
   reactStrictMode: true,
 
   // Uncoment to add domain whitelist
