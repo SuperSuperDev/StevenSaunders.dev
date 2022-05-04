@@ -20,6 +20,7 @@ const customJestConfig = {
    * Absolute imports and Module Path Aliases
    */
   moduleNameMapper: {
+    '^@NonoviumUI/(.*)$': '<rootDir>/src/components/$1',
     '^@/(.*)$': '<rootDir>/src/$1',
     '^~/(.*)$': '<rootDir>/public/$1',
   },

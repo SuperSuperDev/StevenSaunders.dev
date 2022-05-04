@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@NonoviumUI/*": ["src/components/*"],
+      "@NonoviumUI/*": ["./src/components/*"],
       "@/*": ["./src/*"],
       "~/*": ["./public/*"]
     },
