@@ -37,3 +37,6 @@ yarn-error.log*
 robots.txt
 sitemap.xml
 **/tailwindui-react
+
+# caprover reply tar file
+deploy.tar
