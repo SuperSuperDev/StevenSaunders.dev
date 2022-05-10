@@ -25,7 +25,7 @@ export default function SignInForm() {
       await loginUser(formdata);
       userMutate();
     } catch (err) {
-      throw new Error("Credentials don't match");
+      throw new Error(JSON.stringify(err));
     }
   };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import Player from 'xgplayer';
 
-import { useVideoDetail } from '@/lib/api';
+import { baseUrl, useVideoDetail } from '@/lib/api';
 
 interface APIVideoPlayerProps {
   videoID: string; // | string[] | undefined;
@@ -15,9 +15,9 @@ export default function APIVideoPlayer({ videoID }: APIVideoPlayerProps) {
     if (video) {
       const player = new Player({
         id: `apivp-${videoID}`,
-        url: `http://localhost${video?.original_media_url}`,
+        url: `${baseUrl}${video?.original_media_url}`,
         fitVideoSize: 'auto',
-        poster: `http://localhost${video?.poster_url}`,
+        poster: `${baseUrl}${video?.poster_url}`,
         fluid: true,
         download: video?.allow_download || false,
         pip: true,
@@ -27,7 +27,7 @@ export default function APIVideoPlayer({ videoID }: APIVideoPlayerProps) {
           height: 90,
           col: 1,
           row: Math.ceil(video.duration / 10),
-          urls: [`http://localhost${video.sprites_url}`],
+          urls: [`${baseUrl}${video.sprites_url}`],
           pic_num: Math.ceil(video.duration / 10),
         },
       });

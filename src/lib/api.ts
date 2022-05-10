@@ -12,7 +12,7 @@ import {
   IVideoDetails,
 } from './types';
 
-export const baseUrl = process.env.REACT_APP_PROD_URL || 'http://localhost';
+export const baseUrl = process.env.NEXT_PUBLIC_VCMS_HOST || 'nobaseURL';
 
 const userFetcher = (url: string) =>
   axios.get(url, { withCredentials: true }).then((res) => res.data);
@@ -42,7 +42,8 @@ export async function fileUploadHeaders() {
 
 export async function loginUser(formdata: Record<string, unknown>) {
   return axios.post(
-    `${baseUrl}/spa/login/`,
+    // `${baseUrl}/spa/login/`,
+    'https://vcms-ssl.capt.nonovium.com/spa/login/',
     // `${baseUrl}/api/v1/login`,
     { ...formdata },
     {
@@ -109,29 +110,6 @@ export function useUserMedia() {
     media,
   };
 }
-
-// export function useUserMediaByID(videoID: string) {
-//   const key = `${baseUrl}/api/v1/media/${videoID}`;
-//   console.log('key', key)
-//   const { data: video, error: videoError } = useSWR(
-//     key,
-//     userFetcher,
-//     {
-//       refreshInterval: 5000,
-//       revalidateIfStale: false,
-//     }
-//   );
-
-//   const videoLoading = !video && !videoError;
-//   const hasError: boolean = videoError;
-//     console.log('video', video)
-//   return {
-//     hasError,
-//     videoLoading,
-//     video,
-//   };
-
-// }
 
 export function useVideoDetail(videoID: string) {
   // need to check that videoID is a string. As types throws error on useRouter...
@@ -298,7 +276,7 @@ export function useSession() {
 export async function getCSRF() {
   try {
     const res = await axios
-      .get('http://localhost/spa/csrf/', {
+      .get('https://vcms-ssl.capt.nonovium.com/spa/csrf/', {
         withCredentials: true,
       })
       .then((res) => res.headers['x-csrftoken']);
