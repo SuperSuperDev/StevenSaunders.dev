@@ -1,6 +1,9 @@
 import axios from 'axios';
+import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import useSWR from 'swr';
 
+import { getRefreshToken, getToken, setTokens } from './auth';
+// import { isAuthenticated as checkAuth } from './auth';
 import { publishedOnDate } from './helper';
 import { secondsToHHMMSS } from './helper';
 import { IExtendedEncodedVideo } from './types';
@@ -13,9 +16,49 @@ import {
 } from './types';
 
 export const baseUrl = process.env.NEXT_PUBLIC_VCMS_HOST || 'nobaseURL';
+// Function that will be called to refresh authorization
+const refreshAuthLogic = (failedRequest: {
+  response: { config: { headers: { [x: string]: string } } };
+}) =>
+  axios
+    .post(
+      `${baseUrl}/spa/token/refresh/`,
+      {
+        refresh: getRefreshToken(),
+      },
+      {
+        withCredentials: false,
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `JWT ${getToken()}`,
+        },
+      }
+    )
+    .then((tokenRefreshResponse) => {
+      // localStorage.setItem('token', tokenRefreshResponse.data.token);
+      setTokens(
+        tokenRefreshResponse.data.access,
+        tokenRefreshResponse.data.refresh
+      );
+      failedRequest.response.config.headers['Authorization'] =
+        'JWT ' + tokenRefreshResponse.data.access;
+      return Promise.resolve();
+    });
+// instantiate the interceptor
+createAuthRefreshInterceptor(axios, refreshAuthLogic);
 
+// const userFetcher = (url: string) =>
+//   axios.get(url, { withCredentials: true }).then((res) => res.data);
 const userFetcher = (url: string) =>
-  axios.get(url, { withCredentials: true }).then((res) => res.data);
+  axios
+    .get(url, {
+      withCredentials: false,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `JWT ${getToken()}`,
+      },
+    })
+    .then((res) => res.data);
 
 export function headers() {
   return {
@@ -40,41 +83,65 @@ export async function fileUploadHeaders() {
 //   return axios.post(`${baseUrl}/register`, formdata);
 // }
 
+export async function refreshUser() {
+  return axios.post(
+    `${baseUrl}/spa/token/refresh/`,
+    {
+      refresh: getRefreshToken(),
+    },
+    {
+      withCredentials: false,
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `JWT ${getToken()}`,
+      },
+    }
+  );
+}
+
 export async function loginUser(formdata: Record<string, unknown>) {
   return axios.post(
     // `${baseUrl}/spa/login/`,
-    'https://vcms-ssl.capt.nonovium.com/spa/login/',
+    //'https://vcms-ssl.capt.nonovium.com/spa/login/',
+    `${baseUrl}/spa/token/`,
     // `${baseUrl}/api/v1/login`,
     { ...formdata },
     {
-      withCredentials: true,
+      // withCredentials: true,
+      withCredentials: false,
       headers: {
         'Content-Type': 'application/json',
-        'X-CSRFToken': await getCSRF(),
+        // 'X-CSRFToken': await getCSRF(),
       },
     }
   );
 }
 export async function logoutUser() {
   return axios.post(
-    `${baseUrl}/spa/logout/`,
+    `${baseUrl}/spa/token/logout/`,
     {},
     {
-      withCredentials: true,
-      headers: { 'X-CSRFToken': await getCSRF() },
+      headers: { Authorization: `JWT ${getToken()}` },
     }
   );
 }
 
+// TODO  curl -X POST http://127.0.0.1:8088/auth/token/logout/  --data 'b704c9fc3655635646356ac2950269f352ea1139' -H 'Authorization: Token b704c9fc3655635646356ac2950269f352ea1139'
+
 export function useUser() {
+  // const {
+  //   data: userData,
+  //   mutate: userMutate,
+  //   error: userError,
+  // } = useSWR(`${baseUrl}/spa/whoami/`, userFetcher);
   const {
     data: userData,
     mutate: userMutate,
     error: userError,
-  } = useSWR(`${baseUrl}/spa/whoami/`, userFetcher);
-
+  } = useSWR(`${baseUrl}/spa/auth/users/me/`, userFetcher);
   const loading: boolean = !userData && !userError;
-  const isAuthenticated: boolean = userData?.isAuthenticated;
+  const isAuthenticated: boolean = userData?.id !== undefined;
+  // const isAuthenticated = checkAuth()
 
   return {
     loading,
@@ -87,7 +154,7 @@ export function useUser() {
 
 export function useUserMedia() {
   const { data: user, error: userError } = useSWR(
-    `${baseUrl}/spa/whoami/`,
+    `${baseUrl}/spa/auth/users/me/`,
     userFetcher
   );
   const { data: media, error: mediaError } = useSWR(

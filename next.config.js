@@ -1,7 +1,8 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   async headers() {
-    const frontendURL = process.env.FRONTEND_URL || 'http://localhost:3000';
+    const frontendURL =
+      process.env.NEXT_PUBLIC_FRONTEND_URL || 'http://localhost:3000';
     return [
       {
         source: '/api/(.*)',
@@ -21,6 +22,7 @@ module.exports = {
       },
     ];
   },
+  crossOrigin: 'anonymous',
   eslint: {
     dirs: ['src'],
   },

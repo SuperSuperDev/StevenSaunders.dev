@@ -3,7 +3,7 @@ import React from 'react';
 import Box from '../containers/Box';
 import useForm from '../../hooks/useForm';
 import { loginUser, useUser } from '../../lib/api';
-
+import { setTokens } from '../../lib/auth';
 export default function SignInForm() {
   // const { formdata, handleChange } = useForm({
   //   email: '',
@@ -22,7 +22,9 @@ export default function SignInForm() {
   const handleSubmit = async (e: { preventDefault: () => void }) => {
     e.preventDefault();
     try {
-      await loginUser(formdata);
+      const resp = await loginUser(formdata);
+      const data = resp.data;
+      setTokens(data.access, data.refresh);
       userMutate();
     } catch (err) {
       throw new Error(JSON.stringify(err));

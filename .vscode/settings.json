@@ -32,5 +32,6 @@
     "tab.activeBorder": "#f5089e"
   },
   "peacock.remoteColor": "#c4067e",
-  "svg.preview.background": "editor"
+  "svg.preview.background": "editor",
+  "peacock.color": "#7fba0b"
 }

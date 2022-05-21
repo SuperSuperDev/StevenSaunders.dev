@@ -8,7 +8,7 @@ import { useState } from 'react';
 import Button from '../buttons/Button';
 import Block from '../containers/Block';
 import Box from '../containers/Box';
-import { getCSRF } from '../../lib/api';
+import { refreshUser } from '../../lib/api';
 import { publishedOnDate, secondsToHHMMSS } from '../../lib/helper';
 import UploadService from '../../lib/upload-files.service';
 
@@ -117,16 +117,17 @@ export default function UploadFiles() {
   ];
 
   async function upload() {
-    const csrfToken = await getCSRF();
+    //const csrfToken = await getCSRF();
     if (
       formData.selectedFiles !== undefined &&
       formData.selectedFiles !== null
     ) {
+      await refreshUser();
       const currentFile: File = formData.selectedFiles[0];
       formData.progress = 0;
       formData.currentFile = currentFile;
 
-      UploadService.upload(csrfToken, currentFile, (event) => {
+      UploadService.upload(currentFile, (event) => {
         formData.isLoading = true;
         formData.progress = Math.round((event.loaded * 100) / event.total);
         setFormData({ ...formData });
