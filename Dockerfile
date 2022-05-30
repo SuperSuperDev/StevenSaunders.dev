@@ -12,6 +12,14 @@ RUN yarn install --frozen-lockfile
 
 # Rebuild the source code only when needed
 FROM node:16-alpine AS builder
+# Add caprover env variables to the container to enable coverage
+ARG VCMS_HOST=${VCMS_HOST}
+ENV VCMS_HOST=${VCMS_HOST}
+ARG NEXT_PUBLIC_VCMS_HOST=${NEXT_PUBLIC_VCMS_HOST}
+ENV NEXT_PUBLIC_VCMS_HOST=${NEXT_PUBLIC_VCMS_HOST}
+ARG FRONTEND_URL=${FRONTEND_URL}
+ENV FRONTEND_URL=${FRONTEND_URL}
+ARG NEXT_PUBLIC_FRONTENT_URL=${NEXT_PUBLIC_FRONTENT_URL}
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
