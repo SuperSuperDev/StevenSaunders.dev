@@ -43,6 +43,7 @@ deploy.tar
 
 # temp folder
 /.scratch/
+/scratch
 
 # HTTP Client
 client.local.http
