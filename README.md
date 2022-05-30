@@ -1,6 +1,6 @@
 <div align="center">
   <h1>StevenSaunders.dev</h1>
-  <p>Personal Portfolio Site built with Next.js + Tailwind CSS + TypeScript</p>
+  <p>Personal Portfolio Site built with Next.js + Tailwind CSS + TypeScript + Storybook</p>
   
   <p>Original project structure by <a href="https://github.com/theodorusclarence">Theodorus Clarence</a></p>
   
