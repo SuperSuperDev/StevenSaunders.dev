@@ -38,6 +38,11 @@ robots.txt
 sitemap.xml
 **/tailwindui-react
 
-# caprover reply tar file
+# caprover deploy tar file
 deploy.tar
+
+# temp folder
 /.scratch/
+
+# HTTP Client
+client.local.http

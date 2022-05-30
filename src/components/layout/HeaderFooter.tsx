@@ -10,10 +10,10 @@ export default function HeaderFooter({
 }) {
   return (
     <>
-      <div className='flex h-screen flex-col'>
+      <div className='anim-bg-light dark:anim-bg-dark flex min-h-screen min-w-full flex-col'>
         <NavBar />
         <div className='flex flex-grow'>
-          <main className='min-h-min'>{children}</main>
+          <main className='min-h-min min-w-min flex-1'>{children}</main>
         </div>
         <Footer />
       </div>

@@ -1,16 +1,17 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 
+// import siteMetadata from '../../data/siteMetadata';
 import { openGraph } from '@/lib/helper';
 
 // !STARTERCONF Change these default meta
 const defaultMeta = {
-  title: 'Next.js + Tailwind CSS + TypeScript Starter',
-  siteName: 'Next.js + Tailwind CSS + TypeScript Starter',
+  title: 'StevenSaunders.dev',
+  siteName: 'StevenSaunders.dev',
   description:
-    'A starter for Next.js, Tailwind CSS, and TypeScript with Absolute Import, Seo, Link component, pre-configured with Husky',
+    'I am Steve. A full stack engineer with a passion for developing scalable and maintainable systems.',
   /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
-  url: 'https://tsnext-tw.thcl.dev',
+  url: 'https://stevensaunders.dev',
   type: 'website',
   robots: 'follow, index',
   /** No need to be filled, will be populated with openGraph function */
@@ -84,7 +85,16 @@ export default function Seo(props: SeoProps) {
         name='msapplication-TileImage'
         content='/favicon/ms-icon-144x144.png'
       />
-      <meta name='theme-color' content='#ffffff' />
+      <meta
+        name='theme-color'
+        media='(prefers-color-scheme: light)'
+        content='white'
+      />
+      <meta
+        name='theme-color'
+        media='(prefers-color-scheme: dark)'
+        content='black'
+      />
     </Head>
   );
 }

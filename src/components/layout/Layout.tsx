@@ -5,7 +5,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   // Put Header or Footer Here
   return (
     <ThemeProvider attribute='class'>
-      <div id='layout' className='h-full min-h-full'>
+      <div id='layout' className='h-full min-h-full min-w-full'>
         {children}
       </div>
     </ThemeProvider>

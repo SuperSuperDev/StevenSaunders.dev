@@ -1,5 +1,5 @@
 {
-  "name": "ts-nextjs-tailwind-starter",
+  "name": "stevensaunders-dev",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -44,6 +44,7 @@
     "@babel/core": "^7.17.5",
     "@commitlint/cli": "^13.2.1",
     "@commitlint/config-conventional": "^13.2.0",
+    "@iconify/react": "^3.2.1",
     "@storybook/addon-actions": "^6.4.19",
     "@storybook/addon-essentials": "^6.4.19",
     "@storybook/addon-interactions": "^6.4.19",

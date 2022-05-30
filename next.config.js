@@ -27,7 +27,11 @@ module.exports = {
     dirs: ['src'],
   },
   images: {
-    domains: ['localhost', 'http://videocms.jcloud.ik-server.com/'],
+    domains: [
+      'localhost',
+      'http://videocms.jcloud.ik-server.com/',
+      's3.pub1.infomaniak.cloud',
+    ],
   },
   reactStrictMode: true,
 

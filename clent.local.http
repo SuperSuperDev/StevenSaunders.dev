@@ -1,0 +1,126 @@
+# @Host = "http://localhost"
+# @Host = "http://localhost:8000"
+@apiUrl = "https://vcms-ssl.capt.nonovium.com/"
+# @apiUrl = "http://localhost:8000/api"
+@authUrl =  "users"
+
+GET {{apiUrl}}/{{authUrl}}/
+
+###
+
+GET http://localhost:8000/api/users/
+
+###
+
+GET http://localhost:8000/api/videos/
+Content-Type: application/json
+Authorization: Token 884cbaf82a4708c231b95b75b536cb87bc2e4ce9
+
+###
+
+GET http://localhost:8000/accounts/
+###
+GET {{apiUrl}}/spa/video/
+Content-Type: application/json
+Authorization: Token 884cbaf82a4708c231b95b75b536cb87bc2e4ce9
+
+###
+GET {{apiUrl}}/spa/video/
+Content-Type: application/json
+
+###
+GET {{apiUrl}}/spa/whoami/
+Content-Type: application/json
+Authorization: Token 884cbaf82a4708c231b95b75b536cb87bc2e4ce9
+
+###
+
+POST {{apiUrl}}/spa/login/
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "password": "admin1"
+}
+
+###
+GET http://localhost/api/v1/whoami
+Content-Type: application/json
+Authorization: Token 884cbaf82a4708c231b95b75b536cb87bc2e4ce9
+
+{
+  "username": "admin1",
+  "password": "admin1"
+}
+
+###
+
+POST {{apiUrl}}/spa/auth/users/
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "l3tm31n!"
+}
+
+###
+POST {{apiUrl}}/auth/token/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "l3tm31n!"
+}
+
+###
+POST {{apiUrl}}/spa/token/
+Content-Type: application/json
+
+{
+  "username": "admin1",
+  "password": "admin1"
+}
+
+###
+GET {{apiUrl}}/spa/auth/users/
+Content-Type: application/json
+Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNjI4NjM0LCJqdGkiOiIyMTA5NmViYjQ1ODE0MThmYWMwNGJlOTk5ZGJlYTRjYSIsInVzZXJfaWQiOjJ9.kNG8RwEiV9t3RsaQBEVSpxXWJtK3varFc98ZWvNkjGk
+###
+GET {{apiUrl}}/spa/video/
+Content-Type: application/json
+Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNjI4OTUyLCJqdGkiOiI3M2U2Yzc4YmNlZGM0NjU5ODZhYzY2ZWFjMTY1MzI2OCIsInVzZXJfaWQiOjJ9.sMJcaacpn8FCUCWYHOsxqBEK28fPHw8meBWlwxPiMo8
+###  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY1MzkwNjU1OCwianRpIjoiYWNlMDRlMmJlYzlmNDE2MGExZTk4MjVjNmQ3NTQ5NTgiLCJ1c2VyX2lkIjoyfQ.ZquhY9lOFTV-QAHwby-nElTsHiVFg8PIPeTR-QOFK9k",
+###   "access": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNjk3MjU4LCJqdGkiOiI4MWIwYzk2ZTZmMGY0MDVmYWJiMWU0MjdmYTBlM2JlMiIsInVzZXJfaWQiOjJ9.9FWEGshXFDK9egALdLFaUuz9v1jK3FxZHYeEuflUU04"
+POST {{apiUrl}}/spa/token/refresh/
+Content-Type: application/json
+// Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNjk3MjU4LCJqdGkiOiI4MWIwYzk2ZTZmMGY0MDVmYWJiMWU0MjdmYTBlM2JlMiIsInVzZXJfaWQiOjJ9.9FWEGshXFDK9egALdLFaUuz9v1jK3FxZHYeEuflUU04
+
+{
+  "refresh": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY1MzkwNjU1OCwianRpIjoiYWNlMDRlMmJlYzlmNDE2MGExZTk4MjVjNmQ3NTQ5NTgiLCJ1c2VyX2lkIjoyfQ.ZquhY9lOFTV-QAHwby-nElTsHiVFg8PIPeTR-QOFK9k"
+}
+
+###
+POST {{apiUrl}}/spa/token/verify/
+content-type: application/json
+Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNzAwNDcwLCJqdGkiOiJjNjI4ZWY5ZDM5ZTc0MDAwYWI4OThhMjk2NmU4ZTI4ZCIsInVzZXJfaWQiOjJ9.ICgMPfOLSPmvocb-eXpOoxcqh9qBUhzMvNkuqGYr5G8
+
+{
+  "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNzAwNDcwLCJqdGkiOiJjNjI4ZWY5ZDM5ZTc0MDAwYWI4OThhMjk2NmU4ZTI4ZCIsInVzZXJfaWQiOjJ9.ICgMPfOLSPmvocb-eXpOoxcqh9qBUhzMvNkuqGYr5G8"
+}
+
+###
+GET {{apiUrl}}/spa/auth/users/me/
+Content-Type: application/json
+Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNzAxMTkxLCJqdGkiOiJhZTVhNTdkMWNkODQ0NWYxOTVkZDJhNDhmMTkzNzNiNyIsInVzZXJfaWQiOjJ9.E2woN-a0M99fkG9CZkXJPtDwoFReRCpyoiPy_yC042s
+### 
+GET {{apiUrl}}/spa/auth/users/me/
+Content-Type: application/json
+Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNzA5MTk2LCJqdGkiOiIzYmFjYjc4MDk0MTk0ODY5YTVlMzZkOGMyNWM3NGViYSIsInVzZXJfaWQiOjF9.JSxbe7JLgO_kvObX-aSH_rZae8arzubt8o3o_5nW4kI
+
+###
+POST {{apiUrl}}/spa/token/logout/
+Content-Type: application/json
+Authorization: JWT eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjUyNzA5MTk2LCJqdGkiOiIzYmFjYjc4MDk0MTk0ODY5YTVlMzZkOGMyNWM3NGViYSIsInVzZXJfaWQiOjF9.JSxbe7JLgO_kvObX-aSH_rZae8arzubt8o3o_5nW4kI
+
+###
+

@@ -85,11 +85,3 @@ export function isOwner(userId) {
   if (!payload) return false;
   return userId === payload.userId;
 }
-
-// function getCsrfToken(token) {
-//   console.log('token', token);
-//   return console.log(btoa(token));
-// }
-
-// getCsrfToken('697989cfa78e8cc67ba4d22456e29e5e142b7d6d');
-// getCsrfToken('Njk3OTg5Y2ZhNzhlOGNjNjdiYTRkMjI0NTZlMjllNWUxNDJiN2Q2ZA==');

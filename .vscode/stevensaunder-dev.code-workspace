@@ -1,0 +1,76 @@
+{
+  "folders": [
+    {
+      "name": "Root",
+      "path": ".."
+    },
+    {
+      "name": "components",
+      "path": "../src/components"
+    },
+    {
+      "name": "videos-ui",
+      "path": "../src/components/videos-ui"
+    },
+    {
+      "name": "lib",
+      "path": "../src/lib"
+    },
+    {
+      "name": "pages",
+      "path": "../src/pages"
+    }
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {
+      "activityBar.activeBackground": "#5856b3",
+      "activityBar.activeBorder": "#421e1e",
+      "activityBar.background": "#5856b3",
+      "activityBar.foreground": "#e7e7e7",
+      "activityBar.inactiveForeground": "#e7e7e799",
+      "activityBarBadge.background": "#421e1e",
+      "activityBarBadge.foreground": "#e7e7e7",
+      "sash.hoverBorder": "#5856b3",
+      "statusBar.background": "#444294",
+      "statusBar.foreground": "#e7e7e7",
+      "statusBarItem.hoverBackground": "#5856b3",
+      "statusBarItem.remoteBackground": "#444294",
+      "statusBarItem.remoteForeground": "#e7e7e7",
+      "titleBar.activeBackground": "#444294",
+      "titleBar.activeForeground": "#e7e7e7",
+      "titleBar.inactiveBackground": "#44429499",
+      "titleBar.inactiveForeground": "#e7e7e799",
+      "sideBar.border": "#5856b3",
+      "editorGroup.border": "#5856b3",
+      "panel.border": "#5856b3",
+      "statusBar.border": "#444294",
+      "titleBar.border": "#444294",
+      "tab.activeBorder": "#5856b3",
+      "tab.activeBorderTop": "#7a4aea",
+      "tab.lastPinnedBorder": "#d900ff",
+      "tab.activeBackground": "#000000",
+      "tab.activeForeground": "#fe35fe",
+      "tab.border": "#230535",
+      "sideBarSectionHeader.background": "#821a94",
+      "editor.selectionBackground": "#480af344",
+      "editor.selectionHighlightBorder": "#ff00ff",
+      "editor.findMatchHighlightBorder": "#ff0000",
+      "editorLineNumber.activeForeground": "#a200ff",
+      "editor.inactiveSelectionBackground": "#440303",
+      "editor.background": "#000000",
+      "list.inactiveSelectionBackground": "#000000",
+      "list.activeSelectionBackground": "#000000",
+      "tree.indentGuidesStroke": "#eb06c5",
+      "tree.tableColumnsBorder": "#ff0000",
+      "tree.tableOddRowsBackground": "#ff0000",
+      "banner.background": "#e01e04"
+    },
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "workbench.editor.wrapTabs": true,
+    "workbench.tips.enabled": true,
+    "peacock.remoteColor": "#444294",
+    "svg.preview.background": "editor"
+  }
+}

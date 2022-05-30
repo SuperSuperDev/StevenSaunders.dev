@@ -60,8 +60,14 @@ export interface IVideoDetails {
   ratings_info: string;
   add_subtitle_url: string;
   allow_download: boolean;
+  post_type: string;
 }
-
+export interface IBlogPosts {
+  count: 2;
+  next: null;
+  previous: null;
+  results: IVideoDetails[];
+}
 export interface IEncodedH264Video {
   name: string;
   url: string;
@@ -108,3 +114,46 @@ export interface IDynamicVideoThumbnail {
 export interface ICodec {
   [key: string]: string | unknown;
 }
+
+export type DevIcons = {
+  name: string;
+  title: string;
+  alt: string;
+};
+
+export type DevTech =
+  | 'TypeScript'
+  | 'JavaScript'
+  | 'Python'
+  | 'React'
+  | 'Next'
+  | 'Nextjs'
+  | 'Nodejs'
+  | 'Node'
+  | 'Express'
+  | 'MongoDB'
+  | 'PostgreSQL'
+  | 'GraphQL'
+  | 'Django'
+  | 'Docker'
+  | 'CSS3'
+  | 'Tailwind CSS'
+  | 'Bulma'
+  | 'HTML5'
+  | 'Sass'
+  | 'Less'
+  | 'GitHub'
+  | 'Git'
+  | 'NPM'
+  | 'Webpack'
+  | 'Illustrator'
+  | 'Photoshop'
+  | 'After Effects'
+  | 'Premiere Pro'
+  | 'Visual Studio'
+  | 'Neo4j';
+
+export type DevTechIconFormat =
+  | 'IconComponent'
+  | 'DevIconUrl'
+  | 'DevIconWordUrl';

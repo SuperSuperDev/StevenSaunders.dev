@@ -3,7 +3,6 @@ import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import useSWR from 'swr';
 
 import { getRefreshToken, getToken, setTokens } from './auth';
-// import { isAuthenticated as checkAuth } from './auth';
 import { publishedOnDate } from './helper';
 import { secondsToHHMMSS } from './helper';
 import { IExtendedEncodedVideo } from './types';
@@ -35,7 +34,6 @@ const refreshAuthLogic = (failedRequest: {
       }
     )
     .then((tokenRefreshResponse) => {
-      // localStorage.setItem('token', tokenRefreshResponse.data.token);
       setTokens(
         tokenRefreshResponse.data.access,
         tokenRefreshResponse.data.refresh
@@ -47,8 +45,6 @@ const refreshAuthLogic = (failedRequest: {
 // instantiate the interceptor
 createAuthRefreshInterceptor(axios, refreshAuthLogic);
 
-// const userFetcher = (url: string) =>
-//   axios.get(url, { withCredentials: true }).then((res) => res.data);
 const userFetcher = (url: string) =>
   axios
     .get(url, {
@@ -60,27 +56,23 @@ const userFetcher = (url: string) =>
     })
     .then((res) => res.data);
 
-export function headers() {
-  return {
-    withCredentials: true,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
-}
+// export function headers() {
+//   return {
+//     withCredentials: true,
+//     headers: {
+//       'Content-Type': 'application/json',
+//     },
+//   };
+// }
 
-export async function fileUploadHeaders() {
-  return {
-    withCredentials: true,
-    headers: {
-      'Content-Type': 'multipart/form-data',
-      'X-CSRFToken': await getCSRF(),
-    },
-  };
-}
-//! Auth Requests
-// export function registerUser(formdata) {
-//   return axios.post(`${baseUrl}/register`, formdata);
+// export async function fileUploadHeaders() {
+//   return {
+//     withCredentials: true,
+//     headers: {
+//       'Content-Type': 'multipart/form-data',
+//       'X-CSRFToken': await getCSRF(),
+//     },
+//   };
 // }
 
 export async function refreshUser() {
@@ -101,17 +93,12 @@ export async function refreshUser() {
 
 export async function loginUser(formdata: Record<string, unknown>) {
   return axios.post(
-    // `${baseUrl}/spa/login/`,
-    //'https://vcms-ssl.capt.nonovium.com/spa/login/',
     `${baseUrl}/spa/token/`,
-    // `${baseUrl}/api/v1/login`,
     { ...formdata },
     {
-      // withCredentials: true,
       withCredentials: false,
       headers: {
         'Content-Type': 'application/json',
-        // 'X-CSRFToken': await getCSRF(),
       },
     }
   );
@@ -126,14 +113,7 @@ export async function logoutUser() {
   );
 }
 
-// TODO  curl -X POST http://127.0.0.1:8088/auth/token/logout/  --data 'b704c9fc3655635646356ac2950269f352ea1139' -H 'Authorization: Token b704c9fc3655635646356ac2950269f352ea1139'
-
 export function useUser() {
-  // const {
-  //   data: userData,
-  //   mutate: userMutate,
-  //   error: userError,
-  // } = useSWR(`${baseUrl}/spa/whoami/`, userFetcher);
   const {
     data: userData,
     mutate: userMutate,
@@ -141,7 +121,6 @@ export function useUser() {
   } = useSWR(`${baseUrl}/spa/auth/users/me/`, userFetcher);
   const loading: boolean = !userData && !userError;
   const isAuthenticated: boolean = userData?.id !== undefined;
-  // const isAuthenticated = checkAuth()
 
   return {
     loading,
@@ -158,7 +137,7 @@ export function useUserMedia() {
     userFetcher
   );
   const { data: media, error: mediaError } = useSWR(
-    user ? `${baseUrl}/api/v1/media/?author=${user.username}` : null,
+    user ? `${baseUrl}/spa/video/?author=${user.username}` : null,
     userFetcher,
     {
       refreshInterval: 1000,
@@ -182,6 +161,7 @@ export function useVideoDetail(videoID: string) {
   // need to check that videoID is a string. As types throws error on useRouter...
   // we also check videoID is not 'null' or 'undefined as the VideoPage [videoID].tsx
   // passes this as a string
+  // TODO: chore: refactor, could be cleaner
   const shouldFetch =
     videoID &&
     videoID !== 'null' &&
@@ -194,7 +174,6 @@ export function useVideoDetail(videoID: string) {
     error: videoError,
     mutate: videoMutate,
   } = useSWR<IVideoDetails>(
-    // shouldFetch ? `${baseUrl}/api/v1/media/${videoID}` : null,
     shouldFetch ? `${baseUrl}/spa/video/${videoID}` : null,
     userFetcher,
     {
@@ -204,6 +183,7 @@ export function useVideoDetail(videoID: string) {
       revalidateOnReconnect: false,
     }
   );
+
   const formattedDuration = video?.duration
     ? secondsToHHMMSS(video.duration)
     : '';
@@ -252,29 +232,6 @@ export function useVideoDetail(videoID: string) {
     videoPreviewURL,
     videoPosterURL: video?.poster_url ? baseUrl + video?.poster_url : undefined,
   };
-
-  // const encodingAssets = video?.encodings_info &&  Object.keys(video?.encodings_info).map((key, i) => {
-  //   return {
-  //     resolution: key,
-  //     encoding: video?.encodings_info[key],
-  //   };
-  // });
-
-  // const encodingAssets = video?.encodings_info &&  Object.keys(video?.encodings_info).map((key, i) => {
-  //   const filesArray = [];
-  //   const encodedFiles = Object.keys(video?.encodings_info[key]).map((key2, i2) => {
-  //       const encodedVideo = video?.encodings_info[key][key2];
-  //       const encodedVideoFiles =  {
-  //             resolution: key,
-  //             encoder: key2,
-  //             ...encodedVideo,
-  //       };
-  //       console.log('encodedVideoFiles', encodedVideoFiles)
-  //       filesArray.push(encodedVideoFiles);
-  //     })
-  //   console.log('filesArray', filesArray)
-  //   return filesArray;
-  // });
 
   const encodedFilesArray: IEncodedVideoArray = [];
   const encodedH264FilesArray: IEncodedH264VideoArray = [];
@@ -352,23 +309,3 @@ export async function getCSRF() {
     return 'Error';
   }
 }
-
-// export function csrfToken() {
-//   let i,
-//     cookies,
-//     cookie,
-//     cookieVal = null;
-//   if (document.cookie && '' !== document.cookie) {
-//     cookies = document.cookie.split(';');
-//     i = 0;
-//     while (i < cookies.length) {
-//       cookie = cookies[i].trim();
-//       if ('csrftoken=' === cookie.substring(0, 10)) {
-//         cookieVal = decodeURIComponent(cookie.substring(10));
-//         break;
-//       }
-//       i += 1;
-//     }
-//   }
-//   return cookieVal;
-// }

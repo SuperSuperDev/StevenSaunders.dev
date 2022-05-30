@@ -5,9 +5,9 @@ import { IVideoPlayerProps } from '../../lib/types';
 
 const defaultPlayer = {
   id: 'vs',
-  url: 'http://videocms.jcloud.ik-server.com//media/encoded/7/admin1/5f47ebfc2bb840129579ea73bf784772.5f47ebfc2bb840129579ea73bf784772.caminandes_llamigos_1080p151.mp4.mp4',
+  url: 'https://vcms-ssl.capt.nonovium.com/media/encoded/7/admin1/4edaffd01f264cff914264b632cb5089.4edaffd01f264cff914264b632cb5089.caminandes_llamigos_1080p1511_-_Copy.mp4.mp4',
   poster:
-    'http://videocms.jcloud.ik-server.com//media/original/thumbnails/user/admin1/5f47ebfc2bb840129579ea73bf784772.caminandes_llamigos_1080p151.mp4_Bn9Sg69.jpg',
+    'https://vcms-ssl.capt.nonovium.com/media/original/thumbnails/user/admin1/4edaffd01f264cff914264b632cb5089.caminandes_llamigos_1080p1511_-_Copy.mp4_eDq3E3Z.jpg',
   fluid: true,
   fitVideoSize: 'auto',
 };
