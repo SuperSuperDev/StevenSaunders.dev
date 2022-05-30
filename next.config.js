@@ -29,7 +29,7 @@ module.exports = {
   images: {
     domains: [
       'localhost',
-      'http://videocms.jcloud.ik-server.com/',
+      'videocms.jcloud.ik-server.com/',
       's3.pub1.infomaniak.cloud',
     ],
   },
