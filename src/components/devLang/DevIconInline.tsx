@@ -20,6 +20,7 @@ export default function DevIconInline({ devTech, iconFormat }: props) {
       'Express',
       'MongoDB',
       'PostgreSQL',
+      'Neo4j',
       'GraphQL',
       'Django',
       'Docker',
@@ -38,7 +39,6 @@ export default function DevIconInline({ devTech, iconFormat }: props) {
       'After Effects',
       'Premiere Pro',
       'Visual Studio',
-      'Neo4j',
     ];
   }
 
