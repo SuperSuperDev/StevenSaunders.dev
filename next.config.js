@@ -31,6 +31,7 @@ module.exports = {
       'localhost',
       'videocms.jcloud.ik-server.com/',
       's3.pub1.infomaniak.cloud',
+      'vcms-ssl.capt.nonovium.com',
     ],
   },
   reactStrictMode: true,

@@ -26,8 +26,8 @@ export interface IVideoDetails {
   user: string;
   title: string;
   description: string;
-  add_date: string;
-  edit_date: string;
+  add_date: Date;
+  edit_date: Date;
   media_type: string;
   state: string;
   duration: number;
@@ -53,7 +53,7 @@ export interface IVideoDetails {
   categories_info: string;
   is_reviewed: boolean;
   edit_url: string;
-  tags_info: string;
+  tags_info: ITags[];
   hls_info: Record<string, unknown>;
   license: number;
   subtitles_info: string;
@@ -61,6 +61,8 @@ export interface IVideoDetails {
   add_subtitle_url: string;
   allow_download: boolean;
   post_type: string;
+  hero_url: string;
+  large_thumbnail_url: string;
 }
 export interface IBlogPosts {
   count: 2;
@@ -123,37 +125,74 @@ export type DevIcons = {
 
 export type DevTech =
   | 'TypeScript'
+  | 'typescript'
   | 'JavaScript'
+  | 'javascript'
   | 'Python'
+  | 'python'
   | 'React'
+  | 'react'
   | 'Next'
+  | 'next'
   | 'Nextjs'
+  | 'nextjs'
   | 'Nodejs'
+  | 'nodejs'
   | 'Node'
+  | 'node'
   | 'Express'
+  | 'express'
   | 'MongoDB'
+  | 'mongodb'
   | 'PostgreSQL'
+  | 'postgresql'
+  | 'Redis'
+  | 'redis'
   | 'GraphQL'
+  | 'graphql'
   | 'Django'
+  | 'django'
   | 'Docker'
+  | 'docker'
   | 'CSS3'
+  | 'css3'
   | 'Tailwind CSS'
+  | 'tailwindcss'
   | 'Bulma'
+  | 'bulma'
   | 'HTML5'
+  | 'html5'
   | 'Sass'
+  | 'sass'
   | 'Less'
+  | 'less'
   | 'GitHub'
+  | 'github'
   | 'Git'
+  | 'git'
   | 'NPM'
+  | 'npm'
   | 'Webpack'
+  | 'webpack'
   | 'Illustrator'
+  | 'illustrator'
   | 'Photoshop'
+  | 'photoshop'
   | 'After Effects'
+  | 'after-effects'
   | 'Premiere Pro'
+  | 'premiere-pro'
   | 'Visual Studio'
-  | 'Neo4j';
+  | 'visual-studio'
+  | 'Neo4j'
+  | 'neo4j';
 
 export type DevTechIconFormat =
   | 'IconComponent'
   | 'DevIconUrl'
   | 'DevIconWordUrl';
+
+export interface ITags {
+  title: DevTech;
+  url: string;
+}

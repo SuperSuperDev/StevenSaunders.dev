@@ -58,6 +58,7 @@
     "@storybook/testing-library": "^0.0.9",
     "@svgr/webpack": "^6.2.1",
     "@tailwindcss/forms": "^0.4.0",
+    "@tailwindcss/line-clamp": "^0.4.0",
     "@tailwindcss/typography": "^0.5.2",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",

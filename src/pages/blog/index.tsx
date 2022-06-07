@@ -1,27 +1,37 @@
+import BlogList from '@NonoviumUI/blogUI/BlogList';
+import FeaturedPost from '@NonoviumUI/blogUI/FeaturedPost';
 import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
 import { ReactElement } from 'react';
 
 import { loadBlogPosts } from '@/lib/fetch-blog-posts';
+import { IVideoDetails } from '@/lib/types';
 
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
-import { IVideoDetails } from '../../lib/types';
+import { DevTech } from '../../lib/types';
 
-export default function Blog({
-  blogPosts: blogPosts,
-}: {
+type props = {
   blogPosts: IVideoDetails[];
-}) {
+  featuredPost: IVideoDetails;
+  tags: DevTech[];
+};
+export default function Blog({ blogPosts, featuredPost, tags }: props) {
   return (
     <>
       <Seo templateTitle='Blog' />
-      <main>Blog</main>
-      <ul>
-        {blogPosts.map(({ title }) => (
-          <li key={title}>{title}</li>
-        ))}
-      </ul>
+      <div id='content'>
+        <section className='prose mx-auto mt-16 max-w-7xl px-4 text-center dark:prose-invert'>
+          <h1 className='txt-shdw-distant dark:txt-shdw-distant-dark justify-items-center px-7 text-2xl leading-tight sm:text-4xl md:leading-normal'>
+            Blog
+          </h1>
+
+          <FeaturedPost featuredPost={featuredPost} />
+        </section>
+        <section className='container mx-auto'>
+          <BlogList blogPosts={blogPosts} tags={tags} />
+        </section>
+      </div>
     </>
   );
 }
@@ -36,16 +46,25 @@ Blog.getLayout = function getLayout(Blog: ReactElement) {
 
 export async function getStaticProps() {
   const data = await loadBlogPosts();
-  const featuredPost = data.results[0];
-  // if data.results.length > 1  const blogPosts = data.results.slice(1), if data.results.length is 0 const blogPosts = data.results;
-
+  const featuredPost: IVideoDetails = data.results[0];
   const blogPosts: IVideoDetails[] =
     data.results.length >= 2 ? data.results.slice(1) : data.results;
-
+  // TODO: create getTags hook
+  const tags: string[] = [];
+  data.results.forEach((result: IVideoDetails) => {
+    result.tags_info.forEach((tag) => {
+      if (!tags.includes(tag.title)) {
+        tags.push(tag.title);
+      } else {
+        return;
+      }
+    });
+  });
   return {
     props: {
       featuredPost,
       blogPosts,
+      tags,
     },
   };
 }
