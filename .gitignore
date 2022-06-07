@@ -47,3 +47,5 @@ deploy.tar
 
 # HTTP Client
 client.local.http
+/.vscode/
+/.vscode/settings.json
