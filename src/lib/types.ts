@@ -97,7 +97,7 @@ export interface IVideoPlayerProps {
   url: string;
   poster?: string;
   fluid?: boolean;
-  fitVideoSize: 'auto' | 'fixWidth' | 'fixHeight' | undefined;
+  fitVideoSize?: 'auto' | 'fixWidth' | 'fixHeight' | undefined;
   progress?: number;
   ref?: React.Ref<HTMLDivElement>;
 }
