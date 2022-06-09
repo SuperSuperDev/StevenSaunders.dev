@@ -22,6 +22,7 @@ export interface IFilesDict {
 }
 
 export interface IVideoDetails {
+  friendly_token: string;
   url: string;
   user: string;
   title: string;
@@ -70,6 +71,12 @@ export interface IBlogPosts {
   previous: null;
   results: IVideoDetails[];
 }
+
+export interface IBlogPost extends IVideoDetails {
+  slug?: string;
+  blogID?: string;
+}
+
 export interface IEncodedH264Video {
   name: string;
   url: string;
@@ -90,7 +97,7 @@ export interface IVideoPlayerProps {
   url: string;
   poster?: string;
   fluid?: boolean;
-  fitVideoSize?: 'auto' | 'fixWidth' | 'fixHeight' | undefined;
+  fitVideoSize: 'auto' | 'fixWidth' | 'fixHeight' | undefined;
   progress?: number;
   ref?: React.Ref<HTMLDivElement>;
 }

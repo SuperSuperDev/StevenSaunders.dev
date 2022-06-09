@@ -66,5 +66,17 @@ export async function getStaticProps() {
       blogPosts,
       tags,
     },
+    revalidate: 10,
   };
 }
+
+// export async function getStaticPaths() {
+//   const data = await loadBlogPosts();
+//   const blogPosts: IVideoDetails[] = data.results;
+
+//   const paths = blogPosts.map((blogPost) => ({
+//     params: { slug: slugify(blogPost.title) },
+//   }));
+
+//   return { paths, fallback: false };
+// }
