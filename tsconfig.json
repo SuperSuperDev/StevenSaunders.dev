@@ -29,6 +29,12 @@
     "node_modules/xgplayer/**/*.tsx",
     "node_modules/xgplayer/**/*.d.ts"
   ],
-  "exclude": ["node_modules", "**/tailwindui-react", "vcms-schema", "**/__stories__", "**/stories.bak"],
+  "exclude": [
+    "node_modules",
+    "**/tailwindui-react",
+    "vcms-schema",
+    "**/__stories__",
+    "**/stories.bak"
+  ],
   "moduleResolution": ["node_modules", ".next", "node"]
 }
