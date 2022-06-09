@@ -1,6 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import Button from '@NonoviumUI/buttons/Button';
+import Link from 'next/link';
 import { Fragment, useEffect, useState } from 'react';
+import slugify from 'slugify';
 
 import { getDevTechIcon } from '@/lib/getDevTechIcon';
 import { publishedOnDate } from '@/lib/helper';
@@ -78,7 +80,14 @@ export default function BlogList({ blogPosts, tags }: props) {
 
       <div className='mx-auto grid auto-cols-max grid-cols-1 gap-6 md:grid-cols-3'>
         {filteredBlogPosts.map(
-          ({ title, description, thumbnail_url, add_date, tags_info }) => (
+          ({
+            title,
+            description,
+            thumbnail_url,
+            add_date,
+            tags_info,
+            friendly_token,
+          }) => (
             <Fragment key={thumbnail_url}>
               <img
                 src={`${thumbnail_url}`}
@@ -86,7 +95,17 @@ export default function BlogList({ blogPosts, tags }: props) {
                 className='w-full rounded-lg object-cover shadow-lg'
               />
               <div className='mx-auto md:col-span-2 md:pl-4'>
-                <h2>{title}</h2>
+                <Link
+                  href={`/blog/${friendly_token}/${slugify(title, {
+                    lower: true,
+                    remove: /[$*+~.()'"!\-:@]/g,
+                    replacement: '-',
+                  })}`}
+                >
+                  <a className='text-2xl font-bold text-primary-500 hover:text-primary-700'>
+                    <h2>{title}</h2>
+                  </a>
+                </Link>
                 <small>
                   {publishedOnDate(new Date(add_date ? add_date : ''), 3)}
                 </small>
@@ -115,9 +134,14 @@ export default function BlogList({ blogPosts, tags }: props) {
                         ))}
                       </ul>
                     )}
-                    <Button variant='outline' className='float-right'>
-                      Read More
-                    </Button>
+
+                    <Link href={`/blog/${friendly_token}`} passHref>
+                      <a>
+                        <Button variant='outline' className='float-right'>
+                          Read More
+                        </Button>
+                      </a>
+                    </Link>
                   </div>
                 </div>
               </div>
