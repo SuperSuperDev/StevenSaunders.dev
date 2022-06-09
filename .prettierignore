@@ -42,3 +42,5 @@ CHANGELOG.md
 /.vscode/
 /src/components/tailwindui-react/
 .scratch
+/scratch
+/.yarn
