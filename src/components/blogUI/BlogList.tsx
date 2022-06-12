@@ -18,7 +18,7 @@ export default function BlogList({ blogPosts, tags }: props) {
   const [searchValue, setSearchValue] = useState('');
 
   const filteredBlogPosts = blogPosts
-    .sort((_a, b) => Number(new Date(b.add_date)))
+    //.sort((a, b) => Number(new Date(b.add_date)))
     .filter((post) => {
       return (
         post.title.toLowerCase().includes(searchValue.toLowerCase()) ||

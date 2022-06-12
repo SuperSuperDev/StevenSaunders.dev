@@ -20,13 +20,14 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
         <div
           ref={ref}
           className={clsxm(
-            'mx-auto max-w-7xl p-4 sm:p-6 lg:p-8',
+            'mx-auto w-full max-w-7xl p-4 sm:p-6 lg:p-8',
 
             //#region  //*=========== Variants ===========
             [
               variant === 'rnd-shadow' && [
-                'bg-white dark:bg-dark',
-                'border border-gray-200 dark:border-primary-400',
+                'bg-white dark:bg-gradient-to-bl dark:from-black dark:via-gray-900 dark:to-black',
+                //
+                'border border-gray-200 dark:border-none',
                 'rounded-md',
               ],
               variant === 'sq-shadow' && [

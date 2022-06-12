@@ -1,5 +1,7 @@
 import Button from '@NonoviumUI/buttons/Button';
 import Image from 'next/image';
+import Link from 'next/link';
+import slugify from 'slugify';
 
 import { baseUrl } from '@/lib/api';
 import { IVideoDetails } from '@/lib/types';
@@ -11,8 +13,16 @@ type props = {
 };
 
 export default function FeaturedPost({ featuredPost }: props) {
-  const { title, description, add_date, edit_date, hero_url, tags_info } =
-    featuredPost;
+  const {
+    title,
+    description,
+    add_date,
+    edit_date,
+    hero_url,
+    tags_info,
+    friendly_token,
+  } = featuredPost;
+
   const datePublished = publishedOnDate(new Date(add_date ? add_date : ''), 3);
   const dateEdited = publishedOnDate(new Date(edit_date ? edit_date : ''), 3);
 
@@ -33,7 +43,18 @@ export default function FeaturedPost({ featuredPost }: props) {
           )}
         </div>
         <div className='mx-auto flex-grow basis-full bg-white p-4 dark:bg-dark md:basis-1/3'>
-          <h1>{title}</h1>
+          <Link
+            href={`/blog/${friendly_token}/${slugify(title, {
+              lower: true,
+              remove: /[$*+~.()'"!\-:@]/g,
+              replacement: '-',
+            })}`}
+            passHref
+          >
+            <a className='text-2xl font-bold text-primary-500 no-underline hover:text-primary-700'>
+              <h1>{title}</h1>
+            </a>
+          </Link>
           <p>{datePublished}</p>
           {edit_date && <p>{dateEdited}</p>}
           <p className='prose line-clamp-6 dark:prose-invert'>{description}</p>
@@ -46,7 +67,18 @@ export default function FeaturedPost({ featuredPost }: props) {
               ))}
             </div>
           )}
-          <Button variant='outline'>Read More</Button>
+          <Link
+            href={`/blog/${friendly_token}/${slugify(title, {
+              lower: true,
+              remove: /[$*+~.()'"!\-:@]/g,
+              replacement: '-',
+            })}`}
+            passHref
+          >
+            <a>
+              <Button variant='outline'>Read More</Button>
+            </a>
+          </Link>
         </div>
       </div>
     </div>
