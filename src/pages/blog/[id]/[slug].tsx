@@ -1,10 +1,22 @@
-//import Button from '@NonoviumUI/buttons/Button';
+import { CalendarIcon as CalendarIconOutline } from '@heroicons/react/outline';
+import { CalendarIcon } from '@heroicons/react/solid';
+import Box from '@NonoviumUI/containers/Box';
 import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
+import Image from 'next/image';
 //import Link from 'next/link';
 import { ReactElement } from 'react';
+import ReactMarkdown from 'react-markdown';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeSlug from 'rehype-slug';
+import toc from 'rehype-toc';
+import remarkGfm from 'remark-gfm';
 import slugify from 'slugify';
 
+import 'highlight.js/styles/github-dark.css';
+
+import { baseUrl } from '@/lib/api';
 import { loadBlogPost, loadBlogPosts } from '@/lib/fetch-blog-posts';
+import { publishedOnDate } from '@/lib/helper';
 
 //import FullDetail from '../../../components/videos-ui/FullDetail';
 import Block from '@/components/containers/Block';
@@ -13,30 +25,70 @@ import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
 import { IBlogPost } from '../../../lib/types';
-
 const BlogPostDetail = ({ blogPostDetail }: { blogPostDetail: IBlogPost }) => {
-  const { blogID, title } = blogPostDetail;
+  const { title, hero_url, description, add_date, edit_date } = blogPostDetail;
+  const datePublished = publishedOnDate(new Date(add_date ? add_date : ''), 3);
+  const dateEdited = publishedOnDate(new Date(edit_date ? edit_date : ''), 3);
+
   return (
     <>
-      <Seo templateTitle={title ? title : 'Error'} />
+      <Seo templateTitle={title ? title : ''} />
 
       <main>
         <Block>
-          {title !== null && title !== undefined && (
-            <>
-              {/* <EncodingAssetList videoID={typeof videoID === 'string' ? videoID : videoID[0]} /> */}
-              {/* <Link href='/dashboard/videos/add-video' passHref>
-                <Button variant='primary'>Add New Video</Button>
-              </Link>
-              <Link href='/dashboard/videos' passHref>
-                <Button variant='outline'>View Videos</Button>
-              </Link>
-              <FullDetail
-                videoID={typeof videoID === 'string' ? videoID : videoID[0]}
-              /> */}
-              {title} {blogID}
-            </>
-          )}
+          <Box>
+            {title !== null && title !== undefined && (
+              <>
+                <section className='prose mx-auto mt-16 max-w-7xl px-4 text-center dark:prose-invert'>
+                  <div className='mx-auto flex flex-col flex-wrap'>
+                    <h1 className='mx-auto text-center'>{title}</h1>
+
+                    <div className='mx-auto flex flex-row text-center text-sm text-gray-500'>
+                      <CalendarIcon
+                        className='mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400'
+                        aria-hidden='true'
+                      />
+                      {datePublished}
+                    </div>
+                    {dateEdited !== dateEdited && (
+                      <div className='mx-auto flex flex-row text-center text-sm text-gray-500'>
+                        <CalendarIconOutline
+                          className='mr-1.5 h-5 w-5 flex-shrink-0 text-gray-400'
+                          aria-hidden='true'
+                        />
+                        Updated: {dateEdited}
+                      </div>
+                    )}
+                  </div>
+                </section>
+                <section className='prose mx-auto mt-16 max-w-7xl px-4 text-center dark:prose-invert'>
+                  <div className='mx-auto flex flex-row flex-wrap'>
+                    <div className='mx-auto flex flex-grow basis-full'>
+                      <div className='aspect-w-16 aspect-h-9 mx-auto w-full max-w-5xl rounded-b-none lg:rounded-b-lg'>
+                        <Image
+                          alt={title}
+                          src={`${baseUrl}${hero_url}`}
+                          layout='fill'
+                          objectFit='cover'
+                          className='rounded-lg group-hover:opacity-75 '
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </section>
+                <section className='mx-auto mt-16 max-w-7xl px-4'>
+                  <article className=' prose-code:not-prose dark:prose-code:no-prose prose mx-auto flex w-full flex-col flex-wrap dark:prose-invert'>
+                    <ReactMarkdown
+                      remarkPlugins={[remarkGfm]}
+                      rehypePlugins={[rehypeHighlight, rehypeSlug, toc]}
+                    >
+                      {description}
+                    </ReactMarkdown>
+                  </article>
+                </section>
+              </>
+            )}
+          </Box>
         </Block>
       </main>
     </>
@@ -46,7 +98,7 @@ const BlogPostDetail = ({ blogPostDetail }: { blogPostDetail: IBlogPost }) => {
 BlogPostDetail.getLayout = function getLayout(BlogPostDetail: ReactElement) {
   return (
     <Layout>
-      <HeaderFooter>{BlogPostDetail}</HeaderFooter>
+      <HeaderFooter bgVariant='gradient'>{BlogPostDetail}</HeaderFooter>
     </Layout>
   );
 };

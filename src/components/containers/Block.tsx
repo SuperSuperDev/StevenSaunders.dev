@@ -16,7 +16,7 @@ const Block = React.forwardRef<HTMLDivElement, BlockProps>(
       <div
         ref={ref}
         className={clsxm(
-          'my-6',
+          'my-6 w-full',
           //#region  //*=========== Variants ===========
           [variant === 'default' && ['bg-white bg-opacity-0']],
           //#endregion //*=========== Variants ===========
