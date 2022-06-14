@@ -10,6 +10,7 @@ type props = {
   devTech: DevTech[] | 'all';
   iconFormat: DevTechIconFormat;
   showTitle?: 'onHover' | 'always' | 'never';
+  className?: string;
 };
 
 export default function DevIconStack({
@@ -18,6 +19,7 @@ export default function DevIconStack({
   title,
   iconWidth: width = 36,
   showTitle = 'onHover',
+  className,
 }: props) {
   if (devTech === 'all') {
     devTech = [
@@ -54,7 +56,7 @@ export default function DevIconStack({
   }
 
   return (
-    <div className='flex w-full flex-col'>
+    <div className={`flex w-full flex-col ${className}`}>
       {title && <h1>{title}</h1>}
       <ul className='list-none px-1'>
         {devTech.map((dt) => (

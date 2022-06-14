@@ -121,56 +121,59 @@
     background-size: 0 2px, 100% 2px;
   }
   .anim-bg-light {
-    background: linear-gradient(
-      220deg,
-      #c4d0ee,
-      #f3e1f9,
-      #d1ebf9,
-      #cde5ea,
-      #bac4ea,
-      #6e0a62
-    );
-    background-size: 1200% 1200%;
+    background: linear-gradient(131deg, #e6f3fa, #f8faef, #eddfed);
+    background-size: 600% 600%;
 
-    -webkit-animation: AnimBGLight 54s ease infinite;
-    -moz-animation: AnimBGLight 54s ease infinite;
-    animation: AnimBGLight 54s ease infinite;
+    -webkit-animation: AnimBGLight 10s ease infinite;
+    -moz-animation: AnimBGLight 10s ease infinite;
+    -o-animation: AnimBGLight 10s ease infinite;
+    animation: AnimBGLight 10s ease infinite;
   }
 
   @-webkit-keyframes AnimBGLight {
     0% {
-      background-position: 0% 91%;
+      background-position: 92% 0%;
     }
     50% {
-      background-position: 100% 10%;
+      background-position: 9% 100%;
     }
     100% {
-      background-position: 0% 91%;
+      background-position: 92% 0%;
     }
   }
   @-moz-keyframes AnimBGLight {
     0% {
-      background-position: 0% 91%;
+      background-position: 92% 0%;
     }
     50% {
-      background-position: 100% 10%;
+      background-position: 9% 100%;
     }
     100% {
-      background-position: 0% 91%;
+      background-position: 92% 0%;
+    }
+  }
+  @-o-keyframes AnimBGLight {
+    0% {
+      background-position: 92% 0%;
+    }
+    50% {
+      background-position: 9% 100%;
+    }
+    100% {
+      background-position: 92% 0%;
     }
   }
   @keyframes AnimBGLight {
     0% {
-      background-position: 0% 91%;
+      background-position: 92% 0%;
     }
     50% {
-      background-position: 100% 10%;
+      background-position: 9% 100%;
     }
     100% {
-      background-position: 0% 91%;
+      background-position: 92% 0%;
     }
   }
-
   .anim-bg-dark {
     background: linear-gradient(
       60deg,
@@ -223,8 +226,8 @@
   }
 
   .txt-shdw-distant {
-    text-shadow: 0px 3px 0px black, 0px 14px 10px rgba(0, 0, 0, 0.15),
-      0px 24px 2px rgba(0, 0, 0, 0.1), 0px 34px 30px rgba(0, 0, 0, 0.1);
+    text-shadow: 0px 3px 0px black, 0px 5px 3px rgba(0, 0, 0, 0.05),
+      0px 7px 2px rgba(0, 0, 0, 0.01), 0px 8px 8px rgba(0, 0, 0, 0.01);
   }
 
   .txt-shdw-distant-dark {

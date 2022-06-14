@@ -49,7 +49,7 @@ export default function DevIconInline({ devTech, iconFormat }: props) {
           className={`group inline-block text-left align-middle text-4xl leading-tight 
           ${
             iconFormat === 'IconComponent'
-              ? 'hover:align-top hover:text-6xl hover:text-primary-500'
+              ? 'hover:align-top hover:text-5xl hover:text-primary-500'
               : ''
           } `}
           key={`${dt}-${iconFormat}`}
