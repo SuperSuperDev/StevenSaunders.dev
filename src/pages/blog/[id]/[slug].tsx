@@ -1,6 +1,5 @@
 import { CalendarIcon as CalendarIconOutline } from '@heroicons/react/outline';
 import { CalendarIcon } from '@heroicons/react/solid';
-import Box from '@NonoviumUI/containers/Box';
 import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
 import Image from 'next/image';
 //import Link from 'next/link';
@@ -36,9 +35,24 @@ const BlogPostDetail = ({ blogPostDetail }: { blogPostDetail: IBlogPost }) => {
 
       <main>
         <Block>
-          <Box>
+          <div>
             {title !== null && title !== undefined && (
               <>
+                <section className='prose mx-auto mt-16 max-w-7xl px-4 text-center dark:prose-invert'>
+                  <div className='mx-auto flex flex-row flex-wrap'>
+                    <div className='mx-auto flex flex-grow basis-full'>
+                      <div className='aspect-w-16 aspect-h-9 mx-auto w-full max-w-5xl rounded-b-none lg:rounded-b-lg'>
+                        <Image
+                          alt={title}
+                          src={`${baseUrl}${hero_url}`}
+                          layout='fill'
+                          objectFit='cover'
+                          className='rounded-lg group-hover:opacity-75 '
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </section>
                 <section className='prose mx-auto mt-16 max-w-7xl px-4 text-center dark:prose-invert'>
                   <div className='mx-auto flex flex-col flex-wrap'>
                     <h1 className='mx-auto text-center'>{title}</h1>
@@ -61,21 +75,6 @@ const BlogPostDetail = ({ blogPostDetail }: { blogPostDetail: IBlogPost }) => {
                     )}
                   </div>
                 </section>
-                <section className='prose mx-auto mt-16 max-w-7xl px-4 text-center dark:prose-invert'>
-                  <div className='mx-auto flex flex-row flex-wrap'>
-                    <div className='mx-auto flex flex-grow basis-full'>
-                      <div className='aspect-w-16 aspect-h-9 mx-auto w-full max-w-5xl rounded-b-none lg:rounded-b-lg'>
-                        <Image
-                          alt={title}
-                          src={`${baseUrl}${hero_url}`}
-                          layout='fill'
-                          objectFit='cover'
-                          className='rounded-lg group-hover:opacity-75 '
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </section>
                 <section className='mx-auto mt-16 max-w-7xl px-4'>
                   <article className=' prose-code:not-prose dark:prose-code:no-prose prose mx-auto flex w-full flex-col flex-wrap dark:prose-invert'>
                     <ReactMarkdown
@@ -88,7 +87,7 @@ const BlogPostDetail = ({ blogPostDetail }: { blogPostDetail: IBlogPost }) => {
                 </section>
               </>
             )}
-          </Box>
+          </div>
         </Block>
       </main>
     </>
