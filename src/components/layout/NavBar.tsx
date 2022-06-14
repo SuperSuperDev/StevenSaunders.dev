@@ -164,47 +164,15 @@ export default function NavBar() {
             </div>
             <div className='py-6 px-5'>
               <div className='grid grid-cols-2 gap-4'>
-                <a
-                  href='#'
-                  className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-50 dark:hover:text-primary-600'
-                >
-                  Pricing
-                </a>
-
-                <a
-                  href='#'
-                  className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-50 dark:hover:text-primary-600'
-                >
-                  Docs
-                </a>
-
-                <a
-                  href='#'
-                  className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-50 dark:hover:text-primary-600'
-                >
-                  Company
-                </a>
-
-                <a
-                  href='#'
-                  className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-50 dark:hover:text-primary-600'
-                >
-                  Resources
-                </a>
-
-                <a
-                  href='#'
-                  className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-50 dark:hover:text-primary-600'
-                >
-                  Blog
-                </a>
-
-                <a
-                  href='#'
-                  className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-50 dark:hover:text-primary-600'
-                >
-                  Contact Sales
-                </a>
+                {navItems.map(({ href, title }) => (
+                  <a
+                    key={href + title}
+                    href={href}
+                    className='rounded-md text-base font-medium text-gray-900 hover:text-gray-700 dark:text-gray-50 dark:hover:text-primary-600'
+                  >
+                    {title}
+                  </a>
+                ))}
               </div>
               <div className='mt-6'>
                 <a
@@ -214,9 +182,9 @@ export default function NavBar() {
                   Sign up
                 </a>
                 <p className='mt-6 text-center text-base font-medium text-gray-500'>
-                  Existing customer?{' '}
+                  Existing user?{' '}
                   <Link href='/login' passHref>
-                    <a className='text-indigo-600 hover:text-indigo-500'>
+                    <a className='text-primary-600 hover:text-primary-500'>
                       Sign in
                     </a>
                   </Link>

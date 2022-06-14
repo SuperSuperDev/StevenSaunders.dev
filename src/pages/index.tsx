@@ -1,15 +1,23 @@
+import LatestPosts from '@NonoviumUI/blogUI/LatestPosts';
+import Block from '@NonoviumUI/containers/Block';
 import DevIconStack from '@NonoviumUI/devLang/DevIconStack';
 import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ReactElement } from 'react';
 
+import { loadBlogPosts } from '@/lib/fetch-blog-posts';
+
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
 import DevIconInline from '../components/devLang/DevIconInline';
+import { IVideoDetails } from '../lib/types';
 
-export default function Page() {
+type props = {
+  blogPosts?: IVideoDetails[];
+};
+export default function Page({ blogPosts }: props) {
   return (
     <>
       <Seo templateTitle='Home' />
@@ -101,11 +109,16 @@ export default function Page() {
             </div>
           </div>
         </section>
-        <section className='prose mx-auto my-9 max-w-7xl flex-col items-center p-9 text-center dark:prose-invert'>
-          <h1 className='txt-shdw-distant dark:txt-shdw-distant-dark px-7 text-2xl leading-tight sm:text-4xl md:leading-normal'>
-            Read my <Link href='/blog'>blog...</Link>
-          </h1>
-        </section>
+        {blogPosts && (
+          <section className='prose mx-auto my-9 max-w-7xl flex-col items-center p-9 text-center dark:prose-invert'>
+            <h1 className='txt-shdw-distant dark:txt-shdw-distant-dark px-7 text-2xl leading-tight sm:text-4xl md:leading-normal'>
+              Read my <Link href='/blog'>blog...</Link>
+            </h1>
+            <Block className='my-4 py-4'>
+              <LatestPosts posts={blogPosts} showNumPosts={4} />
+            </Block>
+          </section>
+        )}
       </div>
     </>
   );
@@ -118,3 +131,15 @@ Page.getLayout = function getLayout(Page: ReactElement) {
     </Layout>
   );
 };
+
+export async function getStaticProps() {
+  const data = await loadBlogPosts();
+  const blogPosts = data.results;
+
+  return {
+    props: {
+      blogPosts,
+    },
+    revalidate: 10,
+  };
+}

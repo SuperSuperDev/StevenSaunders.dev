@@ -21,11 +21,10 @@ export default function Blog({ blogPosts, featuredPost, tags }: props) {
     <>
       <Seo templateTitle='Blog' />
       <div id='content'>
-        <section className='prose mx-auto mt-16 max-w-7xl px-4 text-center dark:prose-invert'>
+        <section className='prose mx-auto mt-4 max-w-7xl px-4 text-center dark:prose-invert md:mt-8'>
           <h1 className='txt-shdw-distant dark:txt-shdw-distant-dark justify-items-center px-7 text-2xl leading-tight sm:text-4xl md:leading-normal'>
             Blog
           </h1>
-
           <FeaturedPost featuredPost={featuredPost} />
         </section>
         <section className='container mx-auto'>

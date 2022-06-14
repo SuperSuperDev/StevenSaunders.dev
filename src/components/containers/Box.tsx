@@ -9,12 +9,29 @@ enum BoxVariant {
   'sq-shadow',
 }
 
+enum BackgroundVariant {
+  'animated-gradient',
+  'gradient',
+  'basic',
+  'transparent',
+}
+
 type BoxProps = {
   variant?: keyof typeof BoxVariant;
+  bgVariant?: keyof typeof BackgroundVariant;
 } & React.ComponentPropsWithRef<'div'>;
 
 const Box = React.forwardRef<HTMLDivElement, BoxProps>(
-  ({ children, className, variant = 'rnd-shadow', ...rest }, ref) => {
+  (
+    {
+      children,
+      className,
+      variant = 'rnd-shadow',
+      bgVariant = 'basic',
+      ...rest
+    },
+    ref
+  ) => {
     return (
       <Block>
         <div
@@ -25,7 +42,7 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
             //#region  //*=========== Variants ===========
             [
               variant === 'rnd-shadow' && [
-                'bg-white dark:bg-gradient-to-bl dark:from-black dark:via-gray-900 dark:to-black',
+                'bg-transparent',
                 //
                 'border border-gray-200 dark:border-none',
                 'rounded-md',
@@ -38,6 +55,18 @@ const Box = React.forwardRef<HTMLDivElement, BoxProps>(
             ],
             'shadow-sm',
             //#endregion //*=========== Variants ===========
+            //#region //*=== Background Variant =====
+            [
+              bgVariant === 'animated-gradient' && [
+                'anim-bg-light dark:anim-bg-dark',
+              ],
+              bgVariant === 'gradient' && [
+                'bg-white',
+                'dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black',
+              ],
+              bgVariant === 'basic' && ['bg-white', 'dark:bg-dark'],
+              bgVariant === 'transparent' && ['bg-transparent'],
+            ],
             className
           )}
           {...rest}

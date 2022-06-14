@@ -33,7 +33,7 @@ export default function BlogList({ blogPosts, tags }: props) {
   }, [selectedTag]);
 
   return (
-    <div className='container mx-auto my-8 max-w-7xl'>
+    <div className='container mx-auto my-8 max-w-7xl p-4'>
       <h1 className='my-8'>Blog Posts</h1>
       <div className='flex flex-row'>
         <div className='flex-none'>

@@ -1,4 +1,5 @@
 import Button from '@NonoviumUI/buttons/Button';
+import Box from '@NonoviumUI/containers/Box';
 import Image from 'next/image';
 import Link from 'next/link';
 import slugify from 'slugify';
@@ -28,21 +29,24 @@ export default function FeaturedPost({ featuredPost }: props) {
 
   return (
     <div className='container mx-auto'>
-      <div className='mx-auto flex flex-row flex-wrap'>
+      <Box
+        bgVariant='gradient'
+        className='mx-auto flex flex-row flex-wrap overflow-hidden rounded-xl border-0 p-0 sm:p-0 md:p-0 lg:p-0'
+      >
         <div className='group mx-auto flex-grow basis-full md:basis-2/3'>
           {hero_url && (
-            <div className='aspect-w-16 aspect-h-9 rounded-b-none lg:rounded-b-lg'>
+            <div className='aspect-w-16 aspect-h-9'>
               <Image
                 alt={title}
                 src={`${baseUrl}${hero_url}`}
                 layout='fill'
                 objectFit='cover'
-                className='rounded-lg group-hover:opacity-75'
+                className='group-hover:opacity-75'
               />
             </div>
           )}
         </div>
-        <div className='mx-auto flex-grow basis-full bg-white p-4 dark:bg-dark md:basis-1/3'>
+        <div className='mx-auto flex-grow basis-full bg-white p-4 dark:bg-transparent md:basis-1/3'>
           <Link
             href={`/blog/${friendly_token}/${slugify(title, {
               lower: true,
@@ -51,8 +55,8 @@ export default function FeaturedPost({ featuredPost }: props) {
             })}`}
             passHref
           >
-            <a className='text-2xl font-bold text-primary-500 no-underline hover:text-primary-700'>
-              <h1>{title}</h1>
+            <a className='font-bold text-primary-500 no-underline hover:text-primary-700'>
+              <h1 className='text-base sm:text-xl lg:text-2xl'>{title}</h1>
             </a>
           </Link>
           <p>{datePublished}</p>
@@ -80,7 +84,7 @@ export default function FeaturedPost({ featuredPost }: props) {
             </a>
           </Link>
         </div>
-      </div>
+      </Box>
     </div>
   );
 }
