@@ -1,12 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-/* This example requires Tailwind CSS v2.0+ */
+import { navItems } from 'data/navItems';
 const navigation = {
-  solutions: [
-    { name: 'Marketing', href: '#' },
-    { name: 'Analytics', href: '#' },
-    { name: 'Commerce', href: '#' },
-    { name: 'Insights', href: '#' },
-  ],
+  pages: [...navItems],
   support: [
     { name: 'Pricing', href: '#' },
     { name: 'Documentation', href: '#' },
@@ -102,28 +97,27 @@ export default function Footer() {
           <div className='space-y-8 xl:col-span-1'>
             <img
               className='h-10'
-              src='https://tailwindui.com/img/logos/workflow-mark-gray-300.svg'
-              alt='Company name'
+              src='https://s3.pub1.infomaniak.cloud/object/v1/AUTH_598753f3935548c6a1ca8f065e534ac1/supersuperdev-pub/img/logo-ss/logo-ss.svg'
+              alt='StevenSaunders.dev'
             />
             <p className='prose dark:prose-invert'>
-              Making the world a better place through constructing elegant
-              hierarchies.
+              Building scalable, performent, and accessible web applications.
             </p>
           </div>
           <div className='mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0'>
             <div className='md:grid md:grid-cols-2 md:gap-8'>
               <div>
                 <h3 className='text-sm font-semibold uppercase tracking-wider text-gray-400'>
-                  Solutions
+                  Pages
                 </h3>
                 <ul role='list' className='mt-4 space-y-4'>
-                  {navigation.solutions.map((item) => (
-                    <li key={item.name}>
+                  {navigation.pages.map((page) => (
+                    <li key={page.title}>
                       <a
-                        href={item.href}
+                        href={page.href}
                         className='text-base text-gray-500 hover:text-gray-900'
                       >
-                        {item.name}
+                        {page.title}
                       </a>
                     </li>
                   ))}

@@ -4,6 +4,7 @@ import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Button from '@NonoviumUI/buttons/Button';
 import LogoutButton from '@NonoviumUI/buttons/LogoutButton';
+import { navItems } from 'data/navItems';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment } from 'react';
@@ -11,34 +12,6 @@ import { Fragment } from 'react';
 import { useUser } from '@/lib/api';
 
 import ThemeChanger from '@/components/layout/ThemeChanger';
-
-const navItems = [
-  {
-    title: 'Home',
-    href: '/',
-    srOnlyText: 'Go to Home Page',
-  },
-  {
-    title: 'Blog',
-    href: '/blog',
-    srOnlyText: 'Go to our Blog Page',
-  },
-  {
-    title: 'Projects',
-    href: '/projects',
-    srOnlyText: 'Go to my Projects Page',
-  },
-  {
-    title: 'About',
-    href: '/about',
-    srOnlyText: 'Go to my About Page',
-  },
-  {
-    title: 'Contact',
-    href: '/contact',
-    srOnlyText: 'Go to my Contact Page',
-  },
-];
 
 export default function NavBar() {
   const router = useRouter();
