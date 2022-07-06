@@ -136,7 +136,7 @@ Page.getLayout = function getLayout(Page: ReactElement) {
 
 export async function getStaticProps() {
   const data = await loadBlogPosts();
-  const blogPosts = data.results;
+  const blogPosts = data?.results;
 
   return {
     props: {

@@ -1,14 +1,9 @@
 import { CalendarIcon as CalendarIconOutline } from '@heroicons/react/outline';
 import { CalendarIcon } from '@heroicons/react/solid';
+import Markdown from '@NonoviumUI/Blocks/Markdown';
 import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
 import Image from 'next/image';
-//import Link from 'next/link';
 import { ReactElement } from 'react';
-import ReactMarkdown from 'react-markdown';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeSlug from 'rehype-slug';
-import toc from 'rehype-toc';
-import remarkGfm from 'remark-gfm';
 import slugify from 'slugify';
 
 import 'highlight.js/styles/github-dark.css';
@@ -17,10 +12,8 @@ import { baseUrl } from '@/lib/api';
 import { loadBlogPost, loadBlogPosts } from '@/lib/fetch-blog-posts';
 import { publishedOnDate } from '@/lib/helper';
 
-//import FullDetail from '../../../components/videos-ui/FullDetail';
 import Block from '@/components/containers/Block';
 import Layout from '@/components/layout/Layout';
-//import SidebarLayout from '@/components/layout/SidebarLayout';
 import Seo from '@/components/Seo';
 
 import { IBlogPost } from '../../../lib/types';
@@ -77,12 +70,7 @@ const BlogPostDetail = ({ blogPostDetail }: { blogPostDetail: IBlogPost }) => {
                 </section>
                 <section className='mx-auto mt-16 max-w-7xl px-4'>
                   <article className=' prose-code:not-prose dark:prose-code:no-prose prose mx-auto flex w-full flex-col flex-wrap dark:prose-invert'>
-                    <ReactMarkdown
-                      remarkPlugins={[remarkGfm]}
-                      rehypePlugins={[rehypeHighlight, rehypeSlug, toc]}
-                    >
-                      {description}
-                    </ReactMarkdown>
+                    <Markdown content={description} />
                   </article>
                 </section>
               </>
