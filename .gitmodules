@@ -1,0 +1,3 @@
+[submodule "projects-payload"]
+	path = projects-payload
+	url = https://github.com/SuperSuperDev/projects-payload-next.git
