@@ -3,13 +3,12 @@ import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import useSWR from 'swr';
 
 import { getRefreshToken, getToken, setTokens } from './auth';
-import { publishedOnDate } from './helper';
-import { secondsToHHMMSS } from './helper';
-import { IExtendedEncodedVideo } from './types';
+import { publishedOnDate, secondsToHHMMSS } from './helper';
 import {
   IEncodedH264VideoArray,
   IEncodedVideo,
   IEncodedVideoArray,
+  IExtendedEncodedVideo,
   IPostMeta,
   IVideoDetails,
 } from './types';
@@ -55,25 +54,6 @@ const userFetcher = (url: string) =>
       },
     })
     .then((res) => res.data);
-
-// export function headers() {
-//   return {
-//     withCredentials: true,
-//     headers: {
-//       'Content-Type': 'application/json',
-//     },
-//   };
-// }
-
-// export async function fileUploadHeaders() {
-//   return {
-//     withCredentials: true,
-//     headers: {
-//       'Content-Type': 'multipart/form-data',
-//       'X-CSRFToken': await getCSRF(),
-//     },
-//   };
-// }
 
 export async function refreshUser() {
   return axios.post(
