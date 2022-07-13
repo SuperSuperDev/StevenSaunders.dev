@@ -15,6 +15,9 @@ module.exports = {
   mode: 'jit',
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class',
+  daisyui: {
+    themes: ['light', 'dark'],
+  },
   theme: {
     extend: {
       fontFamily: {
@@ -68,5 +71,6 @@ module.exports = {
     require('@tailwindcss/aspect-ratio'),
     require('@tailwindcss/typography'),
     require('@tailwindcss/line-clamp'),
+    require('daisyui'),
   ],
 };

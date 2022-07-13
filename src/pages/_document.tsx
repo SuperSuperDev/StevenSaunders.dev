@@ -14,7 +14,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html lang='en' className='dark h-full'>
+      <Html lang='en' className='h-full'>
         <Head>
           <link
             rel='preload'

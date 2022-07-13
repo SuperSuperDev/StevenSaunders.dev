@@ -8,11 +8,17 @@ const ThemeChanger = () => {
 
   useEffect(() => {
     setMounted(true);
+    window.document.documentElement.setAttribute('data-theme', theme);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleToggleTheme = () => {
     setToggleTheme(!toggleTheme);
-    setTheme(toggleTheme ? 'light' : 'dark');
+    const theme = toggleTheme ? 'light' : 'dark';
+    // we set data-theme for DaisyUI
+    window.document.documentElement.setAttribute('data-theme', theme);
+    // we setTheme for tailwindCSS
+    setTheme(theme);
   };
 
   if (!mounted) return null;

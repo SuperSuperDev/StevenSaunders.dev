@@ -17,7 +17,8 @@
     "paths": {
       "@NonoviumUI/*": ["./src/components/*"],
       "@/*": ["./src/*"],
-      "~/*": ["./public/*"]
+      "~/*": ["./public/*"],
+      "@projects/*": ["./projects-payload/*"]
     },
     "incremental": true
   },
