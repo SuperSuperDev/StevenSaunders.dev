@@ -2,7 +2,7 @@
   <h1>StevenSaunders.dev</h1>
   <p>Personal Portfolio Site built with Next.js + Tailwind CSS + TypeScript + Storybook</p>
   
-  <p>Original project structure by <a href="https://github.com/theodorusclarence">Theodorus Clarence</a></p>
+  
   
   
   <!-- [![CodeFactor](https://www.codefactor.io/repository/github/supersuperdev/stevensaunders.devbadge/main)](https://www.codefactor.io/repository/github/supersuperdev/stevensaunders.devoverview/main) -->
@@ -95,12 +95,4 @@ Don't forget to change the package name in package.json
 
 This starter is using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/), it is mandatory to use it to commit changes.
 
-## Expansion Pack 📦
-
-This starter is now equipped with an [expansion pack](https://github.com/theodorusclarence/expansion-pack).
-
-You can easily add expansion such as React Hook Form + Components, Storybook, and more just using a single command line.
-
-https://user-images.githubusercontent.com/55318172/146631994-e1cac137-1664-4cfe-950b-a96decc1eaa6.mp4
-
-Check out the [expansion pack repository](https://github.com/theodorusclarence/expansion-pack) for the commands
+<p>Original project structure by <a href="https://github.com/theodorusclarence">Theodorus Clarence</a></p>
