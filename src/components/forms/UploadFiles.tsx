@@ -166,7 +166,7 @@ export default function UploadFiles() {
               <div>{formData.progress}%</div>
             </div>
           )}
-          <label className='btn btn-default'>
+          <label className='btn-default btn'>
             <input type='file' onChange={selectFile} />
           </label>
           <Button
