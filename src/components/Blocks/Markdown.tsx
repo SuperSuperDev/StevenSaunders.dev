@@ -2,7 +2,6 @@ import * as React from 'react';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
-import toc from 'rehype-toc';
 import remarkGfm from 'remark-gfm';
 
 export type MarkdownProps = {
@@ -15,7 +14,7 @@ const Markdown = React.forwardRef<HTMLDivElement, MarkdownProps>(
       <div ref={ref} {...rest}>
         <ReactMarkdown
           remarkPlugins={[remarkGfm]}
-          rehypePlugins={[rehypeHighlight, rehypeSlug, toc]}
+          rehypePlugins={[rehypeHighlight, rehypeSlug]}
         >
           {content}
         </ReactMarkdown>

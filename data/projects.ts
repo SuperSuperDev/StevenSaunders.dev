@@ -2,6 +2,7 @@ export interface ProjectType {
   id: number;
   title: string;
   name: string;
+  description: string;
   intro: string;
   domain: string;
   slug: string;
@@ -10,9 +11,15 @@ export interface ProjectType {
   scope: ProjectScope;
   screenshots: { [key: string]: ProjectScreenshot };
 }
-
+export interface Objective {
+  title: string;
+  description: string;
+}
 export interface ProjectScope {
+  title: string;
+  description: string;
   tags: string[];
+  objectives: Objective[];
 }
 
 export interface ProjectScreenshot {
@@ -28,12 +35,17 @@ export const projects: ProjectsType = [
     id: 1,
     title: 'A Real Estate Platform Built on Wordpress',
     name: 'Chiang Mai Estate Agents',
+    description:
+      '# This is mu description heading \n \n This should have an empty line above it \n ## This should be a subheading   \n And this should be some cool normal text below.',
     intro: 'A property portal built on top of WordPress.',
     domain: 'chiangmaiestateagents.com',
     slug: 'chiang-mai-estate-agents',
     tags: ['Real Estate', 'Property', 'WordPress', 'CMS'],
     languages: ['JavaScript', 'HTML', 'CSS', 'PHP'],
     scope: {
+      title: 'Project Scope',
+      description:
+        'The real estate agency had been working with an open source real-estate management system (Open Realty) but they were troubled by the lack of customizations that were available to them, especially as the system was targeted towards US agencies and did not meet the specifications that the required as they are based in Thailand. Together with the client, we engineered a solution on top of Wordpress that would meet their needs and also offer easy maintainability for the future',
       tags: [
         'Website Design',
         'Website Development',
@@ -45,6 +57,28 @@ export const projects: ProjectsType = [
         'Marketing',
         'Social Marketing',
         'Email Marketing',
+      ],
+      objectives: [
+        {
+          title: 'Website Design',
+          description:
+            'Their website was singled out as being their number 1 priority. To differentiate themselves from their competitors, they wanted a site that was aesthetically pleasing and also functional.',
+        },
+        {
+          title: 'Features',
+          description:
+            'The site should be full of features that gave their clients the information they wanted and quickly. The information needed to be relevant for their locale.',
+        },
+        {
+          title: 'Mapping',
+          description:
+            'They need to be able to show properties along with relevant information on a map with other locale information such as nearest schools and shopping facilities',
+        },
+        {
+          title: 'Agents',
+          description:
+            'The agency employed a number of agents. They should be able to log in, post properties, be contactable as the agent of that property and manage their clients',
+        },
       ],
     },
     screenshots: {
@@ -114,17 +148,32 @@ export const projects: ProjectsType = [
     id: 2,
     title: 'Business and Finance News and Interviews',
     name: 'BIG EYE NEWS',
+    description: '',
     intro: 'Business and Finance News and Interviews',
     domain: 'bigeye.news',
     slug: 'big-eye-news',
     tags: ['News', 'Video', 'WordPress', 'CMS'],
     languages: ['JavaScript', 'HTML', 'CSS', 'PHP'],
     scope: {
+      title: 'Project Scope',
+      description: 'The project had the following scopes',
       tags: [
         'Website Design',
         'Website Development',
         'Logo Design',
         'Business Consulting',
+      ],
+      objectives: [
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
       ],
     },
     screenshots: {
@@ -194,12 +243,15 @@ export const projects: ProjectsType = [
     id: 3,
     title: 'Video Platform Development',
     name: 'Nonovium',
+    description: '',
     intro: 'Video Platform and Encoding Pipelines',
     domain: 'nonovium.com',
     slug: 'nonovium',
     tags: ['Video', 'Encoding', 'FFMPEG', 'CMS'],
     languages: ['JavaScript', 'HTML', 'CSS', 'Python'],
     scope: {
+      title: 'Project Scope',
+      description: 'The project had the following scopes',
       tags: [
         'Website Design',
         'Website Development',
@@ -207,6 +259,18 @@ export const projects: ProjectsType = [
         'Logo Design',
         'Business Management',
         'Marketing',
+      ],
+      objectives: [
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
       ],
     },
     screenshots: {
@@ -277,6 +341,7 @@ export const projects: ProjectsType = [
     title:
       'Childcare Booking System with integrated CRM and Accounting Software',
     name: 'Chiang Mai Babysitters',
+    description: '',
     intro:
       'Childcare Booking System with integrated CRM and Accounting Software',
     domain: 'chiangmaibabysitters.com',
@@ -291,6 +356,8 @@ export const projects: ProjectsType = [
     ],
     languages: ['JavaScript', 'HTML', 'CSS'],
     scope: {
+      title: 'Project Scope',
+      description: 'The project had the following scopes',
       tags: [
         'Website Design',
         'Website Development',
@@ -301,6 +368,18 @@ export const projects: ProjectsType = [
         'Social Media',
         'Brochure Design',
         'Training',
+      ],
+      objectives: [
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
       ],
     },
     screenshots: {
@@ -370,17 +449,32 @@ export const projects: ProjectsType = [
     id: 5,
     title: 'A video platform for serious investors',
     name: 'BIG EYE Video',
+    description: '',
     intro: 'A video platform for serious investors',
     domain: 'bigeye.video',
     slug: 'big-eye-video',
     tags: ['News', 'Video', 'WordPress', 'CMS'],
     languages: ['JavaScript', 'HTML', 'CSS', 'PHP'],
     scope: {
+      title: 'Project Scope',
+      description: 'The project had the following scopes',
       tags: [
         'Website Design',
         'Website Development',
         'Logo Design',
         'Business Consulting',
+      ],
+      objectives: [
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
       ],
     },
     screenshots: {
@@ -450,17 +544,32 @@ export const projects: ProjectsType = [
     id: 6,
     title: 'A crypto data platform with up to the minute pricing and charting',
     name: 'Crystal Crypto',
+    description: '',
     intro: 'A crypto data platform with up to the minute pricing and charting',
     domain: 'crypto.stevensaunders.dev',
     slug: 'crystal-crypto',
     tags: ['News', 'Video', 'WordPress', 'CMS'],
     languages: ['JavaScript', 'HTML', 'CSS', 'PHP'],
     scope: {
+      title: 'Project Scope',
+      description: 'The project had the following scopes',
       tags: [
         'Website Design',
         'Website Development',
         'Logo Design',
         'Business Consulting',
+      ],
+      objectives: [
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
       ],
     },
     screenshots: {
