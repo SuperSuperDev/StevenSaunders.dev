@@ -14,7 +14,7 @@
   [![Last Update](https://img.shields.io/badge/deps%20update-every%20sunday-blue.svg)](https://shields.io/)
 </div>
 
-## Features
+## Features!
 
 This repository is 🔋 battery packed with:
 
