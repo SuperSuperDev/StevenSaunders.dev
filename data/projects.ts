@@ -79,6 +79,16 @@ export const projects: ProjectsType = [
           description:
             'The agency employed a number of agents. They should be able to log in, post properties, be contactable as the agent of that property and manage their clients',
         },
+        {
+          title: 'Clients',
+          description:
+            'Clients on both sides of the market should be able to contact the agency and fulfil their property goals',
+        },
+        {
+          title: 'Branding and Marketing',
+          description:
+            'Strengthen brand awareness and confidence through branded digital and printed materials and contents',
+        },
       ],
     },
     screenshots: {

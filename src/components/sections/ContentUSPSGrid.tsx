@@ -14,10 +14,12 @@ export default function ContentUSPSGrid(props: props) {
   return (
     <section className='bg-gray-900 text-white'>
       <div className='mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8'>
-        <div className='max-w-xl'>
+        <div className='max-w-3xl'>
           <h2 className='text-3xl font-bold sm:text-4xl'>{title}</h2>
 
-          <p className='mt-4 text-gray-300'>{description}</p>
+          <p className='mt-4 text-gray-300 lg:text-lg xl:text-xl'>
+            {description}
+          </p>
         </div>
 
         <div className='mt-8 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-2 md:gap-12 lg:grid-cols-3'>
@@ -25,7 +27,7 @@ export default function ContentUSPSGrid(props: props) {
             <div className='flex items-start' key={title}>
               <span className='flex-shrink-0 rounded-lg bg-gray-800 p-4'>
                 <svg
-                  className='h-5 w-5'
+                  className='xl:h-15 xl:w-15 h-5 w-5 lg:h-10 lg:w-10'
                   fill='none'
                   stroke='currentColor'
                   viewBox='0 0 24 24'
@@ -43,9 +45,13 @@ export default function ContentUSPSGrid(props: props) {
               </span>
 
               <div className='ml-4'>
-                <h2 className='text-lg font-bold'>{title}</h2>
+                <h2 className='text-lg font-bold lg:text-xl xl:text-2xl'>
+                  {title}
+                </h2>
 
-                <p className='mt-1 text-sm text-gray-300'>{description}</p>
+                <p className='mt-1 text-sm text-gray-300 lg:text-lg xl:text-xl'>
+                  {description}
+                </p>
               </div>
             </div>
           ))}
