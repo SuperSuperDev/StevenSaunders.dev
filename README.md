@@ -95,4 +95,4 @@ Don't forget to change the package name in package.json
 
 This starter is using [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/), it is mandatory to use it to commit changes.
 
-<p>Original project structure by <a href="https://github.com/theodorusclarence">Theodorus Clarence</a></p>
+<p>Original next.js project structure by <a href="https://github.com/theodorusclarence">Theodorus Clarence</a></p>
