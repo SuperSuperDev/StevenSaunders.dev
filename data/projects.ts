@@ -1,6 +1,7 @@
 export interface ProjectType {
   id: number;
   title: string;
+  subTitle?: string;
   name: string;
   description: string;
   intro: string;
@@ -34,14 +35,16 @@ export const projects: ProjectsType = [
   {
     id: 1,
     title: 'A Real Estate Platform Built on Wordpress',
+    subTitle: 'A property portal built on top of WordPress.',
     name: 'Chiang Mai Estate Agents',
     description:
-      '# This is mu description heading \n \n This should have an empty line above it \n ## This should be a subheading   \n And this should be some cool normal text below.',
-    intro: 'A property portal built on top of WordPress.',
+      '## This is mu description heading \n \n This should have an empty line above it \n ## This should be a subheading   \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n\n ## This is mu description heading \n \n This should have an empty line above it \n ## This should be a subheading   \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below.',
+    intro:
+      '\n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. ddd\n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. ddd',
     domain: 'chiangmaiestateagents.com',
     slug: 'chiang-mai-estate-agents',
     tags: ['Real Estate', 'Property', 'WordPress', 'CMS'],
-    languages: ['JavaScript', 'HTML', 'CSS', 'PHP'],
+    languages: ['JavaScript', 'HTML5', 'CSS3', 'PHP'],
     scope: {
       title: 'Project Scope',
       description:
@@ -163,7 +166,7 @@ export const projects: ProjectsType = [
     domain: 'bigeye.news',
     slug: 'big-eye-news',
     tags: ['News', 'Video', 'WordPress', 'CMS'],
-    languages: ['JavaScript', 'HTML', 'CSS', 'PHP'],
+    languages: ['JavaScript', 'HTML5', 'CSS3', 'PHP'],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',
@@ -258,7 +261,7 @@ export const projects: ProjectsType = [
     domain: 'nonovium.com',
     slug: 'nonovium',
     tags: ['Video', 'Encoding', 'FFMPEG', 'CMS'],
-    languages: ['JavaScript', 'HTML', 'CSS', 'Python'],
+    languages: ['JavaScript', 'HTML5', 'CSS3', 'Python'],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',
@@ -364,7 +367,7 @@ export const projects: ProjectsType = [
       'CMS',
       'Zoho',
     ],
-    languages: ['JavaScript', 'HTML', 'CSS'],
+    languages: ['JavaScript', 'HTML5', 'CSS3'],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',
@@ -464,7 +467,7 @@ export const projects: ProjectsType = [
     domain: 'bigeye.video',
     slug: 'big-eye-video',
     tags: ['News', 'Video', 'WordPress', 'CMS'],
-    languages: ['JavaScript', 'HTML', 'CSS', 'PHP'],
+    languages: ['JavaScript', 'HTML5', 'CSS3', 'PHP'],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',
@@ -559,7 +562,7 @@ export const projects: ProjectsType = [
     domain: 'crypto.stevensaunders.dev',
     slug: 'crystal-crypto',
     tags: ['News', 'Video', 'WordPress', 'CMS'],
-    languages: ['JavaScript', 'HTML', 'CSS', 'PHP'],
+    languages: ['JavaScript', 'HTML5', 'CSS3', 'PHP'],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',
