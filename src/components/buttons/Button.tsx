@@ -27,11 +27,12 @@ type ButtonProps = {
   isDarkBg?: boolean;
   disabled?: boolean;
   srText?: string;
-  // TODO: Icon size and alignment could be impproved
+  // TODO: Icon size and alignment could be improved
   iconLeft?: JSX.Element;
   iconRight?: JSX.Element;
   variant?: keyof typeof ButtonVariant;
   rounding?: keyof typeof ButtonRounding;
+  iconSize?: number;
 } & React.ComponentPropsWithRef<'button'>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -44,6 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       srText,
       iconLeft,
       iconRight,
+      iconSize = 'md',
       variant = 'primary',
       rounding = 'md',
       isDarkBg = false,
@@ -84,9 +86,9 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
               'disabled:bg-primary-400 disabled:hover:bg-primary-400',
             ],
             variant === 'outline' && [
-              'text-primary-500',
-              'border border-primary-500',
-              'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100',
+              'text-primary-500 dark:text-primary-800',
+              'border border-primary-500 dark:border-primary-800',
+              'hover:bg-primary-50 active:bg-primary-100 disabled:bg-primary-100 dark:hover:bg-primary-900 dark:hover:text-primary-300',
               isDarkBg &&
                 'hover:bg-gray-900 active:bg-gray-800 disabled:bg-gray-800',
             ],
@@ -132,10 +134,22 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           </div>
         )}
         {srText && <span className='sr-only'>{srText}</span>}
-        <div className='inline-flex items-center gap-2'>
-          {iconLeft && <span>{iconLeft}</span>}
+        <div className='inline-flex items-center justify-center gap-2'>
+          {iconLeft && (
+            <span
+              className={`items-center justify-center w-${iconSize.toString()} h-${iconSize.toString()}`}
+            >
+              {iconLeft}
+            </span>
+          )}
           <span>{children}</span>
-          {iconRight && <span>{iconRight}</span>}
+          {iconRight && (
+            <span
+              className={`w-${iconSize.toString()} h-${iconSize.toString()}`}
+            >
+              {iconRight}
+            </span>
+          )}
         </div>
       </button>
     );

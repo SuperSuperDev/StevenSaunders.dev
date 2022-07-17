@@ -24,7 +24,7 @@ class MyDocument extends Document {
             crossOrigin='anonymous'
           />
         </Head>
-        <body className='h-full'>
+        <body className='h-screen min-h-screen'>
           <Main />
           <NextScript />
         </body>

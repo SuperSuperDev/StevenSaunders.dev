@@ -1,7 +1,7 @@
 import Markdown from '@NonoviumUI/Blocks/Markdown';
 import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
 import ContentUSPSGrid from '@NonoviumUI/sections/ContentUSPSGrid';
-import { projects, ProjectType } from 'data/projects';
+import { Project, projects } from 'data/projects';
 import Image from 'next/image';
 import { ReactElement } from 'react';
 
@@ -11,7 +11,7 @@ import Block from '@/components/containers/Block';
 import Layout from '@/components/layout/Layout';
 import Seo from '@/components/Seo';
 
-const ProjectDetail = ({ projectDetail }: { projectDetail: ProjectType }) => {
+const ProjectDetail = ({ projectDetail }: { projectDetail: Project }) => {
   const {
     // domain,
     // id,

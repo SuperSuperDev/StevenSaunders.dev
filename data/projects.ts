@@ -1,4 +1,4 @@
-export interface ProjectType {
+export interface Project {
   id: number;
   title: string;
   subTitle?: string;
@@ -10,8 +10,11 @@ export interface ProjectType {
   tags: string[];
   languages: string[];
   scope: ProjectScope;
+  links: Link[];
   screenshots: { [key: string]: ProjectScreenshot };
 }
+export type Projects = Project[];
+
 export interface Objective {
   title: string;
   description: string;
@@ -29,9 +32,14 @@ export interface ProjectScreenshot {
   height: number;
 }
 
-export type ProjectsType = ProjectType[];
+export interface Link {
+  url: string;
+  type: 'github' | 'codepen' | 'www' | 'demo' | 'site' | 'docs';
+}
 
-export const projects: ProjectsType = [
+export type Links = Link[];
+
+export const projects: Projects = [
   {
     id: 1,
     title: 'A Real Estate Platform Built on Wordpress',
@@ -40,7 +48,7 @@ export const projects: ProjectsType = [
     description:
       '## This is mu description heading \n \n This should have an empty line above it \n ## This should be a subheading   \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n\n ## This is mu description heading \n \n This should have an empty line above it \n ## This should be a subheading   \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below.',
     intro:
-      '\n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. ddd\n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. ddd',
+      '\n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. ddd\n And this should be some cool normal text below.And this should be some cool normal text below.And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. ddd',
     domain: 'chiangmaiestateagents.com',
     slug: 'chiang-mai-estate-agents',
     tags: ['Real Estate', 'Property', 'WordPress', 'CMS'],
@@ -94,6 +102,28 @@ export const projects: ProjectsType = [
         },
       ],
     },
+    links: [
+      {
+        url: 'chiangmaiestateagents.com',
+        type: 'site',
+      },
+      {
+        url: '#',
+        type: 'demo',
+      },
+      {
+        url: '#',
+        type: 'docs',
+      },
+      {
+        url: '#',
+        type: 'github',
+      },
+      {
+        url: '#',
+        type: 'codepen',
+      },
+    ],
     screenshots: {
       logo: {
         url: '/projects/logo/cmea-logo.jpg',
@@ -189,6 +219,12 @@ export const projects: ProjectsType = [
         },
       ],
     },
+    links: [
+      {
+        url: 'bigeye.news',
+        type: 'site',
+      },
+    ],
     screenshots: {
       logo: {
         url: '/projects/logo/big-eye-news-logo.svg',
@@ -286,6 +322,12 @@ export const projects: ProjectsType = [
         },
       ],
     },
+    links: [
+      {
+        url: 'nonovium.com',
+        type: 'site',
+      },
+    ],
     screenshots: {
       logo: {
         url: '/projects/logo/nonovium-logo.svg',
@@ -395,6 +437,12 @@ export const projects: ProjectsType = [
         },
       ],
     },
+    links: [
+      {
+        url: 'chiangmaibabysitters.com',
+        type: 'site',
+      },
+    ],
     screenshots: {
       logo: {
         url: '/projects/logo/chiang-mai-babysitters-logo.svg',
@@ -490,6 +538,12 @@ export const projects: ProjectsType = [
         },
       ],
     },
+    links: [
+      {
+        url: 'bigeye.video',
+        type: 'site',
+      },
+    ],
     screenshots: {
       logo: {
         url: '/projects/logo/big-eye-video-logo.png',
@@ -585,6 +639,12 @@ export const projects: ProjectsType = [
         },
       ],
     },
+    links: [
+      {
+        url: 'cryptostevensaunders.dev',
+        type: 'site',
+      },
+    ],
     screenshots: {
       logo: {
         url: '/projects/logo/crystal-crypto-logo.svg',
