@@ -34,7 +34,7 @@ export interface ProjectScreenshot {
 
 export interface Link {
   url: string;
-  type: 'github' | 'codepen' | 'www' | 'demo' | 'site' | 'docs';
+  type: 'GitHub' | 'CodePen' | 'www' | 'demo' | 'Site' | 'docs' | 'YouTube';
 }
 
 export type Links = Link[];
@@ -46,13 +46,22 @@ export const projects: Projects = [
     subTitle: 'A property portal built on top of WordPress.',
     name: 'Chiang Mai Estate Agents',
     description:
-      '## This is mu description heading \n \n This should have an empty line above it \n ## This should be a subheading   \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n\n ## This is mu description heading \n \n This should have an empty line above it \n ## This should be a subheading   \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below.',
+      '## Chiang Mai Estate Agents\n\nA property portal built on top of WordPress.',
     intro:
-      '\n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. ddd\n And this should be some cool normal text below.And this should be some cool normal text below.And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. \n\n And this should be some cool normal text below. \n And this should be some cool normal text below. \n And this should be some cool normal text below. ddd',
+      "An estate agents website is their 'bread and butter' and brand is everything. My role within this company included branding, design, and overseeing the entire front-end development process.",
     domain: 'chiangmaiestateagents.com',
     slug: 'chiang-mai-estate-agents',
     tags: ['Real Estate', 'Property', 'WordPress', 'CMS'],
-    languages: ['JavaScript', 'HTML5', 'CSS3', 'PHP'],
+    languages: [
+      'JavaScript',
+      'HTML5',
+      'CSS3',
+      'bootstrap',
+      'WordPress',
+      'NGINX',
+      'PhotoShop',
+      'Illustrator',
+    ],
     scope: {
       title: 'Project Scope',
       description:
@@ -105,23 +114,7 @@ export const projects: Projects = [
     links: [
       {
         url: 'chiangmaiestateagents.com',
-        type: 'site',
-      },
-      {
-        url: '#',
-        type: 'demo',
-      },
-      {
-        url: '#',
-        type: 'docs',
-      },
-      {
-        url: '#',
-        type: 'github',
-      },
-      {
-        url: '#',
-        type: 'codepen',
+        type: 'Site',
       },
     ],
     screenshots: {
@@ -190,13 +183,24 @@ export const projects: Projects = [
   {
     id: 2,
     title: 'Business and Finance News and Interviews',
+    subTitle: 'News Website and YouTube Channel.',
     name: 'BIG EYE NEWS',
     description: '',
-    intro: 'Business and Finance News and Interviews',
+    intro:
+      'Business and Finance News and Video Interviews. Responsible for branding, video effects and editing and website development',
     domain: 'bigeye.news',
     slug: 'big-eye-news',
     tags: ['News', 'Video', 'WordPress', 'CMS'],
-    languages: ['JavaScript', 'HTML5', 'CSS3', 'PHP'],
+    languages: [
+      'JavaScript',
+      'HTML5',
+      'CSS3',
+      'FFMPEG',
+      'WordPress',
+      'NGINX',
+      'AfterEffects',
+      'PhotoShop',
+    ],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',
@@ -222,7 +226,11 @@ export const projects: Projects = [
     links: [
       {
         url: 'bigeye.news',
-        type: 'site',
+        type: 'Site',
+      },
+      {
+        url: 'YouTube.com/c/BigEyeMedia',
+        type: 'YouTube',
       },
     ],
     screenshots: {
@@ -290,14 +298,27 @@ export const projects: Projects = [
   },
   {
     id: 3,
-    title: 'Video Platform Development',
+    title: 'Custom Video Platform Development',
+    subTitle: 'Video Platform Development and Encoding Pipelines',
     name: 'Nonovium',
     description: '',
-    intro: 'Video Platform and Encoding Pipelines',
+    intro:
+      'Custom video platforms for companies that want complete control of their data and full branding. Features offered include: Frontend development with React, Video CMS backend powered by Django, and scalable video encoding with FFmpeg, Redis and Celery.',
     domain: 'nonovium.com',
     slug: 'nonovium',
     tags: ['Video', 'Encoding', 'FFMPEG', 'CMS'],
-    languages: ['JavaScript', 'HTML5', 'CSS3', 'Python'],
+    languages: [
+      'FFmpeg',
+      'Django',
+      'Python',
+      'Redis',
+      'PostgreSQL',
+      'JavaScript',
+      'HTML5',
+      'CSS3',
+      'React',
+      'Wordpress',
+    ],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',
@@ -325,7 +346,11 @@ export const projects: Projects = [
     links: [
       {
         url: 'nonovium.com',
-        type: 'site',
+        type: 'Site',
+      },
+      {
+        url: 'github.com/Nonovium',
+        type: 'GitHub',
       },
     ],
     screenshots: {
@@ -395,10 +420,11 @@ export const projects: Projects = [
     id: 4,
     title:
       'Childcare Booking System with integrated CRM and Accounting Software',
+    subTitle: 'Childcare Booking System and Frontend Development',
     name: 'Chiang Mai Babysitters',
     description: '',
     intro:
-      'Childcare Booking System with integrated CRM and Accounting Software',
+      'Childcare Booking System that managed the entire booking process including staff training, scheduling, and payment. The system was built with a WordPress frontend integrated with Zoho CRM and Zoho Books.',
     domain: 'chiangmaibabysitters.com',
     slug: 'chiang-mai-babysitters',
     tags: [
@@ -409,7 +435,14 @@ export const projects: Projects = [
       'CMS',
       'Zoho',
     ],
-    languages: ['JavaScript', 'HTML5', 'CSS3'],
+    languages: [
+      'JavaScript',
+      'HTML5',
+      'CSS3',
+      'WordPress',
+      'PhotoShop',
+      'Illustrator',
+    ],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',
@@ -440,7 +473,7 @@ export const projects: Projects = [
     links: [
       {
         url: 'chiangmaibabysitters.com',
-        type: 'site',
+        type: 'Site',
       },
     ],
     screenshots: {
@@ -508,14 +541,26 @@ export const projects: Projects = [
   },
   {
     id: 5,
-    title: 'A video platform for serious investors',
+    title: 'A Video Platform for Serious Investors',
+    subTitle: 'COMING SOON: Custom Video Platform for investors',
     name: 'BIG EYE Video',
     description: '',
-    intro: 'A video platform for serious investors',
+    intro:
+      'A video platform for serious investors to share their videos with the world.',
     domain: 'bigeye.video',
     slug: 'big-eye-video',
     tags: ['News', 'Video', 'WordPress', 'CMS'],
-    languages: ['JavaScript', 'HTML5', 'CSS3', 'PHP'],
+    languages: [
+      'FFmpeg',
+      'Django',
+      'Python',
+      'Redis',
+      'PostgreSQL',
+      'JavaScript',
+      'HTML5',
+      'CSS3',
+      'React',
+    ],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',
@@ -538,12 +583,7 @@ export const projects: Projects = [
         },
       ],
     },
-    links: [
-      {
-        url: 'bigeye.video',
-        type: 'site',
-      },
-    ],
+    links: [],
     screenshots: {
       logo: {
         url: '/projects/logo/big-eye-video-logo.png',
@@ -609,14 +649,34 @@ export const projects: Projects = [
   },
   {
     id: 6,
-    title: 'A crypto data platform with up to the minute pricing and charting',
+    title:
+      'GA: A crypto data platform with up to the minute pricing and charting',
+    subTitle:
+      'General Assembly SEI: A crypto data platform built in just two days',
     name: 'Crystal Crypto',
     description: '',
-    intro: 'A crypto data platform with up to the minute pricing and charting',
+    intro:
+      "A crypto platform built as a pair-programming exercise during General Assembly's Software Engineering Immersive. The frontend was completed in just two days and includes a charting library and a pricing API.",
     domain: 'crypto.stevensaunders.dev',
     slug: 'crystal-crypto',
-    tags: ['News', 'Video', 'WordPress', 'CMS'],
-    languages: ['JavaScript', 'HTML5', 'CSS3', 'PHP'],
+    tags: [
+      'General Assembly',
+      'Bootcamp',
+      'React',
+      'Bulma',
+      'Crypto',
+      'API',
+      'Pricing',
+      'Charting',
+    ],
+    languages: [
+      'General Assembly',
+      'React',
+      'JavaScript',
+      'HTML5',
+      'CSS3',
+      'Bulma',
+    ],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',
@@ -641,13 +701,124 @@ export const projects: Projects = [
     },
     links: [
       {
-        url: 'cryptostevensaunders.dev',
-        type: 'site',
+        url: 'crypto.stevensaunders.dev',
+        type: 'Site',
+      },
+      {
+        url: 'github.com/SuperSuperDev/crystal-crypto-prices-sei-project-2',
+        type: 'GitHub',
       },
     ],
     screenshots: {
       logo: {
         url: '/projects/logo/crystal-crypto-logo.svg',
+        width: 300,
+        height: 300,
+      },
+      logoBanner: {
+        url: '/projects/logo/crypto.stevensaunders.dev-logo.svg',
+        width: 250,
+        height: 106,
+      },
+      webScreenshot: {
+        url: '/projects/screenshots/crypto.stevensaunders.dev-macbook-pro-16.png',
+        width: 3072,
+        height: 1920,
+      },
+      webPageshot: {
+        url: '/projects/screenshots/crypto.stevensaunders.dev-macbook-pro-16-full.png',
+        width: 3102,
+        height: 10416,
+      },
+      tabletScreenshot: {
+        url: '/projects/screenshots/crypto.stevensaunders.dev-ipad.png',
+        width: 1536,
+        height: 2048,
+      },
+      tabletLandscapeScreenshot: {
+        url: '/projects/screenshots/crypto.stevensaunders.dev-ipad-landscape.png',
+        width: 2048,
+        height: 1536,
+      },
+      tabletPageshot: {
+        url: '/projects/screenshots/crypto.stevensaunders.dev-ipad-full.png',
+        width: 1566,
+        height: 15574,
+      },
+      tabletLandscapePageShot: {
+        url: '/projects/screenshots/crypto.stevensaunders.dev-ipad-landscape-full.png',
+        width: 2112,
+        height: 11684,
+      },
+      mobileScreenshot: {
+        url: '/projects/screenshots/crypto.stevensaunders.dev-iphone-xr.png',
+        width: 1242,
+        height: 2688,
+      },
+      mobileLandscapeScreenshot: {
+        url: '/projects/screenshots/crypto.stevensaunders.dev-iphone-xr-landscape.png',
+        width: 2688,
+        height: 1242,
+      },
+      mobilePageshot: {
+        url: '/projects/screenshots/crypto.stevensaunders.dev-iphone-xr-full.png',
+        width: 1287,
+        height: 40371,
+      },
+      mobileLandscapePageshot: {
+        url: '/projects/screenshots/crypto.stevensaunders.dev-iphone-xr-landscape-full.png',
+        width: 2826,
+        height: 19464,
+      },
+    },
+  },
+  {
+    id: 7,
+    title: 'GA: PacMan-JS - A Tribute to a Classic Arcade Game',
+    subTitle: 'General Assembly SEI: A PacMan Game built with Vanilla JS',
+    name: 'PacMan-JS',
+    description: '',
+    intro:
+      "A crypto platform built as a pair-programming exercise during General Assembly's Software Engineering Immersive. The frontend was completed in just two days and includes a charting library and a pricing API.",
+    domain: 'codepen.io/supersuperdev/full/xxYLvPR',
+    slug: 'crystal-crypto',
+    tags: ['General Assembly', 'Bootcamp', 'JS', 'Vanilla JS', 'Games'],
+    languages: ['General Assembly', 'JavaScript', 'HTML5', 'CSS3'],
+    scope: {
+      title: 'Project Scope',
+      description: 'The project had the following scopes',
+      tags: [
+        'Website Design',
+        'Website Development',
+        'Logo Design',
+        'Business Consulting',
+      ],
+      objectives: [
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
+      ],
+    },
+    links: [
+      {
+        url: 'codepen.io/supersuperdev/full/xxYLvPR',
+        type: 'CodePen',
+      },
+      {
+        url: 'github.com/SuperSuperDev/crystal-crypto-prices-sei-project-2',
+        type: 'GitHub',
+      },
+    ],
+    screenshots: {
+      logo: {
+        url: '/projects/logo/pacman-js-logo.png',
         width: 300,
         height: 300,
       },

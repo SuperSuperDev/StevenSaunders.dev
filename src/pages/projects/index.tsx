@@ -90,27 +90,23 @@ export function ProjectListItem({
         <div className='flex-grow text-left'>
           {links && (
             <>
-              {
-                // TODO fix iconSize when coming from different packages
-                links.map((link) => (
-                  <Link
-                    href={link.url}
-                    key={`${link.url}-${link.type}`}
-                    passHref
-                  >
-                    <a className='text-primary-700'>
-                      <Button
-                        variant='outline'
-                        iconLeft={getIcon(link.type, 'IconComponent')}
-                        className='mx-1 h-8 p-0 px-2'
-                        iconSize={6}
-                      >
-                        {link.type}
-                      </Button>
-                    </a>
-                  </Link>
-                ))
-              }
+              {links.map((link) => (
+                <Link
+                  href={`https://${link.url}`}
+                  key={`${link.url}-${link.type}`}
+                  passHref
+                >
+                  <a className='text-primary-700'>
+                    <Button
+                      variant='outline'
+                      iconLeft={getIcon(link.type, 'IconComponent')}
+                      className='mx-1 p-0 px-2 text-lg'
+                    >
+                      {link.type}
+                    </Button>
+                  </a>
+                </Link>
+              ))}
             </>
           )}
         </div>

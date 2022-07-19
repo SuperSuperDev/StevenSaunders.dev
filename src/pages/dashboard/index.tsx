@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { ReactElement } from 'react';
+import Router from 'next/router';
+import React, { ReactElement } from 'react';
 
 import { useUser } from '@/lib/api';
 
@@ -9,7 +10,15 @@ import UnderlineLink from '@/components/links/UnderlineLink';
 import Seo from '@/components/Seo';
 
 export default function Dashboard() {
-  const { user, loading } = useUser();
+  const { user, loading, isAuthenticated } = useUser();
+  React.useEffect(() => {
+    function redirectIfNotAuthenticated() {
+      if (!isAuthenticated) {
+        return Router.push('/login');
+      }
+    }
+    redirectIfNotAuthenticated();
+  }, [isAuthenticated]);
 
   return (
     <>
@@ -41,8 +50,8 @@ export default function Dashboard() {
 
               <footer className='absolute bottom-2  dark:text-primary-50'>
                 © {new Date().getFullYear()} By{' '}
-                <UnderlineLink href='https://nonovium.com'>
-                  Nonovium
+                <UnderlineLink href='https://stevensaunders.dev'>
+                  StevenSaunders.dev
                 </UnderlineLink>
               </footer>
             </div>

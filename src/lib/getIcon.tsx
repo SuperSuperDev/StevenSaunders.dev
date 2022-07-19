@@ -1,4 +1,6 @@
-import { GlobeAltIcon, GlobeIcon } from '@heroicons/react/outline';
+import { GlobeAltIcon } from '@heroicons/react/outline';
+import { FaGlobeAmericas } from 'react-icons/fa';
+import { IoLogoYoutube, IoMdGlobe } from 'react-icons/io';
 import { SiCodepen, SiGithub, SiReadthedocs } from 'react-icons/si';
 
 export default function getIcon(iconName: string, iconFormat: string) {
@@ -15,13 +17,15 @@ export default function getIcon(iconName: string, iconFormat: string) {
       case 'codepen':
         return <SiCodepen />;
       case 'www':
-        return <GlobeAltIcon />;
+        return <IoMdGlobe />;
       case 'demo':
-        return <GlobeIcon />;
+        return <FaGlobeAmericas />;
       case 'site':
-        return <GlobeIcon />;
+        return <IoMdGlobe />;
       case 'docs':
         return <SiReadthedocs />;
+      case 'youtube':
+        return <IoLogoYoutube />;
       default:
         return <GlobeAltIcon />;
     }

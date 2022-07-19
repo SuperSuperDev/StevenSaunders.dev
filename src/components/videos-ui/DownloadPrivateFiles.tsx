@@ -2,13 +2,13 @@ import Button from '@NonoviumUI/buttons/Button';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 
-import { getCSRF } from '../../lib/api';
+import { getToken } from '@/lib/auth';
 
 interface IDownloadFile {
   fileURL: string;
   fileName: string;
-  buttonText?: string | undefined;
-  buttonClass?: string | undefined;
+  buttonText?: string;
+  buttonClass?: string;
 }
 
 export default function DownloadPrivateFile(props: IDownloadFile) {
@@ -16,8 +16,7 @@ export default function DownloadPrivateFile(props: IDownloadFile) {
   const buttonText = props.buttonText ? props.buttonText : 'Download';
   useEffect(() => {
     async function downloadApi() {
-      const csrfToken = await getCSRF();
-
+      const token = await getToken();
       try {
         // It doesn't matter whether this api responds with
         // the Content-Disposition header or not
@@ -25,7 +24,7 @@ export default function DownloadPrivateFile(props: IDownloadFile) {
           withCredentials: true,
           responseType: 'blob', // this is important!
           headers: {
-            'X-CSRFTOKEN': csrfToken,
+            Authorization: `JWT ${token}`,
           },
         });
         // you can mention a type if you wish

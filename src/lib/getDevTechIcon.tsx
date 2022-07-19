@@ -10,6 +10,7 @@ import {
   SiDjango,
   SiDocker,
   SiExpress,
+  SiFfmpeg,
   SiGit,
   SiGithub,
   SiGraphql,
@@ -106,6 +107,8 @@ export function getDevTechIcon(
         return <SiVisualstudio />;
       case 'neo4j':
         return <SiNeo4J />;
+      case 'ffmpeg':
+        return <SiFfmpeg />;
       default:
         return <FaCode />;
     }
@@ -118,6 +121,14 @@ export function getDevTechIcon(
       return `/dev-icons/${devTechnology}-original-wordmark.svg`;
     } else if (devIconList.includes(`${devTechnology}-plain-wordmark.svg`)) {
       return `/dev-icons/${devTechnology}-plain-wordmark.svg`;
+    } else if (devIconList.includes(`${devTechnology}-added-original.svg`)) {
+      return `/dev-icons/${devTechnology}-added-original.svg`;
+    } else if (devIconList.includes(`${devTechnology}-added-plain.svg`)) {
+      return `/dev-icons/${devTechnology}-added-plain.svg`;
+    } else if (
+      devIconList.includes(`${devTechnology}-added-original-wordmark.svg`)
+    ) {
+      return `/dev-icons/${devTechnology}-added-original-wordmark.svg`;
     } else {
       return `https://s3.pub1.infomaniak.cloud/object/v1/AUTH_598753f3935548c6a1ca8f065e534ac1/supersuperdev-pub/img/logo-ss/logo-ss.svg`;
     }

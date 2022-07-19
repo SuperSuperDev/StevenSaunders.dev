@@ -1,6 +1,10 @@
 export type DevIconList = string[];
 
 export const devIconList = [
+  'generalassembly-added-original.svg',
+  'generalassembly-added-original-wordmark.svg',
+  'ffmpeg-added-original.svg',
+  'ffmpeg-added-original-wordmark.svg',
   'aarch64-original.svg',
   'aarch64-plain.svg',
   'adonisjs-original-wordmark.svg',

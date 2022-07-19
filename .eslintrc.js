@@ -62,7 +62,7 @@ module.exports = {
             '^\\.\\./\\.\\./\\.\\./?$',
             '^\\.\\./\\.\\./\\.\\.(?!/?$)',
           ],
-          ['^@/types'], // other that didnt fit in
+          ['^@/types'], // other that didn't fit in
           ['^'],
         ],
       },

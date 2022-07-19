@@ -45,7 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       srText,
       iconLeft,
       iconRight,
-      iconSize = 'md',
+      iconSize = 'lg',
       variant = 'primary',
       rounding = 'md',
       isDarkBg = false,

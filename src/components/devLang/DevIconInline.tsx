@@ -62,6 +62,7 @@ export default function DevIconInline({ devTech, iconFormat }: props) {
               alt={dt}
               width='36'
               height='36'
+              className='mx-1'
             />
           )}
 

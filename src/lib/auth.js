@@ -16,7 +16,11 @@ export function setTokens(token, refToken) {
 }
 
 export function getToken() {
-  return window.localStorage.getItem('token');
+  // check if document is in browser
+  if (typeof document !== 'undefined') {
+    return window.localStorage.getItem('token');
+  }
+  return null;
 }
 
 export function getRefreshToken() {
@@ -25,6 +29,7 @@ export function getRefreshToken() {
 
 export function removeToken() {
   localStorage.removeItem('token');
+  localStorage.removeItem('refreshToken');
 }
 
 export function getPayload() {

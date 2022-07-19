@@ -1,8 +1,7 @@
 import axios from 'axios';
-import createAuthRefreshInterceptor from 'axios-auth-refresh';
 import useSWR from 'swr';
 
-import { getRefreshToken, getToken, setTokens } from './auth';
+import { getRefreshToken, getToken, removeToken } from './auth';
 import { publishedOnDate, secondsToHHMMSS } from './helper';
 import {
   IEncodedH264VideoArray,
@@ -15,34 +14,35 @@ import {
 
 export const baseUrl = process.env.NEXT_PUBLIC_VCMS_HOST || 'nobaseURL';
 // Function that will be called to refresh authorization
-const refreshAuthLogic = (failedRequest: {
-  response: { config: { headers: { [x: string]: string } } };
-}) =>
-  axios
-    .post(
-      `${baseUrl}/spa/token/refresh/`,
-      {
-        refresh: getRefreshToken(),
-      },
-      {
-        withCredentials: false,
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `JWT ${getToken()}`,
-        },
-      }
-    )
-    .then((tokenRefreshResponse) => {
-      setTokens(
-        tokenRefreshResponse.data.access,
-        tokenRefreshResponse.data.refresh
-      );
-      failedRequest.response.config.headers['Authorization'] =
-        'JWT ' + tokenRefreshResponse.data.access;
-      return Promise.resolve();
-    });
-// instantiate the interceptor
-createAuthRefreshInterceptor(axios, refreshAuthLogic);
+// const refreshAuthLogic = (failedRequest: {
+//   response: { config: { headers: { [x: string]: string } } };
+// }) =>
+//   axios
+//     .post(
+//       `${baseUrl}/spa/token/refresh/`,
+//       {
+//         refresh: getRefreshToken(),
+//       },
+//       {
+//         withCredentials: false,
+//         headers: {
+//           'Content-Type': 'application/json',
+//           Authorization: `JWT ${getToken()}`,
+//         },
+//       }
+//     )
+//     .then((tokenRefreshResponse) => {
+//       console.log('tokenRefreshResponse', tokenRefreshResponse);
+//       setTokens(
+//         tokenRefreshResponse.data.access,
+//         tokenRefreshResponse.data.refresh
+//       );
+//       failedRequest.response.config.headers['Authorization'] =
+//         'JWT ' + tokenRefreshResponse.data.access;
+//       return Promise.resolve();
+//     });
+// // instantiate the interceptor
+// createAuthRefreshInterceptor(axios, refreshAuthLogic);
 
 const userFetcher = (url: string) =>
   axios
@@ -72,25 +72,24 @@ export async function refreshUser() {
 }
 
 export async function loginUser(formdata: Record<string, unknown>) {
-  return axios.post(
-    `${baseUrl}/spa/token/`,
-    { ...formdata },
-    {
-      withCredentials: false,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }
-  );
+  return axios.post(`${baseUrl}/spa/token/`, formdata, {
+    withCredentials: false,
+    headers: { 'Content-Type': 'application/json' },
+  });
 }
 export async function logoutUser() {
-  return axios.post(
-    `${baseUrl}/spa/token/logout/`,
-    {},
-    {
-      headers: { Authorization: `JWT ${getToken()}` },
-    }
-  );
+  try {
+    await axios.post(
+      `${baseUrl}/spa/token/logout/`,
+      {},
+      {
+        headers: { Authorization: `JWT ${getToken()}` },
+      }
+    );
+    return removeToken();
+  } catch (error) {
+    return removeToken();
+  }
 }
 
 export function useUser() {
@@ -100,7 +99,8 @@ export function useUser() {
     error: userError,
   } = useSWR(`${baseUrl}/spa/auth/users/me/`, userFetcher);
   const loading: boolean = !userData && !userError;
-  const isAuthenticated: boolean = userData?.id !== undefined;
+  const isAuthenticated: boolean =
+    userData && userData.id !== undefined && !userError ? true : false;
 
   return {
     loading,
@@ -120,7 +120,7 @@ export function useUserMedia() {
     user ? `${baseUrl}/spa/video/?author=${user.username}` : null,
     userFetcher,
     {
-      refreshInterval: 1000,
+      refreshInterval: 10000,
       revalidateOnFocus: false,
     }
   );
@@ -277,15 +277,15 @@ export function useSession() {
   };
 }
 
-export async function getCSRF() {
-  try {
-    const res = await axios
-      .get('https://vcms-ssl.capt.nonovium.com/spa/csrf/', {
-        withCredentials: true,
-      })
-      .then((res) => res.headers['x-csrftoken']);
-    return res;
-  } catch (error) {
-    return 'Error';
-  }
-}
+// export async function getCSRF() {
+//   try {
+//     const res = await axios
+//       .get('https://vcms-ssl.capt.nonovium.com/spa/csrf/', {
+//         withCredentials: true,
+//       })
+//       .then((res) => res.headers['x-csrftoken']);
+//     return res;
+//   } catch (error) {
+//     return 'Error';
+//   }
+// }

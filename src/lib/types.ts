@@ -97,7 +97,7 @@ export interface IVideoPlayerProps {
   url: string;
   poster?: string;
   fluid?: boolean;
-  fitVideoSize?: 'auto' | 'fixWidth' | 'fixHeight' | undefined;
+  fitVideoSize?: 'auto' | 'fixWidth' | 'fixHeight';
   progress?: number;
   ref?: React.Ref<HTMLDivElement>;
 }
@@ -173,6 +173,8 @@ export type DevTech =
   | 'sass'
   | 'Less'
   | 'less'
+  | 'FFMPEG'
+  | 'ffmpeg'
   | 'GitHub'
   | 'github'
   | 'Git'

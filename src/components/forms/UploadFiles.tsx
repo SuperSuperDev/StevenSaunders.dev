@@ -2,8 +2,7 @@
 import StatBarCard from '@NonoviumUI/statistics/StatBarCard';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 import Button from '../buttons/Button';
 import Block from '../containers/Block';
@@ -117,7 +116,6 @@ export default function UploadFiles() {
   ];
 
   async function upload() {
-    //const csrfToken = await getCSRF();
     if (
       formData.selectedFiles !== undefined &&
       formData.selectedFiles !== null
