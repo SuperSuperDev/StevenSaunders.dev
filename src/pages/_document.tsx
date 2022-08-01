@@ -23,8 +23,15 @@ class MyDocument extends Document {
             type='font/woff2'
             crossOrigin='anonymous'
           />
+          <link
+            rel='preload'
+            href='/fonts/RammettoOne-Regular.ttf'
+            as='font'
+            type='font/ttf'
+            crossOrigin='anonymous'
+          />
         </Head>
-        <body className='h-screen min-h-screen'>
+        <body className='relative min-h-screen overflow-x-hidden'>
           <Main />
           <NextScript />
         </body>

@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-/* This example requires Tailwind CSS v2.0+ */
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
 import Button from '@NonoviumUI/buttons/Button';
@@ -10,17 +9,42 @@ import { useRouter } from 'next/router';
 import { Fragment } from 'react';
 
 import { useUser } from '@/lib/api';
+import clsxm from '@/lib/clsxm';
 
 import ThemeChanger from '@/components/layout/ThemeChanger';
+enum NavPosition {
+  'fixed',
+  'sticky',
+  'static',
+}
 
-export default function NavBar() {
+export default function NavBar({
+  navVariant = 'static',
+}: {
+  navVariant?: keyof typeof NavPosition;
+}) {
   const router = useRouter();
   const { isAuthenticated } = useUser();
   return (
     <Popover>
-      <div className='pointer-events-none absolute inset-0 z-30' />
+      <div
+        className={clsxm(
+          'pointer-events-none z-30',
+          //#region //*=== Nav Position ===*//
+          [
+            navVariant === 'fixed' && 'fixed inset-x-0',
+            navVariant === 'sticky' && 'sticky',
+            navVariant === 'static' && 'absolute inset-0',
+          ]
+        )}
+      />
       <div className='relative z-20'>
-        <div className='mx-auto flex max-w-7xl items-center justify-between px-4 py-5 sm:px-6 sm:py-4 md:justify-start md:space-x-10 lg:px-8'>
+        <div
+          className={clsxm(
+            'mx-auto flex max-w-7xl items-center justify-between',
+            'px-4 py-5 sm:px-6 sm:py-4 md:justify-start md:space-x-10 lg:px-8'
+          )}
+        >
           <div>
             <Link href='/' passHref>
               <a>

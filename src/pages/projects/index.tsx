@@ -17,12 +17,13 @@ export default function Projects() {
   return (
     <>
       <Seo templateTitle='Projects' />
+
       <section className='container mx-auto py-7'>
         <h1>Projects</h1>
         <p>Some of my projects, past and present</p>
       </section>
       <section className='container mx-auto py-7'>
-        <div className='mx-auto grid grid-cols-1 gap-4'>
+        <div className='container mx-auto grid grid-cols-1 gap-7'>
           {projects.map((project) => (
             <ProjectListItem {...project} key={project.id} />
           ))}
@@ -60,7 +61,7 @@ export function ProjectListItem({
 }: Project) {
   return (
     <div
-      className='dark:pre-dark-grad mx-auto w-full py-7 shadow-xl dark:bg-transparent'
+      className='project-list-item dark:pre-dark-grad mx-auto w-full py-7 shadow-xl dark:bg-transparent'
       key={id}
     >
       <div className='mx-auto grid w-full grid-cols-1 gap-4 py-7 dark:bg-transparent md:grid-cols-3 lg:grid-cols-4'>
@@ -77,8 +78,8 @@ export function ProjectListItem({
           <p className='break-word px-7 text-center'>{subTitle}</p>
         </div>
         <div className='prose mx-auto  w-full min-w-full px-7 text-left dark:prose-invert md:col-span-2 lg:col-span-3 '>
-          <h2 className='text-left text-primary-700'>{title}</h2>
-          <div className='prose:max prose prose-lg max-h-72 overflow-clip text-ellipsis dark:prose-invert'>
+          <h2 className='text-center text-primary-700'>{title}</h2>
+          <div className='prose prose-xl max-h-72 overflow-clip text-ellipsis text-center dark:prose-invert md:prose-2xl'>
             <Markdown
               content={intro}
               className='scrollbar max-h-72 max-w-none overflow-auto'
@@ -86,8 +87,8 @@ export function ProjectListItem({
           </div>
         </div>
       </div>
-      <div className='flex flex-wrap px-7 text-center'>
-        <div className='flex-grow text-left'>
+      <div className='flex flex-wrap gap-4 px-7 text-center'>
+        <div className='flex-grow text-center'>
           {links && (
             <>
               {links.map((link) => (
@@ -110,13 +111,13 @@ export function ProjectListItem({
             </>
           )}
         </div>
-        <div className='grow'>
+        <div className={`grow dev-icons-${id}`}>
           <DevIconInline
             iconFormat='DevIconUrl'
             devTech={languages as DevTech[]}
           />{' '}
         </div>
-        <div className=''>
+        <div className='description-link'>
           {description && (
             <div className='text-right'>
               <Link href={`/projects/${slug}`} passHref>

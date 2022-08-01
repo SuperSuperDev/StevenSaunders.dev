@@ -16,7 +16,6 @@ type props = {
 export default function DevIconStack({
   devTech,
   iconFormat,
-  title,
   iconWidth: width = 36,
   showTitle = 'onHover',
   className,
@@ -56,45 +55,49 @@ export default function DevIconStack({
   }
 
   return (
-    <div className={`flex w-full flex-col ${className}`}>
-      {title && <h1>{title}</h1>}
-      <ul className='list-none px-1'>
-        {devTech.map((dt) => (
-          <li
-            className={`tw-glass group m-4 flex flex-row flex-wrap content-center items-center rounded-lg bg-white p-4 align-middle text-4xl leading-tight 
+    <div className={`flex- flex w-full flex-col ${className}`}>
+      <div className='flex flex-col flex-wrap justify-center'>
+        <ul className='list-none px-1'>
+          {devTech.map((dt) => (
+            <li
+              className={`group m-2 flex w-full flex-row flex-wrap content-center items-center rounded-lg bg-transparent bg-white align-middle text-4xl leading-tight 
           ${
             iconFormat === 'IconComponent'
               ? 'hover:text-6xl hover:text-primary-500'
               : ''
           } `}
-            key={`${dt}-${iconFormat}`}
-          >
-            {iconFormat === 'IconComponent' && (
-              <div>{getDevTechIcon(dt, iconFormat)}</div>
-            )}
+              key={`${dt}-${iconFormat}`}
+            >
+              {iconFormat === 'IconComponent' && (
+                <div>{getDevTechIcon(dt, iconFormat)}</div>
+              )}
 
-            {(iconFormat === 'DevIconUrl' ||
-              iconFormat == 'DevIconWordUrl') && (
-              <div className='mx-auto'>
-                <img
-                  src={getDevTechIcon(dt, iconFormat).toString()}
-                  alt={dt}
-                  width={width}
-                />
-              </div>
-            )}
-            {showTitle != 'never' && (
-              <div
-                className={`${
-                  showTitle == 'onHover' ? 'invisible group-hover:visible' : ''
-                } mx-auto content-center py-2 text-center align-middle text-2xl xl:text-4xl`}
-              >
-                {dt}
-              </div>
-            )}
-          </li>
-        ))}
-      </ul>
+              {(iconFormat === 'DevIconUrl' ||
+                iconFormat == 'DevIconWordUrl') && (
+                <div className='dark:txt-shdw-distant-dark mx-auto'>
+                  <img
+                    src={getDevTechIcon(dt, iconFormat).toString()}
+                    alt={dt}
+                    width={width}
+                    className=''
+                  />
+                </div>
+              )}
+              {showTitle != 'never' && (
+                <div
+                  className={`${
+                    showTitle == 'onHover'
+                      ? 'invisible group-hover:visible'
+                      : ''
+                  } mx-auto content-center py-2 text-center align-middle text-2xl xl:text-4xl`}
+                >
+                  {dt}
+                </div>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

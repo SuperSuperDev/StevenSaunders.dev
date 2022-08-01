@@ -28,7 +28,8 @@
     "**/*.tsx",
     "node_modules/xgplayer/**/*.ts",
     "node_modules/xgplayer/**/*.tsx",
-    "node_modules/xgplayer/**/*.d.ts"
+    "node_modules/xgplayer/**/*.d.ts",
+    "src/components/animations/GSAPAnimations.jsx"
   ],
   "exclude": [
     "node_modules",

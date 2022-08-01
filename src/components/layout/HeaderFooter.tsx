@@ -10,12 +10,28 @@ enum BackgroundVariant {
   'basic',
 }
 
+enum NavPosition {
+  'fixed',
+  'sticky',
+  'static',
+}
+
 type props = {
   bgVariant?: keyof typeof BackgroundVariant;
+  navVariant?: keyof typeof NavPosition;
 } & React.ComponentPropsWithRef<'div'>;
 
 const HeaderFooter = React.forwardRef<HTMLDivElement, props>(
-  ({ children, className, bgVariant = 'animated-gradient', ...rest }, ref) => {
+  (
+    {
+      children,
+      className,
+      navVariant = 'static',
+      bgVariant = 'animated-gradient',
+      ...rest
+    },
+    ref
+  ) => {
     return (
       <div
         ref={ref}
@@ -37,7 +53,7 @@ const HeaderFooter = React.forwardRef<HTMLDivElement, props>(
         )}
         {...rest}
       >
-        <NavBar />
+        <NavBar navVariant={navVariant} />
         <div className='flex flex-grow'>
           <main className='min-h-min min-w-min flex-1'>{children}</main>
         </div>
