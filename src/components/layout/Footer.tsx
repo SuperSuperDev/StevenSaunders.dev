@@ -88,100 +88,44 @@ const navigation = {
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   return (
-    <footer className='bg-white dark:bg-dark' aria-labelledby='footer-heading'>
+    <footer
+      className='dark:pre-dark-grad bg-white dark:bg-transparent '
+      aria-labelledby='footer-heading'
+    >
       <h2 id='footer-heading' className='sr-only'>
         Footer
       </h2>
       <div className='mx-auto max-w-7xl py-12 px-4 sm:px-6 lg:py-16 lg:px-8'>
-        <div className='xl:grid xl:grid-cols-3 xl:gap-8'>
-          <div className='space-y-8 xl:col-span-1'>
-            <img
-              className='h-10'
-              src='https://s3.pub1.infomaniak.cloud/object/v1/AUTH_598753f3935548c6a1ca8f065e534ac1/supersuperdev-pub/img/logo-ss/logo-ss.svg'
-              alt='StevenSaunders.dev'
-            />
-            <p className='prose dark:prose-invert'>
-              Building scalable, performent, and accessible web applications.
-            </p>
-          </div>
-          <div className='mt-12 grid grid-cols-2 gap-8 xl:col-span-2 xl:mt-0'>
-            <div className='md:grid md:grid-cols-2 md:gap-8'>
-              <div>
-                <h3 className='text-sm font-semibold uppercase tracking-wider text-gray-400'>
-                  Pages
-                </h3>
-                <ul role='list' className='mt-4 space-y-4'>
-                  {navigation.pages.map((page) => (
-                    <li key={page.title}>
-                      <a
-                        href={page.href}
-                        className='text-base text-gray-500 hover:text-gray-900'
-                      >
-                        {page.title}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className='mt-12 md:mt-0'>
-                <h3 className='text-sm font-semibold uppercase tracking-wider text-gray-400'>
-                  Support
-                </h3>
-                <ul role='list' className='mt-4 space-y-4'>
-                  {navigation.support.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className='text-base text-gray-500 hover:text-gray-900'
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-            <div className='md:grid md:grid-cols-2 md:gap-8'>
-              <div>
-                <h3 className='text-sm font-semibold uppercase tracking-wider text-gray-400'>
-                  Company
-                </h3>
-                <ul role='list' className='mt-4 space-y-4'>
-                  {navigation.company.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className='text-base text-gray-500 hover:text-gray-900'
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className='mt-12 md:mt-0'>
-                <h3 className='text-sm font-semibold uppercase tracking-wider text-gray-400'>
-                  Legal
-                </h3>
-                <ul role='list' className='mt-4 space-y-4'>
-                  {navigation.legal.map((item) => (
-                    <li key={item.name}>
-                      <a
-                        href={item.href}
-                        className='text-base text-gray-500 hover:text-gray-900'
-                      >
-                        {item.name}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-          </div>
+        <div className='space-y-8 xl:col-span-1'>
+          <img
+            className='h-10'
+            src='https://s3.pub1.infomaniak.cloud/object/v1/AUTH_598753f3935548c6a1ca8f065e534ac1/supersuperdev-pub/img/logo-ss/logo-ss.svg'
+            alt='StevenSaunders.dev'
+          />
+          <p className='prose dark:prose-invert'>
+            Building scalable, performent, and accessible web applications.
+          </p>
+        </div>
+        <div className='mx-auto text-center'>
+          <ul
+            role='list'
+            className='mx-auto flex w-full flex-row gap-2 text-center'
+          >
+            {navigation.pages.map((page) => (
+              <li key={page.title}>
+                <a
+                  href={page.href}
+                  className='text-base text-gray-500 hover:text-gray-900'
+                >
+                  {page.title}
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
         <div className='mt-12 border-t border-gray-200 pt-8'>
           <p className='text-base text-gray-400 xl:text-center'>
-            &copy; {currentYear} Nonovium, All rights reserved.
+            &copy; {currentYear} StevenSaunders.dev - All rights reserved.
           </p>
         </div>
       </div>

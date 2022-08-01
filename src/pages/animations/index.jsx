@@ -33,18 +33,12 @@ export default function Animations() {
     const splitHeadings = headings.map((heading) => {
       gsap.set(heading, {
         fontSize: 'clamp(1rem, 5vw, 5rem)',
-        // fontWeight: 400,
         textAlign: 'center',
-        // letterSpacing: '0.5em',
         marginRight: '-0.5em',
         color: 'hsl(0, 0, 80%)',
         width: '90vw',
         maxWidth: '1200px',
       });
-      // return new SplitText(heading, {
-      //   type: "chars, words, lines",
-      //   linesClass: "clip-text"
-      // });
       return heading;
     });
 

@@ -1,5 +1,4 @@
 import Animated from '@NonoviumUI/animations/Animated';
-import AnimatedTextArray from '@NonoviumUI/animations/AnimatedTextArray';
 import {
   AnimatedDevIconGrid,
   AnimatedProjectList,
@@ -7,11 +6,8 @@ import {
 } from '@NonoviumUI/animations/GSAPAnimations';
 import LatestPosts from '@NonoviumUI/blogUI/LatestPosts';
 import Button from '@NonoviumUI/buttons/Button';
-import Block from '@NonoviumUI/containers/Block';
 import DevIconStack from '@NonoviumUI/devLang/DevIconStack';
 import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 import Link from 'next/link';
 import React from 'react';
 
@@ -26,6 +22,7 @@ type props = {
   blogPosts?: IVideoDetails[];
 };
 
+// this site is built with...
 export const languages: DevTech[] = [
   'TypeScript',
   'JavaScript',
@@ -43,14 +40,6 @@ export const languages: DevTech[] = [
 ];
 
 export default function Page({ blogPosts }: props) {
-  const animationProps = {
-    textArray: ['Hello', 'World'],
-    delayBetween: 200,
-    initialDelay: 300,
-    className: 'text-4xl',
-    animationName: 'tracking-in-expand',
-  };
-
   return (
     <>
       <Seo templateTitle='Home' />
@@ -80,27 +69,24 @@ export default function Page({ blogPosts }: props) {
               </div>
             </div>
           </section>
-          {/* </Animated> */}
-          {blogPosts && (
-            <section className='prose mx-auto my-9 max-w-7xl flex-col items-center p-9 text-center dark:prose-invert'>
-              <h2 className='dark:txt-shdw-distant-dark px-7 text-2xl leading-tight drop-shadow-md sm:text-4xl md:leading-normal'>
-                Checkout my Blog
-              </h2>
-              <Block className='my-4 py-4'>
-                <LatestPosts posts={blogPosts} showNumPosts={4} />
-              </Block>
-              <Block className='my-4 py-4 text-right'>
-                <Link href='/blog' passHref>
-                  <a>
-                    <Button variant='outline'>More Posts...</Button>
-                  </a>
-                </Link>
-              </Block>
-              <AnimatedTextArray {...animationProps} />
-            </section>
-          )}
-          {/* </TextReveal> */}
         </div>
+        {blogPosts && (
+          <section className='grid grid-cols-1 gap-10 py-7'>
+            <h2 className='dark:txt-shdw-distant-dark px-7 text-2xl leading-tight drop-shadow-md sm:text-4xl md:leading-normal'>
+              Checkout my Blog{' '}
+            </h2>
+            <div className='container mx-auto w-screen'>
+              <LatestPosts posts={blogPosts} showNumPosts={4} />
+            </div>
+            <div className='container mx-auto w-screen text-right'>
+              <Link href='/blog' passHref>
+                <a>
+                  <Button variant='outline'>More Posts...</Button>
+                </a>
+              </Link>
+            </div>
+          </section>
+        )}
       </main>
     </>
   );

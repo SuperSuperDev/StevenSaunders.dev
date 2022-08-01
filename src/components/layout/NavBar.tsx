@@ -171,7 +171,7 @@ export default function NavBar({
                   </a>
                 ))}
               </div>
-              <div className='mt-6'>
+              {/* <div className='mt-6'>
                 <a
                   href='#'
                   className='flex w-full items-center justify-center rounded-md border border-transparent bg-primary-500 px-4 py-2 text-base font-medium text-white shadow-sm hover:bg-primary-600 dark:bg-primary-600 dark:hover:bg-primary-700'
@@ -186,7 +186,7 @@ export default function NavBar({
                     </a>
                   </Link>
                 </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </Popover.Panel>

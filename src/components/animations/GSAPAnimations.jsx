@@ -507,7 +507,7 @@ export function AnimatedDevIconGrid() {
         <section className='margin-0 relative h-screen w-screen'>
           <div
             id='innerWrap'
-            className='absolute top-[35%] left-[50%] m-auto w-[60%] '
+            className='absolute top-[25%] left-[50%] m-auto w-[90%] lg:max-w-[60%]'
           >
             <h2
               className='dark:txt-shdw-distant-dark p-7 text-4xl leading-tight
@@ -523,10 +523,13 @@ export function AnimatedDevIconGrid() {
               </span>{' '}
               I use.
             </h2>
-            <div className='m-auto grid grid-cols-6 gap-2'>
+            <div className='m-auto grid max-w-3xl grid-cols-6 gap-2'>
               {languages.map((language) => {
                 return (
-                  <div key={language} className='dev-icon-grid mx-auto w-full'>
+                  <div
+                    key={language}
+                    className='dev-icon-grid mx-auto w-full max-w-xs'
+                  >
                     {getDevTechIcon(language, 'IconComponent')}
                   </div>
                 );
@@ -688,10 +691,10 @@ export function SVGDraw() {
   return (
     <section
       ref={el}
-      className='section-1 container mx-auto grid grid-cols-1 place-content-center overflow-x-hidden'
+      className='section-1 container relative mx-auto grid grid-cols-1 place-content-center overflow-x-hidden'
     >
-      <div className='vector cover-vector-1 relative m-auto grid grid-cols-1 gap-7'>
-        <div className='content-1 absolute grid w-full grid-cols-1 gap-10 text-center'>
+      <div className='vector cover-vector-1 relative grid grid-cols-1 place-content-center gap-7'>
+        <div className='content-1 absolute grid w-full grid-cols-1 gap-10 p-[5vh] text-center md:py-[20vh]'>
           <div className='profile-img-wrapper m-auto w-52'>
             <Image
               src='https://s3.pub1.infomaniak.cloud/object/v1/AUTH_598753f3935548c6a1ca8f065e534ac1/supersuperdev-pub/img/profile1.png'
@@ -718,7 +721,7 @@ export function SVGDraw() {
             architecture behind scalable software solutions.
           </p>
         </div>
-        <div className='content-2 absolute w-full text-center'>
+        <div className='content-2 absolute w-full py-[5vh] text-center md:py-[20vh]'>
           <h3
             className='dark:txt-shdw-distant-dark m-auto place-content-center text-4xl leading-tight drop-shadow-md md:text-5xl 
                 md:leading-normal lg:text-6xl'
