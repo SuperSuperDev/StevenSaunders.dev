@@ -16,7 +16,7 @@ const ThemeChanger = () => {
     setToggleTheme(!toggleTheme);
     const theme = toggleTheme ? 'light' : 'dark';
     // we set data-theme for DaisyUI
-    window.document.documentElement.setAttribute('data-theme', theme);
+    // window.document.documentElement.setAttribute('data-theme', theme);
     // we setTheme for tailwindCSS
     setTheme(theme);
   };

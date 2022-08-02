@@ -95,11 +95,7 @@ export default function Page({ blogPosts }: props) {
 Page.getLayout = function getLayout(Page: React.ReactElement) {
   return (
     <Layout>
-      <HeaderFooter
-        navVariant='fixed'
-        className='relative bg-fixed'
-        bgVariant='gradient'
-      >
+      <HeaderFooter className='bg-fixed' bgVariant='gradient'>
         {Page}
       </HeaderFooter>
     </Layout>

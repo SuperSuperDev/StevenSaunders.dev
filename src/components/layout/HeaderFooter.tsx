@@ -36,7 +36,7 @@ const HeaderFooter = React.forwardRef<HTMLDivElement, props>(
       <div
         ref={ref}
         className={clsxm(
-          'flex min-w-full flex-col bg-scroll',
+          'flex h-full w-full flex-col',
 
           //#region //*=== Background Variant =====
           [
@@ -44,8 +44,8 @@ const HeaderFooter = React.forwardRef<HTMLDivElement, props>(
               'anim-bg-light dark:anim-bg-dark',
             ],
             bgVariant === 'gradient' && [
-              'bg-white',
-              'dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black',
+              'bg-gradient-to-tr from-blue-50 via-gray-50 to-blue-50',
+              'dark:bg-gradient-to-br dark:from-black dark:to-gray-900',
             ],
             bgVariant === 'basic' && ['bg-white', 'dark:bg-dark'],
           ],

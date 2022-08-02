@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   // const containerRef = React.useRef<HTMLDivElement>(null);
 
   return (
-    <ThemeProvider attribute='class'>
+    <ThemeProvider attribute='class' defaultTheme='dark' enableSystem={false}>
       <div id='layout' className='h-full min-h-full w-full overflow-x-hidden'>
         {children}
       </div>

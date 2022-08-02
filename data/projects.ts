@@ -6,8 +6,11 @@ export interface Project {
   description: string;
   intro: string;
   domain: string;
+  yearStart: number;
+  yearEnd: number;
   slug: string;
   tags: string[];
+  category: string;
   languages: string[];
   scope: ProjectScope;
   links: Link[];
@@ -50,8 +53,11 @@ export const projects: Projects = [
     intro:
       "An estate agents website is their 'bread and butter' and brand is everything. My role within this company included branding, design, and overseeing the entire front-end development process.",
     domain: 'chiangmaiestateagents.com',
+    yearStart: 2011,
+    yearEnd: 2018,
     slug: 'chiang-mai-estate-agents',
     tags: ['Real Estate', 'Property', 'WordPress', 'CMS'],
+    category: 'Work',
     languages: [
       'JavaScript',
       'HTML5',
@@ -189,8 +195,11 @@ export const projects: Projects = [
     intro:
       'Business and Finance News and Video Interviews. Responsible for branding, video effects and editing and website development',
     domain: 'bigeye.news',
+    yearStart: 2020,
+    yearEnd: 2022,
     slug: 'big-eye-news',
     tags: ['News', 'Video', 'WordPress', 'CMS'],
+    category: 'Personal',
     languages: [
       'JavaScript',
       'HTML5',
@@ -305,8 +314,11 @@ export const projects: Projects = [
     intro:
       'Custom video platforms for companies that want complete control of their data and full branding. Features offered include: Frontend development with React, Video CMS backend powered by Django, and scalable video encoding with FFmpeg, Redis and Celery.',
     domain: 'nonovium.com',
+    yearStart: 2020,
+    yearEnd: 2022,
     slug: 'nonovium',
     tags: ['Video', 'Encoding', 'FFMPEG', 'CMS'],
+    category: 'Work',
     languages: [
       'FFmpeg',
       'Django',
@@ -423,6 +435,8 @@ export const projects: Projects = [
     subTitle: 'Childcare Booking System and Frontend Development',
     name: 'Chiang Mai Babysitters',
     description: '',
+    yearStart: 2014,
+    yearEnd: 2018,
     intro:
       'Childcare Booking System that managed the entire booking process including staff training, scheduling, and payment. The system was built with a WordPress frontend integrated with Zoho CRM and Zoho Books.',
     domain: 'chiangmaibabysitters.com',
@@ -435,6 +449,7 @@ export const projects: Projects = [
       'CMS',
       'Zoho',
     ],
+    category: 'Work',
     languages: [
       'JavaScript',
       'HTML5',
@@ -548,8 +563,11 @@ export const projects: Projects = [
     intro:
       'A video platform for serious investors to share their videos with the world.',
     domain: 'bigeye.video',
+    yearStart: 2021,
+    yearEnd: 2022,
     slug: 'big-eye-video',
     tags: ['News', 'Video', 'WordPress', 'CMS'],
+    category: 'Personal',
     languages: [
       'FFmpeg',
       'Django',
@@ -658,6 +676,8 @@ export const projects: Projects = [
     intro:
       "A crypto platform built as a pair-programming exercise during General Assembly's Software Engineering Immersive. The frontend was completed in just two days and includes a charting library and a pricing API.",
     domain: 'crypto.stevensaunders.dev',
+    yearStart: 2021,
+    yearEnd: 2021,
     slug: 'crystal-crypto',
     tags: [
       'General Assembly',
@@ -669,6 +689,7 @@ export const projects: Projects = [
       'Pricing',
       'Charting',
     ],
+    category: 'Education',
     languages: [
       'General Assembly',
       'React',
@@ -781,8 +802,11 @@ export const projects: Projects = [
     intro:
       "A crypto platform built as a pair-programming exercise during General Assembly's Software Engineering Immersive. The frontend was completed in just two days and includes a charting library and a pricing API.",
     domain: 'codepen.io/supersuperdev/full/xxYLvPR',
-    slug: 'crystal-crypto',
+    yearStart: 2021,
+    yearEnd: 2021,
+    slug: 'pacman-js',
     tags: ['General Assembly', 'Bootcamp', 'JS', 'Vanilla JS', 'Games'],
+    category: 'Education',
     languages: ['General Assembly', 'JavaScript', 'HTML5', 'CSS3'],
     scope: {
       title: 'Project Scope',
@@ -876,6 +900,68 @@ export const projects: Projects = [
         url: '/projects/screenshots/crypto.stevensaunders.dev-iphone-xr-landscape-full.png',
         width: 2826,
         height: 19464,
+      },
+    },
+  },
+  {
+    id: 8,
+    title: 'StevenSaunders.dev - A Portfolio Site',
+    subTitle: 'Personal Portfolio Site built with Next.js and TypeScript',
+    name: 'StevenSaunders.dev',
+    description: '',
+    intro:
+      'A personal portfolio site built with Next.js and TypeScript. The site is fully responsive and is hosted on OpenStack with Docker.',
+    domain: 'StevenSaunders.dev',
+    yearStart: 2021,
+    yearEnd: 2022,
+    slug: 'stevensaunders-dev',
+    tags: [
+      'Personal',
+      'Portfolio',
+      'Next.js',
+      'TypeScript',
+      'OpenStack',
+      'Docker',
+    ],
+    category: 'Personal',
+    languages: ['Next.js', 'TypeScript'],
+    scope: {
+      title: 'Project Scope',
+      description: 'The project had the following scopes',
+      tags: [
+        'Website Design',
+        'Website Development',
+        'Logo Design',
+        'Business Consulting',
+      ],
+      objectives: [
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
+      ],
+    },
+    links: [
+      {
+        url: 'stevensaunders.dev',
+        type: 'Site',
+      },
+      {
+        url: 'github.com/SuperSuperDev/stevensaunders-dev',
+        type: 'GitHub',
+      },
+    ],
+    screenshots: {
+      logo: {
+        url: 'https://s3.pub1.infomaniak.cloud/object/v1/AUTH_598753f3935548c6a1ca8f065e534ac1/supersuperdev-pub/img/logo-ss/logo-ss.svg',
+        width: 300,
+        height: 300,
       },
     },
   },
