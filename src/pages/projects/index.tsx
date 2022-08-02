@@ -1,9 +1,9 @@
 /* eslint-disable unused-imports/no-unused-vars */
-import Markdown from '@NonoviumUI/Blocks/Markdown';
-import Button from '@NonoviumUI/buttons/Button';
-import DevIconInline from '@NonoviumUI/devLang/DevIconInline';
-import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
-import Seo from '@NonoviumUI/Seo';
+import Markdown from '@SuperSuperUI/Blocks/Markdown';
+import Button from '@SuperSuperUI/buttons/Button';
+import DevIconInline from '@SuperSuperUI/devLang/DevIconInline';
+import HeaderFooter from '@SuperSuperUI/layout/HeaderFooter';
+import Seo from '@SuperSuperUI/Seo';
 import { Project, projects } from 'data/projects';
 import Image from 'next/image';
 import Link from 'next/link';

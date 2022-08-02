@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/outline';
-import Button from '@NonoviumUI/buttons/Button';
-import LogoutButton from '@NonoviumUI/buttons/LogoutButton';
+import Button from '@SuperSuperUI/buttons/Button';
+import LogoutButton from '@SuperSuperUI/buttons/LogoutButton';
 import { navItems } from 'data/navItems';
 import Link from 'next/link';
 import { useRouter } from 'next/router';

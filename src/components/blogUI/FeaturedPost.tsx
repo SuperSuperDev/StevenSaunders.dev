@@ -1,5 +1,5 @@
-import Button from '@NonoviumUI/buttons/Button';
-import Box from '@NonoviumUI/containers/Box';
+import Button from '@SuperSuperUI/buttons/Button';
+import Box from '@SuperSuperUI/containers/Box';
 import Image from 'next/image';
 import Link from 'next/link';
 import slugify from 'slugify';

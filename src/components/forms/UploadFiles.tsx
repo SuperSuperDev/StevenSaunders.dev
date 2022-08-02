@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */ // TODO: remove this or make compliant - next image
-import StatBarCard from '@NonoviumUI/statistics/StatBarCard';
+import StatBarCard from '@SuperSuperUI/statistics/StatBarCard';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useState } from 'react';

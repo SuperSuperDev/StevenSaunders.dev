@@ -1,4 +1,4 @@
-import Button from '@NonoviumUI/buttons/Button';
+import Button from '@SuperSuperUI/buttons/Button';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactElement } from 'react';

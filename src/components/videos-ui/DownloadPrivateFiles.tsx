@@ -1,4 +1,4 @@
-import Button from '@NonoviumUI/buttons/Button';
+import Button from '@SuperSuperUI/buttons/Button';
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 

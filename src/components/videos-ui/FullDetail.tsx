@@ -1,4 +1,4 @@
-import Block from '@NonoviumUI/containers/Block';
+import Block from '@SuperSuperUI/containers/Block';
 import * as React from 'react';
 
 import EncodingAssetList from './EncodingAssetList';

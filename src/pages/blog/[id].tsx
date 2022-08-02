@@ -1,5 +1,5 @@
-//import Button from '@NonoviumUI/buttons/Button';
-import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
+//import Button from '@SuperSuperUI/buttons/Button';
+import HeaderFooter from '@SuperSuperUI/layout/HeaderFooter';
 //import Link from 'next/link';
 import { ReactElement } from 'react';
 

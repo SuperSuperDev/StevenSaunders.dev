@@ -1,6 +1,6 @@
-import BlogList from '@NonoviumUI/blogUI/BlogList';
-import FeaturedPost from '@NonoviumUI/blogUI/FeaturedPost';
-import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
+import BlogList from '@SuperSuperUI/blogUI/BlogList';
+import FeaturedPost from '@SuperSuperUI/blogUI/FeaturedPost';
+import HeaderFooter from '@SuperSuperUI/layout/HeaderFooter';
 import { ReactElement } from 'react';
 
 import { loadBlogPosts } from '@/lib/fetch-blog-posts';

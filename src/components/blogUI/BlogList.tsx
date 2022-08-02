@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Button from '@NonoviumUI/buttons/Button';
+import Button from '@SuperSuperUI/buttons/Button';
 import Link from 'next/link';
 import { Fragment, useEffect, useState } from 'react';
 import slugify from 'slugify';

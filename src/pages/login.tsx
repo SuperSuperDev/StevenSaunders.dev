@@ -1,4 +1,4 @@
-import NavBar from '@NonoviumUI/layout/NavBar';
+import NavBar from '@SuperSuperUI/layout/NavBar';
 import { useRouter } from 'next/router';
 import { ReactElement, useEffect } from 'react';
 

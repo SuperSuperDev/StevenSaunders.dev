@@ -9,7 +9,7 @@ import {
   LockClosedIcon,
   PencilIcon,
 } from '@heroicons/react/solid';
-import Block from '@NonoviumUI/containers/Block';
+import Block from '@SuperSuperUI/containers/Block';
 import { Fragment } from 'react';
 
 import { useVideoDetail } from '@/lib/api';

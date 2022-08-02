@@ -1,6 +1,6 @@
-import Markdown from '@NonoviumUI/Blocks/Markdown';
-import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
-import ContentUSPSGrid from '@NonoviumUI/sections/ContentUSPSGrid';
+import Markdown from '@SuperSuperUI/Blocks/Markdown';
+import HeaderFooter from '@SuperSuperUI/layout/HeaderFooter';
+import ContentUSPSGrid from '@SuperSuperUI/sections/ContentUSPSGrid';
 import { Project, projects } from 'data/projects';
 import Image from 'next/image';
 import { ReactElement } from 'react';
