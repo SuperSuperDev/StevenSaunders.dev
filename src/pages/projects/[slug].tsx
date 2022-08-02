@@ -39,13 +39,17 @@ const ProjectDetail = ({ projectDetail }: { projectDetail: Project }) => {
                   <div className='mx-auto flex flex-row flex-wrap'>
                     <div className='mx-auto flex flex-grow basis-full'>
                       <div className='aspect-w-16 aspect-h-9 mx-auto w-full max-w-5xl rounded-b-none lg:rounded-b-lg'>
-                        <Image
-                          alt={title}
-                          src={screenshots.webScreenshot.url}
-                          layout='fill'
-                          objectFit='cover'
-                          className='rounded-lg group-hover:opacity-75'
-                        />
+                        {screenshots?.webScreenshot?.url ? (
+                          <Image
+                            alt={title}
+                            src={screenshots.webScreenshot.url}
+                            layout='fill'
+                            objectFit='cover'
+                            className='rounded-lg group-hover:opacity-75'
+                          />
+                        ) : (
+                          <div> </div>
+                        )}
                       </div>
                     </div>
                   </div>

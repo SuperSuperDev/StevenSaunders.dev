@@ -79,14 +79,16 @@ function ProjectItemCompact({ project }: { project: Project }) {
       className='grid grid-cols-1 gap-4 p-5 md:grid-cols-3 '
     >
       <div className='mx-auto w-36'>
-        <Image
-          src={project.screenshots.logo.url}
-          alt={project.name}
-          layout='responsive'
-          width={150}
-          height={150}
-          objectFit='contain'
-        />
+        {project.screenshots.logo.url && (
+          <Image
+            src={project.screenshots.logo.url}
+            alt={project.name}
+            layout='responsive'
+            width={150}
+            height={150}
+            objectFit='contain'
+          />
+        )}
       </div>
       <div className='md:col-span-2'>
         <h3 className='prose prose-xl dark:prose-invert'>{project.name}</h3>

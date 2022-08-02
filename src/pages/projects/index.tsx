@@ -67,13 +67,15 @@ export function ProjectListItem({
       <div className='mx-auto grid w-full grid-cols-1 gap-4 py-7 dark:bg-transparent md:grid-cols-3 lg:grid-cols-4'>
         <div className='mx-auto w-full items-center px-4 text-center'>
           <figure>
-            <Image
-              src={screenshots.logo.url}
-              alt={`${name} logo`}
-              className='rounded-xl'
-              width={300}
-              height={300}
-            />
+            {screenshots.logo.url && (
+              <Image
+                src={screenshots.logo.url}
+                alt={`${name} logo`}
+                className='rounded-xl'
+                width={300}
+                height={300}
+              />
+            )}
           </figure>
           <p className='break-word px-7 text-center'>{subTitle}</p>
         </div>
@@ -147,13 +149,15 @@ export function ProjectGridItem({
       key={id}
     >
       <figure className='px-10 pt-10'>
-        <Image
-          src={screenshots.logo.url}
-          alt={`${name} logo`}
-          className='rounded-xl'
-          width={300}
-          height={300}
-        />
+        {screenshots.logo.url && (
+          <Image
+            src={screenshots.logo.url}
+            alt={`${name} logo`}
+            className='rounded-xl'
+            width={300}
+            height={300}
+          />
+        )}
       </figure>
       <div className='card-body items-center text-center'>
         <h2 className='card-title'>{title}</h2>

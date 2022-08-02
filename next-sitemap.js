@@ -3,9 +3,8 @@
  * @see https://github.com/iamvishnusankar/next-sitemap#readme
  */
 module.exports = {
-  // !STARTERCONF Change the siteUrl
-  /** Without additional '/' on the end, e.g. https://theodorusclarence.com */
-  siteUrl: 'https://nonovium-frontend-dev.capt.nonovium.com/',
+  /** Without additional '/' on the end, e.g. https://stevensaunders.dev */
+  siteUrl: 'https://stevensaunders.dev',
   generateRobotsTxt: true,
   robotsTxtOptions: {
     policies: [{ userAgent: '*', allow: '/' }],
