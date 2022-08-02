@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import Box from '@NonoviumUI/containers/Box';
+import Box from '@SuperSuperUI/containers/Box';
 import * as React from 'react';
 
 import { useVideoDetail } from '@/lib/api';

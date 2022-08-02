@@ -1,4 +1,4 @@
-import StatBarCard from '@NonoviumUI/statistics/StatBarCard';
+import StatBarCard from '@SuperSuperUI/statistics/StatBarCard';
 import { useEffect, useState } from 'react';
 
 import { useVideoDetail } from '@/lib/api';

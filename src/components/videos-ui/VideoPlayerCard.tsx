@@ -1,4 +1,4 @@
-import Block from '@NonoviumUI/containers/Block';
+import Block from '@SuperSuperUI/containers/Block';
 import dynamic from 'next/dynamic';
 import * as React from 'react';
 

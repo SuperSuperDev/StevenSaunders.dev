@@ -1,13 +1,13 @@
-import Animated from '@NonoviumUI/animations/Animated';
+import Animated from '@SuperSuperUI/animations/Animated';
 import {
   AnimatedDevIconGrid,
   AnimatedProjectList,
   SVGDraw,
-} from '@NonoviumUI/animations/GSAPAnimations';
-import LatestPosts from '@NonoviumUI/blogUI/LatestPosts';
-import Button from '@NonoviumUI/buttons/Button';
-import DevIconStack from '@NonoviumUI/devLang/DevIconStack';
-import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
+} from '@SuperSuperUI/animations/GSAPAnimations';
+import LatestPosts from '@SuperSuperUI/blogUI/LatestPosts';
+import Button from '@SuperSuperUI/buttons/Button';
+import DevIconStack from '@SuperSuperUI/devLang/DevIconStack';
+import HeaderFooter from '@SuperSuperUI/layout/HeaderFooter';
 import Link from 'next/link';
 import React from 'react';
 

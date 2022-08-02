@@ -1,4 +1,4 @@
-import NavBar from '@NonoviumUI/layout/NavBar';
+import NavBar from '@SuperSuperUI/layout/NavBar';
 import * as React from 'react';
 
 import clsxm from '@/lib/clsxm';

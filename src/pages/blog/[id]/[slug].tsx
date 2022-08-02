@@ -1,7 +1,7 @@
 import { CalendarIcon as CalendarIconOutline } from '@heroicons/react/outline';
 import { CalendarIcon } from '@heroicons/react/solid';
-import Markdown from '@NonoviumUI/Blocks/Markdown';
-import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
+import Markdown from '@SuperSuperUI/Blocks/Markdown';
+import HeaderFooter from '@SuperSuperUI/layout/HeaderFooter';
 import Image from 'next/image';
 import { ReactElement } from 'react';
 import slugify from 'slugify';

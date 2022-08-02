@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import Modal from '@NonoviumUI/modals/Modal';
+import Modal from '@SuperSuperUI/modals/Modal';
 import dynamic from 'next/dynamic';
 import { useState } from 'react';
 

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import Button from '@NonoviumUI/buttons/Button';
-import Box from '@NonoviumUI/containers/Box';
-import StatBarCard from '@NonoviumUI/statistics/StatBarCard';
+import Button from '@SuperSuperUI/buttons/Button';
+import Box from '@SuperSuperUI/containers/Box';
+import StatBarCard from '@SuperSuperUI/statistics/StatBarCard';
 import * as React from 'react';
 
 import { baseUrl, useVideoDetail } from '@/lib/api';

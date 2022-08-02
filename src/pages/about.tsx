@@ -1,6 +1,6 @@
-import Button from '@NonoviumUI/buttons/Button';
-import DevIconInline from '@NonoviumUI/devLang/DevIconInline';
-import HeaderFooter from '@NonoviumUI/layout/HeaderFooter';
+import Button from '@SuperSuperUI/buttons/Button';
+import DevIconInline from '@SuperSuperUI/devLang/DevIconInline';
+import HeaderFooter from '@SuperSuperUI/layout/HeaderFooter';
 import { ProfileLinks, profileLinks } from 'data/profileLinks';
 import { Project, projects } from 'data/projects';
 import Image from 'next/image';

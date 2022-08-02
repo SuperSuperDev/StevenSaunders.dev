@@ -1,6 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { Dialog, Transition } from '@headlessui/react';
-import Button from '@NonoviumUI/buttons/Button';
+import Button from '@SuperSuperUI/buttons/Button';
 import { Fragment } from 'react';
 
 export default function Modal({
