@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.1](https://github.com/SuperSuperDev/StevenSaunders.dev/compare/v0.2.0...v0.2.1) (2022-08-02)
+
+
+### Features
+
+* updated About Me section with added profileLinks, bio, education, personal projects ([d038736](https://github.com/SuperSuperDev/StevenSaunders.dev/commit/d03873659c4d274f87d0c9e20c36a3776f7b889f))
+* updated About Me section with added profileLinks, bio, education, personal projects ([d940ab6](https://github.com/SuperSuperDev/StevenSaunders.dev/commit/d940ab67b5085712ee71f1afc57f2b3ed96ebcc2))
+
 ## 0.2.0 (2022-08-02)
 
 
