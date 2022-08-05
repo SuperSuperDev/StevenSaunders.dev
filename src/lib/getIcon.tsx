@@ -1,20 +1,22 @@
 import { GlobeAltIcon } from '@heroicons/react/outline';
+import { BiMailSend } from 'react-icons/bi';
 import { CgProfile } from 'react-icons/cg';
 import { FaGlobeAmericas } from 'react-icons/fa';
 import { GiGraduateCap } from 'react-icons/gi';
+import { GrContact } from 'react-icons/gr';
 import { IoLogoYoutube, IoMdGlobe } from 'react-icons/io';
 import { MdWorkOutline } from 'react-icons/md';
 import { RiUserHeartLine } from 'react-icons/ri';
 import { SiCodepen, SiGithub, SiLinkedin, SiReadthedocs } from 'react-icons/si';
-export default function getIcon(iconName: string, iconFormat: string) {
-  // convert iconName to lowercase and replace all spaces and dashes with empty string
-  const iconNameLowercase = iconName
-    .toLowerCase()
-    .replaceAll(' ', '')
-    .replaceAll('-', '');
 
+function formattedIconName(iconName: string) {
+  // convert iconName to lowercase and replace all spaces and dashes with empty string
+  return iconName.toLowerCase().replaceAll(' ', '').replaceAll('-', '');
+}
+export default function getIcon(iconName: string, iconFormat: string) {
+  // TODO: convert to map
   if (iconFormat === 'IconComponent') {
-    switch (iconNameLowercase) {
+    switch (formattedIconName(iconName)) {
       case 'github':
         return <SiGithub />;
       case 'codepen':
@@ -39,6 +41,10 @@ export default function getIcon(iconName: string, iconFormat: string) {
         return <GiGraduateCap />;
       case 'personal':
         return <RiUserHeartLine />;
+      case 'contact':
+        return <GrContact />;
+      case 'message':
+        return <BiMailSend />;
       default:
         return <GlobeAltIcon />;
     }
