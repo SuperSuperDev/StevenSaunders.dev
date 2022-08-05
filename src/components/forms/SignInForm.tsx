@@ -68,21 +68,9 @@ export default function SignInForm(): JSX.Element {
             <h1>You are authenticated</h1>
           </Box>
         ) : (
-          <>
-            <h2 className='mt-6 text-center text-3xl font-extrabold text-gray-900'>
-              Sign in to your account
-            </h2>
-
-            <p className='mt-2 text-center text-sm text-gray-600'>
-              Or{' '}
-              <a
-                href='#'
-                className='font-medium text-indigo-600 hover:text-indigo-500'
-              >
-                start your 14-day free trial
-              </a>
-            </p>
-          </>
+          <h2 className='prose mt-6 text-center text-3xl font-extrabold dark:prose-invert'>
+            Sign in to your account
+          </h2>
         )}
       </div>
 
@@ -109,14 +97,7 @@ export default function SignInForm(): JSX.Element {
                   autoComplete='username'
                   required={true}
                   onChange={handleChange}
-                  className='
-                  block w-full appearance-none 
-                  rounded-md border border-gray-300 
-                  px-3 py-2
-                  placeholder-gray-400 shadow-sm 
-                  focus:border-indigo-500 
-                  focus:outline-none 
-                  focus:ring-indigo-500 sm:text-sm'
+                  className='block w-full appearance-none rounded-md border border-gray-300 bg-white px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm'
                 />
               </div>
             </div>
