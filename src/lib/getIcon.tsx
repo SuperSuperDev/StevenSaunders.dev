@@ -8,15 +8,16 @@ import { IoLogoYoutube, IoMdGlobe } from 'react-icons/io';
 import { MdWorkOutline } from 'react-icons/md';
 import { RiUserHeartLine } from 'react-icons/ri';
 import { SiCodepen, SiGithub, SiLinkedin, SiReadthedocs } from 'react-icons/si';
-export default function getIcon(iconName: string, iconFormat: string) {
+
+function formattedIconName(iconName: string) {
   // convert iconName to lowercase and replace all spaces and dashes with empty string
-  const iconNameLowercase = iconName
-    .toLowerCase()
-    .replaceAll(' ', '')
-    .replaceAll('-', '');
+  return iconName.toLowerCase().replaceAll(' ', '').replaceAll('-', '');
+}
+export default function getIcon(iconName: string, iconFormat: string) {
+  // TODO: convert to map
 
   if (iconFormat === 'IconComponent') {
-    switch (iconNameLowercase) {
+    switch (formattedIconName(iconName)) {
       case 'github':
         return <SiGithub />;
       case 'codepen':
