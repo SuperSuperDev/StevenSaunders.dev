@@ -15,7 +15,6 @@ function formattedIconName(iconName: string) {
 }
 export default function getIcon(iconName: string, iconFormat: string) {
   // TODO: convert to map
-
   if (iconFormat === 'IconComponent') {
     switch (formattedIconName(iconName)) {
       case 'github':
