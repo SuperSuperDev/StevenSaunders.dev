@@ -59,7 +59,7 @@ export default function ContactForm() {
               id='fullName'
               autoComplete='name'
               onChange={handleChange}
-              className='block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-primary-500 focus:ring-primary-500'
+              className='block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-500 dark:bg-black'
               placeholder='Full name'
             />
           </div>
@@ -73,7 +73,7 @@ export default function ContactForm() {
               type='email'
               autoComplete='email'
               onChange={handleChange}
-              className='block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-primary-500 focus:ring-primary-500'
+              className='block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-500 dark:bg-black'
               placeholder='Email'
             />
           </div>
@@ -87,7 +87,7 @@ export default function ContactForm() {
               id='phone'
               autoComplete='tel'
               onChange={handleChange}
-              className='block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-primary-500 focus:ring-primary-500'
+              className='block w-full rounded-md border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-500 dark:bg-black'
               placeholder='Phone'
             />
           </div>
@@ -100,7 +100,7 @@ export default function ContactForm() {
               name='message'
               onChange={handleChange}
               rows={4}
-              className='block w-full rounded-md border border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-primary-500 focus:ring-primary-500'
+              className='block w-full rounded-md border border-gray-300 py-3 px-4 placeholder-gray-500 shadow-sm focus:border-primary-500 focus:ring-primary-500 dark:border-primary-500 dark:bg-black'
               placeholder='Message'
               defaultValue=''
             />
@@ -108,7 +108,8 @@ export default function ContactForm() {
           <div>
             <button
               type='submit'
-              className='inline-flex justify-center rounded-md border border-transparent bg-primary-600 py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2'
+              disabled={isSending}
+              className='inline-flex justify-center rounded-md border border-transparent bg-primary-600 py-3 px-6 text-base font-medium text-white shadow-sm hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:bg-gray-800'
             >
               Submit
             </button>

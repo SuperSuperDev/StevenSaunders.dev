@@ -130,7 +130,7 @@ export function getDevTechIcon(
     ) {
       return `/dev-icons/${devTechnology}-added-original-wordmark.svg`;
     } else {
-      return `https://s3.pub1.infomaniak.cloud/object/v1/AUTH_598753f3935548c6a1ca8f065e534ac1/supersuperdev-pub/img/logo-ss/logo-ss.svg`;
+      return `/projects/logo/stevensaunders-dev.svg`;
     }
   } else if (iconFormat == 'DevIconWordUrl') {
     if (devIconList.includes(`${devTechnology}-original-wordmark.svg`)) {
@@ -142,7 +142,7 @@ export function getDevTechIcon(
     } else if (devIconList.includes(`${devTechnology}-plain.svg`)) {
       return `/dev-icons/${devTechnology}-plain.svg`;
     } else {
-      return `https://s3.pub1.infomaniak.cloud/object/v1/AUTH_598753f3935548c6a1ca8f065e534ac1/supersuperdev-pub/img/logo-ss/logo-ss.svg`;
+      return `/projects/logo/stevensaunders-dev.svg`;
     }
   } else {
     return '';

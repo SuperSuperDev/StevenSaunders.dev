@@ -50,7 +50,7 @@ export default function NavBar({
               <a>
                 <img
                   className='h-8 w-auto'
-                  src='https://s3.pub1.infomaniak.cloud/object/v1/AUTH_598753f3935548c6a1ca8f065e534ac1/supersuperdev-pub/img/logo-ss/logo-ss.svg'
+                  src='/projects/logo/stevensaunders-dev.svg'
                   alt='StevenSaunders.dev'
                 />
               </a>
@@ -123,7 +123,7 @@ export default function NavBar({
                     <a>
                       <img
                         className='h-8 w-auto'
-                        src='https://s3.pub1.infomaniak.cloud/object/v1/AUTH_598753f3935548c6a1ca8f065e534ac1/supersuperdev-pub/img/logo-ss/logo-ss.svg'
+                        src='/projects/logo/stevensaunders-dev.svg'
                         alt='StevenSaunders.dev'
                       />
                     </a>
