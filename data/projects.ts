@@ -959,7 +959,7 @@ export const projects: Projects = [
     ],
     screenshots: {
       logo: {
-        url: 'https://s3.pub1.infomaniak.cloud/object/v1/AUTH_598753f3935548c6a1ca8f065e534ac1/supersuperdev-pub/img/logo-ss/logo-ss.svg',
+        url: '/projects/logo/stevensaunders-dev.svg',
         width: 300,
         height: 300,
       },

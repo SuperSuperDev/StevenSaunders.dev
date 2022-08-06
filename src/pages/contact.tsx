@@ -65,7 +65,7 @@ export default function Contact() {
               {contactIntro}
             </div>
           </div>
-          <div className=''>
+          <div>
             <ProfileLinksFlex />
           </div>
         </div>
@@ -92,7 +92,7 @@ export default function Contact() {
 Contact.getLayout = function getLayout(Contact: React.ReactElement) {
   return (
     <Layout>
-      <HeaderFooter className='bg-fixed' bgVariant='gradient'>
+      <HeaderFooter className='h-screen bg-fixed' bgVariant='gradient'>
         {Contact}
       </HeaderFooter>
     </Layout>
