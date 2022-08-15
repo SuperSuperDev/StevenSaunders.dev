@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/SuperSuperDev/StevenSaunders.dev/compare/v0.2.3...v0.2.4) (2022-08-15)
+
+
+### Features
+
+* added more projects and related resources ([a6a2c62](https://github.com/SuperSuperDev/StevenSaunders.dev/commit/a6a2c627bb98dde978b972ab54d0ee31bec60bd8))
+
+### [0.2.3](https://github.com/SuperSuperDev/StevenSaunders.dev/compare/v0.2.2...v0.2.3) (2022-08-15)
+
+
+### Features
+
+* added contact form ([41a0a91](https://github.com/SuperSuperDev/StevenSaunders.dev/commit/41a0a91545a4016d150086b3eade97eecd0f7030))
+
+
+### Bug Fixes
+
+* corrected the bounding box of the SS logo and saved to public folder ([449c1c8](https://github.com/SuperSuperDev/StevenSaunders.dev/commit/449c1c8732e6f00c12a4e6dbc8c827fc72d4d972))
+* fix build failing due to undefine iscreenshot in project detail ([d133767](https://github.com/SuperSuperDev/StevenSaunders.dev/commit/d133767b855d2c5eb1b42202be2348a8928a3fc9))
+* refactored getIcon to reduce complexity ([83e2bcd](https://github.com/SuperSuperDev/StevenSaunders.dev/commit/83e2bcd6b2b17602917302e9e0762aa063bc0fe2))
+* refactored getIcon to reduce complexity ([89b7d35](https://github.com/SuperSuperDev/StevenSaunders.dev/commit/89b7d35461da63fbb7e461e5b6dfd2b09912825a))
+
 ### [0.2.2](https://github.com/SuperSuperDev/StevenSaunders.dev/compare/v0.2.1...v0.2.2) (2022-08-02)
 
 ### [0.2.1](https://github.com/SuperSuperDev/StevenSaunders.dev/compare/v0.2.0...v0.2.1) (2022-08-02)

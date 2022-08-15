@@ -571,6 +571,8 @@ export const projects: Projects = [
     languages: [
       'FFmpeg',
       'Django',
+      'Docker',
+      'OpenStack',
       'Python',
       'Redis',
       'PostgreSQL',
@@ -694,6 +696,8 @@ export const projects: Projects = [
       'General Assembly',
       'React',
       'JavaScript',
+      'Docker',
+      'OpenStack',
       'HTML5',
       'CSS3',
       'Bulma',
@@ -798,16 +802,20 @@ export const projects: Projects = [
     title: 'GA: PacMan-JS - A Tribute to a Classic Arcade Game',
     subTitle: 'General Assembly SEI: A PacMan Game built with Vanilla JS',
     name: 'PacMan-JS',
-    description: '',
+    description: `Pac Man is a classic arcade game from the 80s. The player aims eat all the food in a maze whilst being hunted by ghosts.
+
+If the player eats special flashing food the ghosts start to flash and can now be captured by the player, sending them back to their holding pen, from where they can once again start to hunt the player.
+
+The aim is to achieve the highest score possible before being killed by the ghosts.`,
     intro:
-      "A crypto platform built as a pair-programming exercise during General Assembly's Software Engineering Immersive. The frontend was completed in just two days and includes a charting library and a pricing API.",
+      "A PacMan game built with vanilla JavaScript as a solo programming exercise during General Assembly's Software Engineering Immersive.",
     domain: 'codepen.io/supersuperdev/full/xxYLvPR',
     yearStart: 2021,
     yearEnd: 2021,
     slug: 'pacman-js',
     tags: ['General Assembly', 'Bootcamp', 'JS', 'Vanilla JS', 'Games'],
     category: 'Education',
-    languages: ['General Assembly', 'JavaScript', 'HTML5', 'CSS3'],
+    languages: ['General Assembly', 'JavaScript', 'HTML5', 'CSS3', 'Docker'],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',
@@ -819,14 +827,29 @@ export const projects: Projects = [
       ],
       objectives: [
         {
-          title: 'objective title',
-          description:
-            'A longer description about the objectives and scope of the product',
+          title: 'Requirement 1',
+          description: 'The player should be able to clear at least one board',
         },
         {
-          title: 'objective title',
+          title: 'Requirement 2',
           description:
-            'A longer description about the objectives and scope of the product',
+            "The player's score should be displayed at the end of the game",
+        },
+        {
+          title: 'Enhancement 1',
+          description: 'Smart Ghosts',
+        },
+        {
+          title: 'Enhancement 2',
+          description: 'Responsive design',
+        },
+        {
+          title: 'Enhancement 3',
+          description: 'Each board gets more difficult',
+        },
+        {
+          title: 'Enhancement 4',
+          description: 'Persistent leaderboard using `localStorage`',
         },
       ],
     },
@@ -836,8 +859,12 @@ export const projects: Projects = [
         type: 'CodePen',
       },
       {
-        url: 'github.com/SuperSuperDev/crystal-crypto-prices-sei-project-2',
+        url: 'github.com/SuperSuperDev/PacMan-JS',
         type: 'GitHub',
+      },
+      {
+        url: 'pacman.stevensaunders.dev',
+        type: 'Site',
       },
     ],
     screenshots: {
@@ -852,7 +879,7 @@ export const projects: Projects = [
         height: 106,
       },
       webScreenshot: {
-        url: '/projects/screenshots/crypto.stevensaunders.dev-macbook-pro-16.png',
+        url: '/projects/screenshots/pacman.stevensaunders.dev-macbook-pro-16.png',
         width: 3072,
         height: 1920,
       },
@@ -905,6 +932,88 @@ export const projects: Projects = [
   },
   {
     id: 8,
+    title: 'GA: Cloudify - A MERN Stack Music Platform',
+    subTitle: 'Online Music Player and Sharing Service',
+    name: 'Cloudify',
+    description: '',
+    intro:
+      'A MERN Stack music player and sharing service built with React, Express, MongoDB, and Node.js as a group programming exercise during General Assembly’s Software Engineering Immersive.',
+    domain: 'cloudify.stevensaunders.dev',
+    yearStart: 2021,
+    yearEnd: 2021,
+    slug: 'cloudinary',
+    tags: [
+      'General Assembly',
+      'Bootcamp',
+      'React',
+      'Bulma',
+      'Express',
+      'MongoDB',
+      'Node.js',
+      'API',
+      'Music',
+      'Media',
+    ],
+    category: 'Education',
+    languages: [
+      'General Assembly',
+      'MongoDB',
+      'Express',
+      'React',
+      'Node.js',
+      'JavaScript',
+      'Docker',
+      'OpenStack',
+      'Bulma',
+      'HTML5',
+      'CSS3',
+    ],
+    scope: {
+      title: 'Project Scope',
+      description: 'The project had the following scopes',
+      tags: [
+        'Website Design',
+        'Website Development',
+        'Logo Design',
+        'Business Consulting',
+      ],
+      objectives: [
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
+        {
+          title: 'objective title',
+          description:
+            'A longer description about the objectives and scope of the product',
+        },
+      ],
+    },
+    links: [
+      {
+        url: 'cloudify.stevensaunders.dev',
+        type: 'Site',
+      },
+      {
+        url: 'github.com/SuperSuperDev/project-3-server',
+        type: 'GitHub',
+      },
+      {
+        url: 'github.com/SuperSuperDev/project-3-client',
+        type: 'GitHub',
+      },
+    ],
+    screenshots: {
+      logo: {
+        url: '/projects/logo/cloudify-logo.svg',
+        width: 300,
+        height: 300,
+      },
+    },
+  },
+  {
+    id: 9,
     title: 'StevenSaunders.dev - A Portfolio Site',
     subTitle: 'Personal Portfolio Site built with Next.js and TypeScript',
     name: 'StevenSaunders.dev',
@@ -922,9 +1031,23 @@ export const projects: Projects = [
       'TypeScript',
       'OpenStack',
       'Docker',
+      'OpenStack',
     ],
     category: 'Personal',
-    languages: ['Next.js', 'TypeScript'],
+    languages: [
+      'React',
+      'Nextjs',
+      'TypeScript',
+      'JavaScript',
+      'Django',
+      'Redis',
+      'Docker',
+      'OpenStack',
+      'PostgreSQL',
+      'TailwindCSS',
+      'HTML5',
+      'CSS3',
+    ],
     scope: {
       title: 'Project Scope',
       description: 'The project had the following scopes',

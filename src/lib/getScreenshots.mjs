@@ -60,4 +60,4 @@ async function getScreenshots(url) {
   }
 }
 
-getScreenshots('crypto.stevensaunders.dev');
+getScreenshots('pacman.stevensaunders.dev');
