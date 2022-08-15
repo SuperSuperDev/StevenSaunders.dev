@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.2.4](https://github.com/SuperSuperDev/StevenSaunders.dev/compare/v0.2.3...v0.2.4) (2022-08-15)
+
+
+### Features
+
+* added more projects and related resources ([a6a2c62](https://github.com/SuperSuperDev/StevenSaunders.dev/commit/a6a2c627bb98dde978b972ab54d0ee31bec60bd8))
+
 ### [0.2.3](https://github.com/SuperSuperDev/StevenSaunders.dev/compare/v0.2.2...v0.2.3) (2022-08-15)
 
 
