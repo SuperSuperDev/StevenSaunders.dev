@@ -22,6 +22,7 @@ import {
   SiNextdotjs,
   SiNodedotjs,
   SiNpm,
+  SiOpenstack,
   SiPostgresql,
   SiPython,
   SiTailwindcss,
@@ -109,6 +110,8 @@ export function getDevTechIcon(
         return <SiNeo4J />;
       case 'ffmpeg':
         return <SiFfmpeg />;
+      case 'openstack':
+        return <SiOpenstack />;
       default:
         return <FaCode />;
     }
