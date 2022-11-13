@@ -18,12 +18,6 @@ export default function EncodingAssetList(props: { videoID: string }) {
   const { videoID } = props;
   const { encodedFilesArray, videoLoading } = useVideoDetail(videoID);
   const [videos, setVideos] = React.useState<IEncodedVideoArray | null>(null);
-  // const DynamicVideoPlayer = dynamic(
-  //   () => import('../videoPlayer/VideoPlayer'),
-  //   {
-  //     ssr: false,
-  //   }
-  // );
 
   React.useEffect(() => {
     const getVideos = () => {

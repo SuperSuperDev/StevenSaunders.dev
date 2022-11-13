@@ -40,7 +40,14 @@ async function getScreenshot(
     device: device,
     path: `../../public/projects/screenshots/${slug}.png`,
     fullPage: fullPage,
+    element: 'div.ck:nth-child(3)',
+    gotoOptions: {
+      waitUntil: 'networkidle0',
+      waitForTimeout: 10000,
+    },
     waitUntil: 'networkidle0',
+    waitFor: 5000,
+    waitForTimeout: 10000,
   });
 
   // After your task is done, destroy your browser context
@@ -60,4 +67,4 @@ async function getScreenshots(url) {
   }
 }
 
-getScreenshots('pacman.stevensaunders.dev');
+getScreenshots('localhost/charts/NASDAQ/AMZN');

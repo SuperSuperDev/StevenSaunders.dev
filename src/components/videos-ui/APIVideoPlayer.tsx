@@ -33,7 +33,6 @@ export default function APIVideoPlayer({ videoID }: APIVideoPlayerProps) {
       });
       player.emit('resourceReady', encodedH264FilesArray);
     }
-    // console.log('Math.floor(video?.duration / 10) :>> ', Math.floor(video?.duration / 10));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [video]);
 

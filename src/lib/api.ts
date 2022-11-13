@@ -13,36 +13,6 @@ import {
 } from './types';
 
 export const baseUrl = process.env.NEXT_PUBLIC_VCMS_HOST || 'nobaseURL';
-// Function that will be called to refresh authorization
-// const refreshAuthLogic = (failedRequest: {
-//   response: { config: { headers: { [x: string]: string } } };
-// }) =>
-//   axios
-//     .post(
-//       `${baseUrl}/spa/token/refresh/`,
-//       {
-//         refresh: getRefreshToken(),
-//       },
-//       {
-//         withCredentials: false,
-//         headers: {
-//           'Content-Type': 'application/json',
-//           Authorization: `JWT ${getToken()}`,
-//         },
-//       }
-//     )
-//     .then((tokenRefreshResponse) => {
-//       console.log('tokenRefreshResponse', tokenRefreshResponse);
-//       setTokens(
-//         tokenRefreshResponse.data.access,
-//         tokenRefreshResponse.data.refresh
-//       );
-//       failedRequest.response.config.headers['Authorization'] =
-//         'JWT ' + tokenRefreshResponse.data.access;
-//       return Promise.resolve();
-//     });
-// // instantiate the interceptor
-// createAuthRefreshInterceptor(axios, refreshAuthLogic);
 
 const userFetcher = (url: string) =>
   axios
@@ -289,3 +259,33 @@ export function useSession() {
 //     return 'Error';
 //   }
 // }
+// Function that will be called to refresh authorization
+// const refreshAuthLogic = (failedRequest: {
+//   response: { config: { headers: { [x: string]: string } } };
+// }) =>
+//   axios
+//     .post(
+//       `${baseUrl}/spa/token/refresh/`,
+//       {
+//         refresh: getRefreshToken(),
+//       },
+//       {
+//         withCredentials: false,
+//         headers: {
+//           'Content-Type': 'application/json',
+//           Authorization: `JWT ${getToken()}`,
+//         },
+//       }
+//     )
+//     .then((tokenRefreshResponse) => {
+//       console.log('tokenRefreshResponse', tokenRefreshResponse);
+//       setTokens(
+//         tokenRefreshResponse.data.access,
+//         tokenRefreshResponse.data.refresh
+//       );
+//       failedRequest.response.config.headers['Authorization'] =
+//         'JWT ' + tokenRefreshResponse.data.access;
+//       return Promise.resolve();
+//     });
+// // instantiate the interceptor
+// createAuthRefreshInterceptor(axios, refreshAuthLogic);
