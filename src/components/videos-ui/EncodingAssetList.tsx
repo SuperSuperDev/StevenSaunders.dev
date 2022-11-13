@@ -10,10 +10,6 @@ import DownloadPrivateFile from './DownloadPrivateFiles';
 import DynamicVideoThumbnail from './DynamicVideoThumbnail';
 import { IEncodedVideoArray } from '../../lib/types';
 
-// type EncodingAssetListItemProps = {
-//   videoID: string;
-// }
-
 export default function EncodingAssetList(props: { videoID: string }) {
   const { videoID } = props;
   const { encodedFilesArray, videoLoading } = useVideoDetail(videoID);

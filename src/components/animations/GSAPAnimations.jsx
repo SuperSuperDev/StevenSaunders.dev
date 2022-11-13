@@ -43,6 +43,7 @@ const languages = [
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
+// Deprecated: to be removed
 export function TextReveal({ children }) {
   const el = useRef();
 
@@ -186,37 +187,7 @@ export function TextReveal({ children }) {
   );
 }
 
-// export function StaggeredReveal({ children }) {
-//   const el = useRef();
-//   useEffect(() => {
-//     gsap.utils.toArray(el.current.children).forEach((element) => {
-//       const tl = gsap.timeline({
-//         scrollTrigger: {
-//           trigger: 'animated-section',
-//           markers: false,
-//           scrub: 0.5,
-//           start: 'center 30%',
-//           end: 'bottom bottom',
-//           pin: true,
-//         },
-//       });
-//       tl.from(el.current, {
-//         opacity: 0,
-//         scale: 10,
-//         ease: 'linear',
-//         grid: 'auto',
-//         stagger: { each: 0.2, from: 'random' },
-//       });
-//     });
-//   }, []);
-
-//   return (
-//     <div ref={el} className='animated-section grid grid-cols-3'>
-//       {children}
-//     </div>
-//   );
-// }
-
+// Deprecated: to be removed
 export function GoToSection({ children }) {
   const el = useRef();
   const vh = (coef) => window.innerHeight * (coef / 100);
@@ -266,6 +237,7 @@ export function GoToSection({ children }) {
   return <div ref={el}>{children}</div>;
 }
 
+// Deprecated: to be removed
 export function SectionOne() {
   const el = useRef();
   const q = gsap.utils.selector(el);
@@ -383,6 +355,7 @@ export function SectionOne() {
   );
 }
 
+// used in pages/index.tsx
 export function AnimatedDevIconGrid() {
   const el = useRef();
   const q = gsap.utils.selector(el);
@@ -542,6 +515,7 @@ export function AnimatedDevIconGrid() {
   );
 }
 
+// used in pages/index.tsx
 export function SVGDraw() {
   const el = useRef();
   const tlIntro = useRef();
@@ -616,10 +590,9 @@ export function SVGDraw() {
 
     tlContent.current = gsap
       .timeline({
-        //toggleActions: 'play complete reverse reset',
         scrollTrigger: {
           animation: tlContent.current,
-          trigger: '.section-2',
+          trigger: '.content-2',
           start: 'top top',
           end: '+=1500',
           pin: '.vector',
@@ -776,6 +749,7 @@ export function SVGDraw() {
   );
 }
 
+// used in pages/index.js
 export function AnimatedProjectList() {
   const el = useRef();
 
@@ -829,6 +803,20 @@ export function AnimatedProjectList() {
 
   return (
     <section ref={el} className='project-section container mx-auto w-full py-7'>
+      <h2
+        className='dark:txt-shdw-distant-dark p-7 text-4xl leading-tight
+                        drop-shadow-md md:text-5xl md:leading-normal lg:text-6xl'
+      >
+        Some of My Projects,{' '}
+        <span className='highlighted text-red-600 dark:text-red-500'>
+          Past{' '}
+        </span>
+        and{' '}
+        <span className='highlighted text-primary-500 dark:text-primary-400'>
+          Present
+        </span>
+        .
+      </h2>
       <div className='project-list container mx-auto grid grid-cols-1 gap-7'>
         {projects.map((project) => (
           <ProjectListItem {...project} key={project.id} />
