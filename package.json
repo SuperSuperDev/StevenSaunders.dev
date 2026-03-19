@@ -2,6 +2,9 @@
   "name": "stevensaunders-dev",
   "version": "0.2.4",
   "private": true,
+  "engines": {
+    "node": "20.x"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -71,7 +74,6 @@
     "@typescript-eslint/parser": "^4.33.0",
     "autoprefixer": "10.4.5",
     "babel-loader": "^8.2.3",
-    "browserless": "^9.5.1",
     "daisyui": "^2.19.0",
     "eslint": "^7.32.0",
     "eslint-config-next": "^12.1.0",
