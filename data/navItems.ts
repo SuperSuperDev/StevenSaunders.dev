@@ -25,7 +25,3 @@ export const navItems = [
     srOnlyText: 'Go to my Contact Page',
   },
 ];
-
-module.exports = {
-  navItems,
-};
