@@ -19,7 +19,7 @@ import Seo from '@/components/Seo';
 import { DevTech, IVideoDetails } from '../lib/types';
 
 type props = {
-  blogPosts?: IVideoDetails[];
+  blogPosts: IVideoDetails[];
 };
 
 // this site is built with...
