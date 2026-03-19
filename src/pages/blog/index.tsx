@@ -13,7 +13,7 @@ import { DevTech } from '../../lib/types';
 
 type props = {
   blogPosts: IVideoDetails[];
-  featuredPost: IVideoDetails;
+  featuredPost: IVideoDetails | null;
   tags: DevTech[];
 };
 export default function Blog({ blogPosts, featuredPost, tags }: props) {
@@ -25,7 +25,7 @@ export default function Blog({ blogPosts, featuredPost, tags }: props) {
           <h1 className='txt-shdw-distant dark:txt-shdw-distant-dark justify-items-center px-7 text-2xl leading-tight sm:text-4xl md:leading-normal'>
             Blog
           </h1>
-          <FeaturedPost featuredPost={featuredPost} />
+          {featuredPost && <FeaturedPost featuredPost={featuredPost} />}
         </section>
         <section className='container mx-auto'>
           <BlogList blogPosts={blogPosts} tags={tags} />
@@ -45,13 +45,17 @@ Blog.getLayout = function getLayout(Blog: ReactElement) {
 
 export async function getStaticProps() {
   const data = await loadBlogPosts();
-  const featuredPost: IVideoDetails = data.results[0];
+  const results: IVideoDetails[] = Array.isArray(data?.results)
+    ? data.results
+    : [];
+  const featuredPost: IVideoDetails | null = results[0] ?? null;
   const blogPosts: IVideoDetails[] =
-    data.results.length >= 2 ? data.results.slice(1) : data.results;
+    results.length >= 2 ? results.slice(1) : [];
   // TODO: create getTags hook
   const tags: string[] = [];
-  data.results.forEach((result: IVideoDetails) => {
-    result.tags_info.forEach((tag) => {
+  results.forEach((result: IVideoDetails) => {
+    const postTags = Array.isArray(result?.tags_info) ? result.tags_info : [];
+    postTags.forEach((tag) => {
       if (!tags.includes(tag.title)) {
         tags.push(tag.title);
       } else {

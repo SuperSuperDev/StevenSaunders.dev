@@ -52,7 +52,7 @@ BlogPost.getLayout = function getLayout(BlogPost: ReactElement) {
 
 export async function getStaticPaths() {
   const data = await loadBlogPosts();
-  const blogPosts = data.results;
+  const blogPosts = Array.isArray(data?.results) ? data.results : [];
   const paths = blogPosts.map((blogPost: IBlogPost) => ({
     params: {
       id: blogPost.friendly_token.toString(),
@@ -65,8 +65,15 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: { params: { id: string } }) {
-  const data: IBlogPost = await loadBlogPost(params.id);
-  const blogPost = data;
+  const blogPost = (await loadBlogPost(params.id)) as IBlogPost | null;
+
+  if (!blogPost) {
+    return {
+      notFound: true,
+      revalidate: 10,
+    };
+  }
+
   return {
     props: {
       blogPost,

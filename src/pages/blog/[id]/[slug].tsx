@@ -92,7 +92,7 @@ BlogPostDetail.getLayout = function getLayout(BlogPostDetail: ReactElement) {
 
 export async function getStaticPaths() {
   const data = await loadBlogPosts();
-  const blogPosts = data.results;
+  const blogPosts = Array.isArray(data?.results) ? data.results : [];
   const paths = blogPosts.map((blogPostDetail: IBlogPost) => ({
     params: {
       slug: slugify(blogPostDetail.title, { lower: true }),
@@ -110,8 +110,15 @@ export async function getStaticProps({
 }: {
   params: { id: string; slug: string };
 }) {
-  const data = await loadBlogPost(params.id);
-  const blogPostDetail = await data;
+  const blogPostDetail = (await loadBlogPost(params.id)) as IBlogPost | null;
+
+  if (!blogPostDetail) {
+    return {
+      notFound: true,
+      revalidate: 10,
+    };
+  }
+
   return {
     props: {
       blogPostDetail,

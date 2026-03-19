@@ -70,7 +70,7 @@ export default function Page({ blogPosts }: props) {
             </div>
           </section>
         </div>
-        {blogPosts && (
+        {blogPosts.length > 0 && (
           <section className='grid grid-cols-1 gap-10 py-7'>
             <h2 className='dark:txt-shdw-distant-dark px-7 text-2xl leading-tight drop-shadow-md sm:text-4xl md:leading-normal'>
               Checkout my Blog{' '}
@@ -104,7 +104,7 @@ Page.getLayout = function getLayout(Page: React.ReactElement) {
 
 export async function getStaticProps() {
   const data = await loadBlogPosts();
-  const blogPosts = data?.results;
+  const blogPosts = Array.isArray(data?.results) ? data.results : [];
 
   return {
     props: {
