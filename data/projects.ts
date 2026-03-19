@@ -1089,7 +1089,3 @@ The aim is to achieve the highest score possible before being killed by the ghos
     },
   },
 ];
-
-module.exports = {
-  projects,
-};

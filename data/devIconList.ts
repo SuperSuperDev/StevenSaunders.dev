@@ -795,7 +795,3 @@ export const devIconList = [
   'zig-original.svg',
   'zig-plain-wordmark.svg',
 ];
-
-module.exports = {
-  devIconList,
-};
